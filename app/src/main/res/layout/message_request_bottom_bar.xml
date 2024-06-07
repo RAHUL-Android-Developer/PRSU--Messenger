@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout"
+    android:background="@color/text6"
     tools:viewBindingIgnore="true">
 
     <org.thoughtcrime.securesms.util.views.LearnMoreTextView

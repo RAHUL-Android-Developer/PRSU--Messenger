@@ -4,14 +4,18 @@
     tools:viewBindingIgnore="true"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/bgimg"
     android:layout_height="match_parent">
 
     <org.thoughtcrime.securesms.util.views.DarkOverflowToolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:theme="?attr/settingsToolbarStyle"
+        android:layout_height="@dimen/signal_m3_toolbar_height"
         app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/rounded_dialog"
+        android:minHeight="85dp"
+        app:titleMarginBottom="52dp"
+        app:titleTextColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:navigationIcon="@drawable/ic_arrow_left_24"

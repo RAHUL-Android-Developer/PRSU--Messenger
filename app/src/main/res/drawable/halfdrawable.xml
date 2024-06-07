@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item android:height="37dp"
+        android:gravity="bottom">
+        <shape android:shape="rectangle" >
+            <solid android:color="@color/text1"/> <!-- Background color for the rectangle -->
+        </shape>
+    </item>
+
+
+    <item android:gravity="center">
+        <layer-list>
+            <item>
+                <shape android:shape="oval">
+                    <gradient
+                        android:angle="90"
+                        android:endColor="#03102d"
+                        android:startColor="#12295A" />
+                    <size
+                        android:width="90dp"
+                        android:height="90dp" />
+                </shape>
+            </item>
+
+            <item
+                android:bottom="6dp"
+                android:left="6dp"
+                android:right="6dp"
+                android:top="6dp">
+                <shape android:shape="oval">
+                    <solid android:color="#03102d" />
+                </shape>
+            </item>
+
+            <!--            <item-->
+            <!--                android:gravity="top"-->
+            <!--                android:top="12dp">-->
+            <!--                <bitmap-->
+            <!--                    android:gravity="center"-->
+            <!--                    android:scaleX="5.755"-->
+            <!--                    android:scaleY="0.75"-->
+            <!--                    android:src="@drawable/chat_icon3" />-->
+            <!--            </item>-->
+
+
+        </layer-list>
+    </item>
+
+</layer-list>

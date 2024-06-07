@@ -200,7 +200,7 @@ public final class RecipientBottomSheetDialogFragment extends BottomSheetDialogF
       if (!recipient.isSelf() && recipient.isIndividual()) {
         Drawable drawable = ContextUtil.requireDrawable(requireContext(), R.drawable.symbol_chevron_right_24);
         drawable.setBounds(0, 0, (int) DimensionUnit.DP.toPixels(24), (int) DimensionUnit.DP.toPixels(24));
-        drawable.setTint(ContextCompat.getColor(requireContext(), R.color.signal_colorOutline));
+        drawable.setTint(ContextCompat.getColor(requireContext(), R.color.text1));
         nameBuilder.append(SpanUtil.buildCenteredImageSpan(drawable));
 
         fullName.setText(nameBuilder);

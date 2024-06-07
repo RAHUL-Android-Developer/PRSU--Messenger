@@ -8,7 +8,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone"
-        app:revealable_textColor="@color/conversation_item_sent_text_primary_color"
+        app:revealable_textColor="@color/white"
         app:revealable_openedIconColor="@color/conversation_item_sent_view_once_opened"
         app:revealable_unopenedIconColor="@color/conversation_item_sent_view_once_unopened"
         app:revealable_circleColor="@color/conversation_item_sent_view_once_circle"

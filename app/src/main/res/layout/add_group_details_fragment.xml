@@ -4,16 +4,23 @@
     tools:viewBindingIgnore="true"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/bgimg"
     android:layout_height="match_parent">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/signal_m3_toolbar_height"
-        android:minHeight="@dimen/signal_m3_toolbar_height"
+        android:background="@drawable/rounded_dialog"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:minHeight="85dp"
+        app:titleMarginBottom="52dp"
         app:navigationIcon="@drawable/ic_arrow_left_24"
         app:titleTextAppearance="@style/TextAppearance.Material3.TitleLarge"
+        app:titleTextColor="@color/white"
+
         tools:title="@string/AddGroupDetailsFragment__name_this_group" />
 
     <androidx.appcompat.widget.AppCompatImageView
@@ -38,7 +45,8 @@
         android:inputType="text"
         android:maxLines="1"
         android:textAppearance="@style/Signal.Text.BodyLarge"
-        android:textColorHint="@color/signal_colorOnSurfaceVariant_60"
+        android:textColorHint="@color/black"
+        android:textColor="@color/text1"
         app:layout_constraintBottom_toBottomOf="@id/group_avatar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/group_avatar"
@@ -67,6 +75,7 @@
             android:layout_marginStart="24dp"
             android:layout_marginEnd="8dp"
             android:layout_weight="1"
+            android:fontFamily="@font/opensansbold"
             android:text="@string/PrivacySettingsFragment__disappearing_messages"
             android:textAppearance="@style/Signal.Text.BodyLarge" />
 
@@ -111,10 +120,11 @@
             android:paddingStart="16dp"
             android:paddingTop="16dp"
             android:paddingEnd="16dp"
+            android:fontFamily="@font/opensans_semibold"
             android:paddingBottom="16dp"
             android:text="@string/AddGroupDetailsFragment__youve_selected_a_contact_that_doesnt_support_signal_groups_mms_removal"
             android:textAppearance="@style/Signal.Text.BodyMedium"
-            android:textColor="@color/signal_colorOnSurfaceVariant" />
+            android:textColor="@color/text3" />
 
     </LinearLayout>
 

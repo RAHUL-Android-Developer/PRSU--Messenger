@@ -41,6 +41,9 @@
             android:layout_marginTop="12dp"
             android:visibility="gone"
             tools:text="Learn more"
+            android:textColor="@color/conversation_item_update_text_color"
+            android:background="@color/transparent"
+            android:backgroundTint="@color/transparent"
             tools:visibility="visible" />
 
     </LinearLayout>

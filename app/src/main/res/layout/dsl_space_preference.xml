@@ -3,5 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:viewBindingIgnore="true"
     android:id="@+id/space"
+    android:background="@color/white"
+
     android:layout_width="match_parent"
     android:layout_height="0dp" />

@@ -4,9 +4,9 @@
     android:shape="rectangle">
 
     <solid
-        android:color="@color/signal_colorSurfaceVariant" />
+        android:color="@color/text2" />
 
     <corners
-        android:radius="20dp" />
+        android:radius="10dp" />
 
 </shape>

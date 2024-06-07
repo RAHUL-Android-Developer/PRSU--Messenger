@@ -8,6 +8,7 @@ import android.util.AttributeSet;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatImageButton;
+import androidx.core.content.ContextCompat;
 
 import org.thoughtcrime.securesms.R;
 import org.thoughtcrime.securesms.keyboard.KeyboardPage;
@@ -26,12 +27,15 @@ public class EmojiToggle extends AppCompatImageButton implements MediaKeyboard.M
 
   public EmojiToggle(Context context) {
     super(context);
+
     initialize();
+
   }
 
   public EmojiToggle(Context context, AttributeSet attrs) {
     super(context, attrs);
     initialize();
+
   }
 
   public EmojiToggle(Context context, AttributeSet attrs, int defStyle) {
@@ -41,6 +45,8 @@ public class EmojiToggle extends AppCompatImageButton implements MediaKeyboard.M
 
   public void setToMedia() {
     setImageDrawable(mediaToggle);
+
+
   }
 
   public void setToIme() {
@@ -48,7 +54,8 @@ public class EmojiToggle extends AppCompatImageButton implements MediaKeyboard.M
   }
 
   private void initialize() {
-    this.emojiToggle   = ContextUtil.requireDrawable(getContext(), R.drawable.ic_emoji);
+
+    this.emojiToggle   = ContextUtil.requireDrawable(getContext(), R.drawable.emoji_icon_1);
     this.stickerToggle = ContextUtil.requireDrawable(getContext(), R.drawable.ic_sticker_24);
     this.gifToggle     = ContextUtil.requireDrawable(getContext(), R.drawable.ic_gif_24);
     this.imeToggle     = ContextUtil.requireDrawable(getContext(), R.drawable.ic_keyboard_24);

@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/conversation_item_background"
+    android:background="@color/transparent"
     android:focusable="true"
     android:minHeight="@dimen/contact_selection_item_height"
     android:paddingStart="@dimen/dsl_settings_gutter"
@@ -58,7 +58,7 @@
         android:drawablePadding="4dp"
         android:ellipsize="marquee"
         android:singleLine="true"
-        android:textAppearance="@style/TextAppearance.Signal.Body1"
+        android:textAppearance="@style/Signal.Text.BodyLarge"
         android:textColor="@color/signal_text_primary"
         app:layout_constraintBottom_toTopOf="@id/number"
         app:layout_constraintEnd_toStartOf="@id/button_barrier"
@@ -118,7 +118,7 @@
         app:layout_constraintEnd_toStartOf="@id/check_box"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_goneMarginEnd="0dp"
-        tools:visibility="visible" />
+        tools:visibility="gone" />
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/button_barrier"
@@ -140,7 +140,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:tint="@color/signal_colorOnSurface"
-        tools:visibility="visible" />
+        tools:visibility="gone" />
 
     <ImageView
         android:id="@+id/start_audio"
@@ -154,6 +154,6 @@
         app:layout_constraintEnd_toStartOf="@id/start_video"
         app:layout_constraintTop_toTopOf="parent"
         app:tint="@color/signal_colorOnSurface"
-        tools:visibility="visible" />
+        tools:visibility="gone" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

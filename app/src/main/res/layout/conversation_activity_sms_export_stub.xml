@@ -5,6 +5,7 @@
     android:layout_height="wrap_content"
     android:gravity="center_horizontal"
     android:orientation="vertical"
+    android:background="@drawable/bgimg"
     android:padding="24dp">
 
     <TextView
@@ -12,6 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:fontFamily="@font/opensans_semibold"
         android:textAppearance="@style/Signal.Text.BodyMedium"
         android:textColor="@color/signal_colorOnSurfaceVariant"
         tools:text="SMS is disabled, export sms now yes" />
@@ -22,6 +24,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
+        android:backgroundTint="@color/text1"
+        android:textColor="@color/white"
+        android:fontFamily="@font/opensansbold"
         tools:text="Export SMS Messages" />
 
 </LinearLayout>

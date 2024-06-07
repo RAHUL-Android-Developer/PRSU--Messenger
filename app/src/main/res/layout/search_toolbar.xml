@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     tools:orientation="vertical"
+    android:background="@drawable/bgimg"
     tools:parentTag="android.widget.LinearLayout">
 
     <androidx.appcompat.widget.Toolbar

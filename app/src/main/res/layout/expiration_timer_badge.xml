@@ -8,6 +8,8 @@
     android:layout_height="wrap_content"
     android:layout_marginEnd="11dp"
     android:gravity="center"
+    android:background="@drawable/bgimg"
+
     android:visibility="gone"
     android:orientation="horizontal">
 

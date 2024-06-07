@@ -9,6 +9,7 @@
     android:paddingStart="32dp"
     android:paddingEnd="32dp"
     android:paddingTop="20dp"
+    android:background="@drawable/bgimg"
     android:paddingBottom="20dp">
 
   <LinearLayout
@@ -21,11 +22,23 @@
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintEnd_toEndOf="parent">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_signal_logo_large" />
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/icon_gredient"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
+      <ImageView
+          android:layout_width="150dp"
+          android:layout_height="150dp"
+          android:src="@drawable/collage_icon_" />
+    </LinearLayout>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -33,12 +46,14 @@
         android:text="@string/ClientDeprecatedActivity_update_signal"
         style="@style/Signal.Text.Headline"
         android:textStyle="bold"
+        android:textColor="@color/white"
         android:gravity="center" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
+        android:textColor="@color/white"
         android:text="@string/ClientDeprecatedActivity_this_version_of_the_app_is_no_longer_supported"
         style="@style/Signal.Text.Body"
         android:gravity="center" />
@@ -49,17 +64,30 @@
       android:id="@+id/client_deprecated_update_button"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
+      android:layout_marginStart="80dp"
+      android:layout_marginEnd="80dp"
+      android:layout_marginBottom="30dp"
+      android:textSize="18sp"
+      android:fontFamily="@font/opensansbold"
+      android:backgroundTint="@color/text1"
       android:text="@string/ClientDeprecatedActivity_update"
       style="@style/Signal.Widget.Button.Large.Primary"
       app:layout_constraintBottom_toTopOf="@id/client_deprecated_dont_update_button"/>
 
   <com.google.android.material.button.MaterialButton
       android:id="@+id/client_deprecated_dont_update_button"
+      style="@style/Signal.Widget.Button.Large.Secondary"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
+      android:layout_marginStart="80dp"
+      android:layout_marginEnd="80dp"
+      android:layout_marginBottom="10dp"
+      android:textSize="18sp"
+      android:fontFamily="@font/opensansbold"
       android:text="@string/ClientDeprecatedActivity_dont_update"
-      style="@style/Signal.Widget.Button.Large.Secondary"
-      android:textColor="@color/low_priority_button_text_color"
-      app:layout_constraintBottom_toBottomOf="parent"/>
+      android:textColor="@color/text1"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

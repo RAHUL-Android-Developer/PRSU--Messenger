@@ -50,11 +50,11 @@ public class DeliveryStatusView extends AppCompatImageView {
   public DeliveryStatusView(final Context context, AttributeSet attrs, int defStyle) {
     super(context, attrs, defStyle);
 
-    if (attrs != null) {
-      TypedArray typedArray = context.getTheme().obtainStyledAttributes(attrs, R.styleable.DeliveryStatusView, 0, 0);
-      setTint(typedArray.getColor(R.styleable.DeliveryStatusView_iconColor, getResources().getColor(R.color.core_white)));
-      typedArray.recycle();
-    }
+//    if (attrs != null) {
+//      TypedArray typedArray = context.getTheme().obtainStyledAttributes(attrs, R.styleable.DeliveryStatusView, 0, 0);
+//      setTint(typedArray.getColor(R.styleable.DeliveryStatusView_iconColor, getResources().getColor(R.color.core_white)));
+//      typedArray.recycle();
+//    }
 
     setNone();
   }
@@ -182,7 +182,7 @@ public class DeliveryStatusView extends AppCompatImageView {
   }
 
   public void setTint(int color) {
-    setColorFilter(color, PorterDuff.Mode.SRC_IN);
+    //setColorFilter(color, PorterDuff.Mode.SRC_IN);
   }
 
   private void updateContentDescription() {

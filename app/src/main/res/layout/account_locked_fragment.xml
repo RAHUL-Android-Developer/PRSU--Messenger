@@ -1,22 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:viewBindingIgnore="true"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/bgimg"
+    tools:viewBindingIgnore="true">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
+        android:background="@drawable/rounded_dialog"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/opensans_extrabold"
+            android:text="@string/ToolbarName"
+            android:layout_marginBottom="50dp"
+            android:textColor="@color/white"
+            android:textSize="24sp" />
+
+    </androidx.appcompat.widget.Toolbar>
 
     <TextView
         android:id="@+id/account_locked_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="49dp"
+        android:fontFamily="@font/opensansbold"
         android:gravity="center_horizontal"
         android:text="@string/AccountLockedFragment__account_locked"
         android:textAppearance="@style/TextAppearance.Signal.Title1"
+        android:textColor="@color/text1"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <TextView
         android:id="@+id/account_locked_description"
@@ -25,39 +49,48 @@
         android:layout_marginStart="27dp"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="27dp"
+        android:fontFamily="@font/opensans_semibold"
         android:gravity="center_horizontal"
         android:minHeight="66dp"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
-        android:textColor="@color/signal_text_secondary"
+        android:textColor="@color/text3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/account_locked_title"
         tools:text="@string/AccountLockedFragment__your_account_has_been_locked_to_protect_your_privacy" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/account_locked_next"
-        style="@style/Signal.Widget.Button.Large.Tonal"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/account_locked_learn_more"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="16dp"
-        android:text="@string/AccountLockedFragment__next"
-        app:layout_constraintBottom_toTopOf="@id/account_locked_learn_more"
+        android:fontFamily="@font/opensansbold"
+        android:background="@color/transparent"
+        android:text="@string/AccountLockedFragment__learn_more"
+        android:textColor="@color/text1"
+        android:textSize="16dp"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/account_locked_learn_more"
-        style="@style/Signal.Widget.Button.Large.Secondary"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/account_locked_next"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginBottom="16dp"
-        android:text="@string/AccountLockedFragment__learn_more"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="25dp"
+        android:background="@drawable/button_continue"
+        android:fontFamily="@font/opensansbold"
+        android:text="@string/AccountLockedFragment__next"
+        android:textColor="@color/white"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toTopOf="@id/account_locked_learn_more"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

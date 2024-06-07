@@ -4,7 +4,8 @@
     tools:viewBindingIgnore="true"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/selectable_list_item_background"
+        android:background="@color/text6"
+
     android:gravity="center_vertical"
     android:minHeight="56dp"
     android:orientation="horizontal"

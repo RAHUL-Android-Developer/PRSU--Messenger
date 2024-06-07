@@ -9,6 +9,7 @@
         <item name="android:windowContentOverlay">@null</item>
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowIsFloating">true</item>
+        <item name="android:windowLightStatusBar">true</item>
         <item name="android:backgroundDimEnabled">false</item>
         <item name="contactCheckboxBackground">@drawable/contact_selection_checkbox</item>
     </style>
@@ -25,9 +26,9 @@
         <item name="windowActionModeOverlay">true</item>
 
         <item name="theme_type">light</item>
-        <item name="colorPrimary">@color/core_ultramarine</item>
-        <item name="colorPrimaryDark">@color/core_ultramarine</item>
-        <item name="colorAccent">@color/core_ultramarine</item>
+        <item name="colorPrimary">@color/text1</item>
+        <item name="colorPrimaryDark">@color/text1</item>
+        <item name="colorAccent">@color/text1</item>
     </style>
 
     <style name="TextSecure.DarkNoActionBar" parent="@style/TextSecure.BaseDarkNoActionBar">
@@ -50,7 +51,7 @@
 
     <style name="Theme.Signal.WallpaperCropper" parent="@style/TextSecure.DarkNoActionBar">
         <item name="colorPrimaryDark">@color/wallpaper_preview_background</item>
-        <item name="android:statusBarColor" tools:ignore="NewApi">@color/wallpaper_preview_background</item>
+        <item name="android:statusBarColor" tools:ignore="NewApi">@color/signal_colorBackground</item>
         <item name="android:windowLightStatusBar" tools:ignore="NewApi">false</item>
         <item name="android:navigationBarColor" tools:ignore="NewApi">@color/wallpaper_preview_background</item>
         <item name="android:windowLightNavigationBar" tools:ignore="NewApi">false</item>
@@ -62,7 +63,7 @@
         <item name="colorPrimaryDark">@color/wallpaper_preview_background</item>
         <item name="android:textColorSecondary">@color/white</item>
         <item name="android:windowTranslucentNavigation">true</item>
-        <item name="android:statusBarColor" tools:ignore="NewApi">@color/wallpaper_preview_background</item>
+        <item name="android:statusBarColor" tools:ignore="NewApi">@color/signal_colorBackground</item>
         <item name="android:navigationBarColor" tools:ignore="NewApi">@color/wallpaper_preview_background</item>
         <item name="android:windowLightNavigationBar" tools:ignore="NewApi">false</item>
     </style>
@@ -97,7 +98,7 @@
     <style name="TextSecure.LightIntroTheme" parent="@style/Theme.AppCompat.Light.DarkActionBar">
         <item name="android:forceDarkAllowed" tools:targetApi="29">false</item>
         <item name="android:windowLayoutInDisplayCutoutMode" tools:targetApi="27">default</item>
-        <item name="android:statusBarColor" tools:ignore="NewApi">@color/login_top_background</item>
+        <item name="android:statusBarColor" tools:ignore="NewApi">@color/signal_colorBackground</item>
         <item name="android:windowTranslucentNavigation">true</item>
         <item name="android:windowActionBar">false</item>
         <item name="android:windowNoTitle">true</item>
@@ -114,7 +115,7 @@
     <style name="TextSecure.DarkIntroTheme" parent="@style/Theme.AppCompat">
         <item name="android:forceDarkAllowed" tools:targetApi="29">false</item>
         <item name="android:windowLayoutInDisplayCutoutMode" tools:targetApi="27">default</item>
-        <item name="android:statusBarColor" tools:ignore="NewApi">@color/login_top_background</item>
+        <item name="android:statusBarColor" tools:ignore="NewApi">@color/signal_colorBackground</item>
         <item name="android:windowTranslucentNavigation">true</item>
         <item name="android:windowActionBar">false</item>
         <item name="android:windowNoTitle">true</item>
@@ -384,7 +385,7 @@
 
     <style name="TextSecure.DarkTheme.WebRTCCall">
         <item name="android:forceDarkAllowed" tools:targetApi="29">false</item>
-        <item name="android:statusBarColor" tools:ignore="NewApi">@color/core_ultramarine</item>
+        <item name="android:statusBarColor" tools:ignore="NewApi">@color/signal_colorBackground</item>
         <item name="android:windowActionBar">false</item>
         <item name="android:windowTranslucentStatus">true</item>
         <item name="android:windowLightStatusBar" tools:ignore="NewApi">false</item>
@@ -526,7 +527,7 @@
 
     <style name="ShapeAppearanceOverlay.Signal.Circle" parent="">
         <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">50%</item>
+        <item name="cornerSize">10%</item>
     </style>
 
     <style name="ShapeAppearanceOverlay.Signal.MediaOverviewItem" parent="">
@@ -573,7 +574,7 @@
 
         <item name="android:navigationBarColor" tools:ignore="NewApi">@color/signal_colorSurface1</item>
         <item name="android:windowLightNavigationBar" tools:ignore="NewApi">false</item>
-        <item name="android:statusBarColor" tools:ignore="NewApi">@color/transparent</item>
+        <item name="android:statusBarColor" tools:ignore="NewApi">@color/signal_colorBackground</item>
         <item name="materialButtonStyle">@style/Widget.Signal.BottomSheet.MaterialButtonStyle</item>
     </style>
 
@@ -589,7 +590,7 @@
 
         <item name="android:navigationBarColor" tools:ignore="NewApi">@color/signal_colorSurface</item>
         <item name="android:windowLightNavigationBar" tools:ignore="NewApi">false</item>
-        <item name="android:statusBarColor" tools:ignore="NewApi">@color/transparent</item>
+        <item name="android:statusBarColor" tools:ignore="NewApi">@color/signal_colorBackground</item>
     </style>
 
     <style name="Signal.Chip.Action" parent="Widget.MaterialComponents.Chip.Action">
@@ -615,5 +616,44 @@
         <item name="colorControlNormal">@color/signal_accent_primary</item>
         <item name="colorControlHighlight">@color/signal_accent_primary</item>
         <item name="colorControlActivated">@color/signal_accent_primary</item>
+    </style>
+
+
+    <style name="Circular">
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="RoundedSquare">
+        <item name="cornerSize">10%</item>
+    </style>
+
+    <style name="CornerCut">
+        <item name="cornerSize">15dp</item>
+        <item name="cornerFamily">cut</item>
+    </style>
+
+    <style name="DiamondCut">
+        <item name="cornerSize">75dp</item>
+        <item name="cornerFamily">cut</item>
+    </style>
+
+    <style name="SpecificCornerCut">
+        <item name="cornerSizeTopRight">75dp</item>
+        <item name="cornerFamilyTopRight">cut</item>
+        <item name="cornerSizeBottomLeft">75dp</item>
+        <item name="cornerFamilyBottomLeft">cut</item>
+    </style>
+
+    <style name="SpecificCornerRounded">
+        <item name="cornerSizeTopRight">75dp</item>
+        <item name="cornerFamilyTopRight">rounded</item>
+        <item name="cornerSizeBottomLeft">75dp</item>
+        <item name="cornerFamilyBottomLeft">rounded</item>
+    </style>
+
+    <style name="toolbarMenuTheme">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
     </style>
 </resources>

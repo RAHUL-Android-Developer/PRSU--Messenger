@@ -69,7 +69,7 @@ class AccountSettingsFragment : DSLSettingsFragment(R.string.AccountSettingsFrag
 
       @Suppress("DEPRECATION")
       clickPref(
-        title = DSLSettingsText.from(if (state.hasPin) R.string.preferences_app_protection__change_your_pin else R.string.preferences_app_protection__create_a_pin),
+        title = DSLSettingsText.from(if (state.hasPin) R.string.preferences_app_protection__change_your_pin else R.string.preferences_app_protection__create_a_pin,ContextCompat.getColor(requireContext(),R.color.text1)),
         isEnabled = state.isDeprecatedOrUnregistered(),
         onClick = {
           if (state.hasPin) {
@@ -81,7 +81,7 @@ class AccountSettingsFragment : DSLSettingsFragment(R.string.AccountSettingsFrag
       )
 
       switchPref(
-        title = DSLSettingsText.from(R.string.preferences_app_protection__pin_reminders),
+        title = DSLSettingsText.from(R.string.preferences_app_protection__pin_reminders,ContextCompat.getColor(requireContext(),R.color.text1)),
         summary = DSLSettingsText.from(R.string.AccountSettingsFragment__youll_be_asked_less_frequently),
         isChecked = state.hasPin && state.pinRemindersEnabled,
         isEnabled = state.hasPin && state.isDeprecatedOrUnregistered(),
@@ -91,7 +91,7 @@ class AccountSettingsFragment : DSLSettingsFragment(R.string.AccountSettingsFrag
       )
 
       switchPref(
-        title = DSLSettingsText.from(R.string.preferences_app_protection__registration_lock),
+        title = DSLSettingsText.from(R.string.preferences_app_protection__registration_lock,ContextCompat.getColor(requireContext(),R.color.text1)),
         summary = DSLSettingsText.from(R.string.AccountSettingsFragment__require_your_signal_pin),
         isChecked = state.registrationLockEnabled,
         isEnabled = state.hasPin && state.isDeprecatedOrUnregistered(),
@@ -101,7 +101,7 @@ class AccountSettingsFragment : DSLSettingsFragment(R.string.AccountSettingsFrag
       )
 
       clickPref(
-        title = DSLSettingsText.from(R.string.preferences__advanced_pin_settings),
+        title = DSLSettingsText.from(R.string.preferences__advanced_pin_settings,ContextCompat.getColor(requireContext(),R.color.text1)),
         isEnabled = state.isDeprecatedOrUnregistered(),
         onClick = {
           Navigation.findNavController(requireView()).safeNavigate(R.id.action_accountSettingsFragment_to_advancedPinSettingsActivity)
@@ -114,7 +114,7 @@ class AccountSettingsFragment : DSLSettingsFragment(R.string.AccountSettingsFrag
 
       if (SignalStore.account().isRegistered) {
         clickPref(
-          title = DSLSettingsText.from(R.string.AccountSettingsFragment__change_phone_number),
+          title = DSLSettingsText.from(R.string.AccountSettingsFragment__change_phone_number,ContextCompat.getColor(requireContext(),R.color.text1)),
           isEnabled = state.isDeprecatedOrUnregistered(),
           onClick = {
             Navigation.findNavController(requireView()).safeNavigate(R.id.action_accountSettingsFragment_to_changePhoneNumberFragment)
@@ -122,34 +122,34 @@ class AccountSettingsFragment : DSLSettingsFragment(R.string.AccountSettingsFrag
         )
       }
 
-      clickPref(
-        title = DSLSettingsText.from(R.string.preferences_chats__transfer_account),
-        summary = DSLSettingsText.from(R.string.preferences_chats__transfer_account_to_a_new_android_device),
-        isEnabled = state.isDeprecatedOrUnregistered(),
-        onClick = {
-          Navigation.findNavController(requireView()).safeNavigate(R.id.action_accountSettingsFragment_to_oldDeviceTransferActivity)
-        }
-      )
+//      clickPref(
+//        title = DSLSettingsText.from(R.string.preferences_chats__transfer_account,ContextCompat.getColor(requireContext(),R.color.text1)),
+//        summary = DSLSettingsText.from(R.string.preferences_chats__transfer_account_to_a_new_android_device),
+//        isEnabled = state.isDeprecatedOrUnregistered(),
+//        onClick = {
+//          Navigation.findNavController(requireView()).safeNavigate(R.id.action_accountSettingsFragment_to_oldDeviceTransferActivity)
+//        }
+//      )
 
-      clickPref(
-        title = DSLSettingsText.from(R.string.AccountSettingsFragment__request_account_data),
-        isEnabled = state.isDeprecatedOrUnregistered(),
-        onClick = {
-          Navigation.findNavController(requireView()).safeNavigate(R.id.action_accountSettingsFragment_to_exportAccountFragment)
-        }
-      )
+//      clickPref(
+//        title = DSLSettingsText.from(R.string.AccountSettingsFragment__request_account_data,ContextCompat.getColor(requireContext(),R.color.text1)),
+//        isEnabled = state.isDeprecatedOrUnregistered(),
+//        onClick = {
+//          Navigation.findNavController(requireView()).safeNavigate(R.id.action_accountSettingsFragment_to_exportAccountFragment)
+//        }
+//      )
 
       if (!state.isDeprecatedOrUnregistered()) {
         if (state.clientDeprecated) {
           clickPref(
-            title = DSLSettingsText.from(R.string.preferences_account_update_signal),
+            title = DSLSettingsText.from(R.string.preferences_account_update_signal,ContextCompat.getColor(requireContext(),R.color.text1)),
             onClick = {
               PlayStoreUtil.openPlayStoreOrOurApkDownloadPage(requireContext())
             }
           )
         } else if (state.userUnregistered) {
           clickPref(
-            title = DSLSettingsText.from(R.string.preferences_account_reregister),
+            title = DSLSettingsText.from(R.string.preferences_account_reregister,ContextCompat.getColor(requireContext(),R.color.text1)),
             onClick = {
               startActivity(RegistrationNavigationActivity.newIntentForReRegistration(requireContext()))
             }

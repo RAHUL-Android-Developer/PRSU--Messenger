@@ -21,8 +21,8 @@
     </style>
 
     <style name="Signal.Text.TitleMedium" parent="TextAppearance.Material3.TitleMedium">
-        <item name="fontFamily">sans-serif</item>
-        <item name="android:fontFamily">sans-serif</item>
+        <item name="fontFamily">@font/opensans_semibold</item>
+        <item name="android:fontFamily">@font/opensans_semibold</item>
         <item name="android:textStyle">normal</item>
         <item name="android:textSize">18sp</item>
         <item name="android:lineSpacingExtra">6sp</item>
@@ -118,7 +118,8 @@
 
     <style name="TextAppearance.Signal.Title1" parent="@style/TextAppearance.AppCompat.Title">
         <item name="android:textStyle">bold</item>
-        <item name="android:textSize">28sp</item>
+        <item name="android:textSize">24sp</item>
+        <item name="fontFamily">@font/opensans_semibold</item>
         <item name="android:color">@color/signal_text_primary</item>
     </style>
 
@@ -139,7 +140,8 @@
     </style>
 
     <style name="TextAppearance.Signal.Body1" parent="@style/TextAppearance.AppCompat.Body1">
-        <item name="android:textSize">16sp</item>
+        <item name="fontFamily">@font/opensans_semibold</item>
+        <item name="android:textSize">14sp</item>
     </style>
 
     <style name="TextAppearance.Signal.Body2" parent="@style/TextAppearance.AppCompat.Body2">
@@ -195,7 +197,9 @@
 
     <style name="Signal.Text.Title.Large">
         <item name="android:textSize">22sp</item>
-        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:fontFamily">@font/opensansbold</item>
+        <item name="android:textColorHint">@color/text1</item>
+        <item name="android:textColor">@color/text1</item>
     </style>
 
     <!-- endregion -->

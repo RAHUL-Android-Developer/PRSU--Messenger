@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:drawable="@drawable/bgimg" />
+
+    <item android:gravity="center">
+        <layer-list>
+            <item>
+                <shape android:shape="oval">
+                    <gradient
+                        android:angle="90"
+                        android:endColor="@color/text1"
+                        android:startColor="@color/text2" />
+                    <size
+                        android:width="250dp"
+                        android:height="250dp" />
+                </shape>
+            </item>
+
+
+            <item
+                android:bottom="5dp"
+                android:left="5dp"
+                android:right="5dp"
+                android:top="5dp">
+                <shape android:shape="oval">
+                    <solid android:color="#CFDCF6" />
+                </shape>
+            </item>
+
+            <item android:gravity="center"
+                android:bottom="5dp"
+                android:left="10dp"
+                android:right="5dp"
+                android:top="10dp">
+                <bitmap
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:gravity="center"
+                    android:src="@drawable/collage_icon_" />
+            </item>
+        </layer-list>
+    </item>
+</layer-list>

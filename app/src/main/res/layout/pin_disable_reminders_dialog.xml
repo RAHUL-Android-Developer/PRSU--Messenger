@@ -56,6 +56,7 @@
             app:icon="@drawable/ic_keyboard_24"
             app:iconGravity="textStart"
             app:iconPadding="8dp"
+            android:visibility="gone"
             app:layout_constraintTop_toBottomOf="@+id/reminder_disable_pin"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />

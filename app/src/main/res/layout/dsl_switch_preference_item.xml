@@ -4,8 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/dsl_preference_item_background"
     android:minHeight="56dp"
+    android:background="@color/white"
+
     tools:viewBindingIgnore="true">
 
     <ImageView

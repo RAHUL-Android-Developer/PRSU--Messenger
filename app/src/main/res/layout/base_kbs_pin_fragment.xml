@@ -4,115 +4,454 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?android:attr/windowBackground"
     android:fillViewport="true"
+    android:orientation="vertical"
+
     tools:viewBindingIgnore="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:background="#062463"
+        tools:viewBindingIgnore="true">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/kbs_pin_toolbar"
+
+        <LinearLayout
+            android:id="@+id/linearLayout3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintEnd_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:orientation="vertical"
+            android:padding="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/edit_kbs_pin_title"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="25dp"
+                android:fontFamily="@font/opensans_extrabold"
+                android:text="@string/ToolbarName"
+                android:textColor="@color/white"
+                android:textSize="24sp" />
+
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="0dp"
-            android:layout_marginEnd="24dp"
-            android:textAppearance="@style/Signal.Text.HeadlineMedium"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_height="0dp"
+            android:background="@drawable/cardview_design"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/kbs_pin_toolbar"
-            tools:text="@string/CreateKbsPinFragment__create_your_pin" />
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+            app:layout_constraintVertical_bias="0.0">
 
-        <org.thoughtcrime.securesms.util.views.LearnMoreTextView
-            android:id="@+id/edit_kbs_pin_description"
-            style="@style/Signal.Text.BodyLarge"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="24dp"
-            android:minHeight="66dp"
-            android:textColor="@color/signal_text_secondary"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/edit_kbs_pin_title"
-            tools:text="@string/CreateKbsPinFragment__pins_can_help_you_restore_your_account" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/edit_kbs_textinputlayout"
-            style="@style/Widget.Signal.TextInputLayout"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="24dp"
-            android:minWidth="210dp"
-            app:errorEnabled="false"
-            app:hintEnabled="false"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edit_kbs_pin_description"
-            app:materialThemeOverlay="@style/Signal.ThemeOverlay.TextInputLayout">
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:src="@drawable/bgimg"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edit_kbs_pin_input"
-                style="@style/Widget.MaterialComponents.TextInputEditText.FilledBox"
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/kbs_pin_toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:layout_constraintEnd_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/edit_kbs_pin_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="35dp"
+                android:layout_marginEnd="24dp"
+                android:fontFamily="@font/opensansbold"
+                android:textColor="@color/text1"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/kbs_pin_toolbar"
+                tools:text="@string/CreateKbsPinFragment__create_your_pin" />
+
+            <org.thoughtcrime.securesms.util.views.LearnMoreTextView
+                android:id="@+id/edit_kbs_pin_description"
+                style="@style/Signal.Text.BodyLarge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginEnd="24dp"
+                android:minHeight="66dp"
+                android:textColor="@color/text3"
+                android:textSize="14sp"
+                app:fontFamily="@font/opensans_semibold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/edit_kbs_pin_title"
+                tools:text="@string/CreateKbsPinFragment__pins_can_help_you_restore_your_account" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/edit_kbs_textinputlayoutttttttttttttttt"
+                style="@style/Widget.Signal.TextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="24dp"
+                android:layoutDirection="ltr"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edit_kbs_pin_description"
+                app:materialThemeOverlay="@style/Signal.ThemeOverlay.TextInputLayout">
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/edit_kbs_pin_input"
+                    style="@style/Widget.Signal.TextInputLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@drawable/edittext_border"
+                    android:defaultFocusHighlightEnabled="false"
+                    app:boxCornerRadiusBottomEnd="5dp"
+                    app:boxCornerRadiusBottomStart="5dp"
+                    app:boxCornerRadiusTopEnd="5dp"
+                    app:boxCornerRadiusTopStart="5dp"
+                    app:boxStrokeWidth="0dp"
+                    app:boxStrokeWidthFocused="0dp"
+                    app:errorEnabled="false"
+                    app:hintEnabled="false"
+                    app:layout_constraintDimensionRatio="6:7"
+                    app:layout_constraintEnd_toStartOf="@+id/edit_kbs_pin_input2"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:materialThemeOverlay="@style/Signal.ThemeOverlay.TextInputLayout">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/input1"
+                        style="@style/Widget.MaterialComponents.TextInputEditText.FilledBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:defaultFocusHighlightEnabled="false"
+                        android:gravity="center"
+                        android:importantForAccessibility="yes"
+                        android:textColor="@color/text1"
+
+                        android:inputType="numberPassword"
+                        android:padding="0dp"
+                        android:textAppearance="@style/Signal.Text.BodyLarge"
+                        android:textSize="18sp"
+                        app:boxStrokeWidthFocused="0dp"
+                        tools:text="0" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/edit_kbs_pin_input2"
+                    style="@style/Widget.Signal.TextInputLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="4dp"
+                    android:defaultFocusHighlightEnabled="false"
+                    app:boxStrokeWidth="0dp"
+                    app:boxStrokeWidthFocused="0dp"
+                    app:errorEnabled="false"
+                    app:hintEnabled="false"
+                    app:layout_constraintDimensionRatio="6:7"
+                    app:layout_constraintEnd_toStartOf="@+id/edit_kbs_pin_input3"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/edit_kbs_pin_input"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:materialThemeOverlay="@style/Signal.ThemeOverlay.TextInputLayout">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/input2"
+                        style="@style/Widget.MaterialComponents.TextInputEditText.FilledBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:background="@drawable/edittext_border"
+                        android:gravity="center"
+                        android:importantForAccessibility="yes"
+                        android:inputType="numberPassword"
+                        android:padding="0dp"
+                        android:textColor="@color/text1"
+
+                        android:textAppearance="@style/Signal.Text.BodyLarge"
+                        android:textSize="18sp"
+                        tools:text="1" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/edit_kbs_pin_input3"
+                    style="@style/Widget.Signal.TextInputLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="4dp"
+                    android:defaultFocusHighlightEnabled="false"
+                    app:boxStrokeWidth="0dp"
+                    app:boxStrokeWidthFocused="0dp"
+                    app:errorEnabled="false"
+                    app:hintEnabled="false"
+                    app:layout_constraintDimensionRatio="6:7"
+                    app:layout_constraintEnd_toStartOf="@+id/separator"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/edit_kbs_pin_input2"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:materialThemeOverlay="@style/Signal.ThemeOverlay.TextInputLayout">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/input3"
+                        style="@style/Widget.MaterialComponents.TextInputEditText.FilledBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:background="@drawable/edittext_border"
+                        android:defaultFocusHighlightEnabled="false"
+                        android:gravity="center"
+                        android:importantForAccessibility="yes"
+                        android:inputType="numberPassword"
+                        android:padding="0dp"
+                        android:textColor="@color/text1"
+
+                        android:textAppearance="@style/Signal.Text.BodyLarge"
+                        android:textSize="18sp"
+                        app:boxCornerRadiusBottomEnd="5dp"
+                        app:boxCornerRadiusBottomStart="5dp"
+                        app:boxCornerRadiusTopEnd="5dp"
+                        app:boxCornerRadiusTopStart="5dp"
+                        app:boxStrokeWidthFocused="0dp"
+                        tools:text="2" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/separator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="4dp"
+                    android:gravity="center"
+                    android:importantForAccessibility="no"
+                    android:textSize="28sp"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/edit_kbs_pin_input4"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/edit_kbs_pin_input3"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:materialThemeOverlay="@style/Signal.ThemeOverlay.TextInputLayout"
+                    tools:ignore="HardcodedText" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/edit_kbs_pin_input4"
+                    style="@style/Widget.Signal.TextInputLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="4dp"
+                    android:defaultFocusHighlightEnabled="false"
+                    app:boxStrokeWidth="0dp"
+                    app:boxStrokeWidthFocused="0dp"
+                    app:errorEnabled="false"
+                    app:hintEnabled="false"
+                    app:layout_constraintDimensionRatio="6:7"
+                    app:layout_constraintEnd_toStartOf="@+id/edit_kbs_pin_input5"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/separator"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:materialThemeOverlay="@style/Signal.ThemeOverlay.TextInputLayout">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/input4"
+                        style="@style/Widget.MaterialComponents.TextInputEditText.FilledBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:background="@drawable/edittext_border"
+                        android:defaultFocusHighlightEnabled="false"
+                        android:gravity="center"
+                        android:textColor="@color/text1"
+
+                        android:importantForAccessibility="yes"
+                        android:inputType="numberPassword"
+                        android:padding="0dp"
+                        android:textAppearance="@style/Signal.Text.BodyLarge"
+                        android:textSize="18sp"
+                        app:boxCornerRadiusBottomEnd="5dp"
+                        app:boxCornerRadiusBottomStart="5dp"
+                        app:boxCornerRadiusTopEnd="5dp"
+                        app:boxCornerRadiusTopStart="5dp"
+                        app:boxStrokeWidthFocused="0dp"
+                        tools:text="3" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/edit_kbs_pin_input5"
+                    style="@style/Widget.Signal.TextInputLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="4dp"
+                    android:defaultFocusHighlightEnabled="false"
+                    app:boxStrokeWidth="0dp"
+                    app:boxStrokeWidthFocused="0dp"
+                    app:errorEnabled="false"
+                    app:hintEnabled="false"
+                    app:layout_constraintDimensionRatio="6:7"
+                    app:layout_constraintEnd_toStartOf="@+id/edit_kbs_pin_input6"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/edit_kbs_pin_input4"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:materialThemeOverlay="@style/Signal.ThemeOverlay.TextInputLayout">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/input5"
+                        style="@style/Widget.MaterialComponents.TextInputEditText.FilledBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:background="@drawable/edittext_border"
+                        android:defaultFocusHighlightEnabled="false"
+                        android:gravity="center"
+                        android:importantForAccessibility="yes"
+                        android:inputType="numberPassword"
+                        android:padding="0dp"
+                        android:textColor="@color/text1"
+
+                        android:textAppearance="@style/Signal.Text.BodyLarge"
+                        android:textSize="18sp"
+                        app:boxCornerRadiusBottomEnd="5dp"
+                        app:boxCornerRadiusBottomStart="5dp"
+                        app:boxCornerRadiusTopEnd="5dp"
+                        app:boxCornerRadiusTopStart="5dp"
+                        app:boxStrokeWidthFocused="0dp"
+                        tools:text="4" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/edit_kbs_pin_input6"
+                    style="@style/Widget.Signal.TextInputLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="4dp"
+                    android:defaultFocusHighlightEnabled="false"
+                    app:boxStrokeWidth="0dp"
+                    app:boxStrokeWidthFocused="0dp"
+                    app:errorEnabled="false"
+                    app:hintEnabled="false"
+                    app:layout_constraintDimensionRatio="6:7"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/edit_kbs_pin_input5"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:materialThemeOverlay="@style/Signal.ThemeOverlay.TextInputLayout">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/input6"
+                        style="@style/Widget.MaterialComponents.TextInputEditText.FilledBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:background="@drawable/edittext_border"
+                        android:defaultFocusHighlightEnabled="false"
+                        android:gravity="center"
+                        android:importantForAccessibility="yes"
+                        android:inputType="numberPassword"
+                        android:padding="0dp"
+                        android:textColor="@color/text1"
+
+                        android:textAppearance="@style/Signal.Text.BodyLarge"
+                        android:textSize="18sp"
+                        app:boxCornerRadiusBottomEnd="5dp"
+                        app:boxCornerRadiusBottomStart="5dp"
+                        app:boxCornerRadiusTopEnd="5dp"
+                        app:boxCornerRadiusTopStart="5dp"
+                        app:boxStrokeWidthFocused="0dp"
+                        tools:text="5" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/edit_kbs_pin_input_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="48dp"
+                android:fontFamily="@font/opensans_semibold"
                 android:gravity="center_horizontal"
-                android:imeOptions="actionDone"
-                android:inputType="numberPassword"
-                tools:text="1234567890" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:textColor="@color/text1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/edit_kbs_textinputlayoutttttttttttttttt"
+                app:layout_goneMarginTop="65dp"
+                tools:text="PIN must be at least 6 digits" />
 
-        <TextView
-            android:id="@+id/edit_kbs_pin_input_label"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:gravity="center_horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/edit_kbs_textinputlayout"
-            app:layout_goneMarginTop="65dp"
-            tools:text="PIN must be at least 4 digits" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/edit_kbs_pin_keyboard_toggle"
+                style="@style/Signal.Widget.Button.Large.Secondary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:textColor="@color/text1"
+                android:visibility="gone"
+                app:icon="@drawable/ic_keyboard_24"
+                app:iconGravity="textStart"
+                app:iconPadding="8dp"
+                app:layout_constraintBottom_toTopOf="@id/edit_kbs_pin_confirm"
+                app:layout_constraintTop_toBottomOf="@id/edit_kbs_pin_input_label"
+                app:layout_constraintVertical_bias="0.0"
+                tools:layout_editor_absoluteX="32dp"
+                tools:text="Create Alphanumeric Pin" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/edit_kbs_pin_keyboard_toggle"
-            style="@style/Signal.Widget.Button.Large.Secondary"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            app:icon="@drawable/ic_keyboard_24"
-            app:iconGravity="textStart"
-            app:iconPadding="8dp"
-            app:layout_constraintBottom_toTopOf="@id/edit_kbs_pin_confirm"
-            app:layout_constraintTop_toBottomOf="@id/edit_kbs_pin_input_label"
-            app:layout_constraintVertical_bias="0.0"
-            tools:layout_editor_absoluteX="32dp"
-            tools:text="Create Alphanumeric Pin" />
+            <org.thoughtcrime.securesms.util.views.CircularProgressMaterialButton
+                android:id="@+id/edit_kbs_pin_confirm"
+                style="@style/Signal.Widget.Button.Large.Tonal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="85dp"
+                android:layout_marginRight="85dp"
+                android:textColor="@color/white"
+                app:circularProgressMaterialButton__label="@string/BaseKbsPinFragment__next"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.497"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edit_kbs_pin_input_label"
+                app:layout_constraintVertical_bias="0.96"
+                app:materialThemeOverlay="@style/ThemeOverlay.Signal.CircularProgressIndicator.Tonal" />
 
-        <org.thoughtcrime.securesms.util.views.CircularProgressMaterialButton
-            android:id="@+id/edit_kbs_pin_confirm"
-            style="@style/Signal.Widget.Button.Large.Tonal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="24dp"
-            android:layout_marginBottom="16dp"
-            app:circularProgressMaterialButton__label="@string/BaseKbsPinFragment__next"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:materialThemeOverlay="@style/ThemeOverlay.Signal.CircularProgressIndicator.Tonal" />
+            <TextView
+                android:id="@+id/reset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="28dp"
+                android:text="@string/reset"
+                android:textAllCaps="false"
+                android:textColor="@color/text1"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/edit_kbs_pin_input_label"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edit_kbs_textinputlayoutttttttttttttttt"
+                app:layout_constraintVertical_bias="0.0" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </ScrollView>

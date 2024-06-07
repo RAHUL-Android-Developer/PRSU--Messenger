@@ -6,13 +6,19 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:layout_gravity="center"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/bgimg">
 
     <org.thoughtcrime.securesms.util.views.DarkOverflowToolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
+        android:layout_height="@dimen/signal_m3_toolbar_height"
+        app:titleTextColor="@color/white"
+        android:background="@drawable/rounded_dialog"
         android:theme="?attr/settingsToolbarStyle"
+        android:gravity="top"
+        android:minHeight="85dp"
+        app:titleMarginTop="28dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -49,7 +55,7 @@
         android:layout_marginBottom="16dp"
         android:tint="@color/core_white"
         android:visibility="gone"
-        app:backgroundTint="@color/core_ultramarine"
+        app:backgroundTint="@color/text1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/ic_arrow_end_24"

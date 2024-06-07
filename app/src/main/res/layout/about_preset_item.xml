@@ -5,8 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="?selectableItemBackground">
+    android:layout_height="wrap_content">
 
   <ImageView
       android:id="@+id/about_preset_emoji"
@@ -17,7 +16,8 @@
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="@id/about_preset_body"
       app:layout_constraintBottom_toBottomOf="@id/about_preset_body"
-      tools:src="@drawable/symbol_emoji_plus_24"/>
+      tools:src="@drawable/symbol_emoji_plus_24"
+      />
 
   <TextView
       android:id="@+id/about_preset_body"
@@ -27,6 +27,7 @@
       android:layout_marginEnd="24dp"
       android:paddingTop="17dp"
       android:paddingBottom="17dp"
+      android:textColor="@color/text1"
       style="@style/Signal.Text.Body"
       app:layout_constraintTop_toTopOf="parent"
       app:layout_constraintStart_toEndOf="@id/about_preset_emoji"

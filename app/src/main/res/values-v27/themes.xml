@@ -2,7 +2,7 @@
 <resources>
 
     <style name="TextSecure.LightTheme" parent="TextSecure.BaseLightTheme">
-        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightStatusBar">false</item>
         <item name="android:statusBarColor">@color/signal_colorBackground</item>
         <item name="android:navigationBarColor">@color/signal_colorBackground</item>
         <item name="android:windowLightNavigationBar">true</item>
@@ -16,7 +16,7 @@
     </style>
 
     <style name="TextSecure.LightRegistrationTheme" parent="TextSecure.LightNoActionBar">
-        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightStatusBar">false</item>
         <item name="android:statusBarColor">@color/signal_colorBackground</item>
         <item name="android:navigationBarColor">@color/core_black</item>
         <item name="android:windowLightNavigationBar">false</item>
@@ -31,7 +31,7 @@
 
     <style name="TextSecure.LightNoActionBar" parent="TextSecure.BaseLightNoActionBar">
         <item name="android:statusBarColor">@color/signal_colorBackground</item>
-        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightStatusBar">false</item>
         <item name="android:navigationBarColor">@color/signal_colorBackground</item>
         <item name="android:windowLightNavigationBar">true</item>
     </style>

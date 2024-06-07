@@ -19,6 +19,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:visibility="gone"
         android:nextFocusRight="@+id/cancel">
 
         <ProgressBar
@@ -63,7 +64,7 @@
             app:layout_constraintStart_toEndOf="@id/reminder_progress"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_goneMarginStart="16dp"
-            tools:text="Invite to Signal" />
+            tools:text="Invite to Messenger" />
 
         <TextView
             android:id="@+id/reminder_text"

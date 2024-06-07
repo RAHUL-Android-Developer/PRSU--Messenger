@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:clipChildren="false"
+    android:background="@drawable/bgimg"
     app:animateKeyboardChanges="true">
 
     <include layout="@layout/system_ui_guidelines" />
@@ -22,7 +23,7 @@
         android:id="@+id/conversation_wallpaper_dim"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/black"
+        android:background="@color/white"
         android:visibility="gone"
         tools:alpha="0.2f"
         tools:visibility="visible" />
@@ -34,18 +35,17 @@
         app:layout_constraintBottom_toBottomOf="@id/conversation_item_recycler_frame"
         app:layout_constraintEnd_toEndOf="@+id/conversation_item_recycler_frame"
         app:layout_constraintStart_toStartOf="@+id/conversation_item_recycler_frame"
-        app:layout_constraintTop_toTopOf="@+id/conversation_item_recycler_frame" />
+        app:layout_constraintTop_toTopOf="@+id/conversation_item_recycler_frame" >
 
-    <FrameLayout
-        android:id="@+id/conversation_item_recycler_frame"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@id/conversation_bottom_panel_barrier"
-        app:layout_constraintEnd_toEndOf="@id/parent_end_guideline"
-        app:layout_constraintStart_toStartOf="@id/parent_start_guideline"
-        app:layout_constraintTop_toTopOf="parent">
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/mention_fragment_container"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <org.thoughtcrime.securesms.conversation.mutiselect.MultiselectRecyclerView
+
             android:id="@+id/conversation_item_recycler"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -56,6 +56,18 @@
             android:splitMotionEvents="false"
             tools:itemCount="20"
             tools:listitem="@layout/conversation_item_sent_text_only" />
+
+    </FrameLayout>
+
+    <FrameLayout
+
+        android:id="@+id/conversation_item_recycler_frame"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/conversation_bottom_panel_barrier"
+        app:layout_constraintEnd_toEndOf="@id/parent_end_guideline"
+        app:layout_constraintStart_toStartOf="@id/parent_start_guideline"
+        app:layout_constraintTop_toTopOf="parent">
 
     </FrameLayout>
 
@@ -72,7 +84,7 @@
         android:paddingTop="4dp"
         android:paddingEnd="12dp"
         android:paddingBottom="4dp"
-        android:textColor="@color/signal_colorOnSurfaceVariant"
+        android:textColor="@color/text3"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -93,13 +105,8 @@
         android:id="@+id/toolbar"
         android:layout_width="0dp"
         android:layout_height="@dimen/signal_m3_toolbar_height"
-        android:background="@color/transparent"
-        android:clipChildren="false"
-        android:clipToPadding="false"
-        android:minHeight="@dimen/signal_m3_toolbar_height"
-        android:theme="?attr/actionBarStyle"
-        app:contentInsetStart="46dp"
-        app:contentInsetStartWithNavigation="0dp"
+        android:minHeight="85dp"
+        android:background="@drawable/rounded_dialog"
         app:layout_constraintEnd_toEndOf="@id/parent_end_guideline"
         app:layout_constraintStart_toStartOf="@id/parent_start_guideline"
         app:layout_constraintTop_toTopOf="@id/status_bar_guideline">
@@ -131,8 +138,7 @@
                 app:cornerRadius="@dimen/material_button_full_round_corner_radius"
                 app:icon="@drawable/ic_video_solid_18"
                 app:iconGravity="textStart"
-                app:iconTint="@color/core_white"
-                tools:visibility="visible" />
+                app:iconTint="@color/core_white" />
 
         </LinearLayout>
 
@@ -191,6 +197,7 @@
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="12dp"
         android:visibility="invisible"
+        android:backgroundTint="@color/white"
         app:cstv_scroll_button_src="@drawable/ic_at_20"
         app:layout_constraintBottom_toTopOf="@id/scroll_to_bottom"
         app:layout_constraintEnd_toEndOf="@id/parent_end_guideline"
@@ -208,15 +215,6 @@
         app:layout_constraintBottom_toTopOf="@id/conversation_bottom_panel_barrier"
         app:layout_constraintEnd_toEndOf="@id/parent_end_guideline"
         tools:visibility="visible" />
-
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/mention_fragment_container"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@id/conversation_bottom_panel_barrier"
-        app:layout_constraintEnd_toEndOf="@id/parent_end_guideline"
-        app:layout_constraintStart_toStartOf="@id/parent_start_guideline"
-        app:layout_constraintTop_toBottomOf="@id/toolbar" />
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/conversation_bottom_panel_barrier"
@@ -293,7 +291,7 @@
         app:layout_constraintEnd_toEndOf="@id/parent_end_guideline"
         app:layout_constraintStart_toStartOf="@id/parent_start_guideline"
         tools:text="160/160 (1)"
-        tools:visibility="visible" />
+        tools:visibility="gone" />
 
     <View
         android:id="@+id/compose_divider"

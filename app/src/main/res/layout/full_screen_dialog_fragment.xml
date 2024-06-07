@@ -5,13 +5,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bgimg"
     android:orientation="vertical">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/full_screen_dialog_toolbar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/signal_m3_toolbar_height"
-        android:minHeight="@dimen/signal_m3_toolbar_height"
+        android:minHeight="85dp"
+        android:background="@drawable/rounded_dialog"
+        app:titleMarginBottom="55dp"
+        app:titleTextColor="@color/white"
         app:navigationIcon="@drawable/ic_arrow_left_24"
         app:titleTextAppearance="@style/Signal.Text.TitleLarge"
         tools:title="Dialog Title" />

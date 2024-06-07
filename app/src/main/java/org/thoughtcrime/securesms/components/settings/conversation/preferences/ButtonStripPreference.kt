@@ -4,6 +4,8 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.content.res.AppCompatResources
+import androidx.core.view.isGone
+import androidx.core.view.isInvisible
 import org.thoughtcrime.securesms.R
 import org.thoughtcrime.securesms.components.settings.DSLSettingsIcon
 import org.thoughtcrime.securesms.components.settings.PreferenceModel
@@ -44,8 +46,8 @@ object ButtonStripPreference {
 
   class ViewHolder(itemView: View) : MappingViewHolder<Model>(itemView) {
 
-    private val addToStory: View = itemView.findViewById(R.id.add_to_story)
-    private val addToStoryContainer: View = itemView.findViewById(R.id.button_strip_add_to_story_container)
+//    private val addToStory: View = itemView.findViewById(R.id.add_to_story)
+//    private val addToStoryContainer: View = itemView.findViewById(R.id.button_strip_add_to_story_container)
     private val message: View = itemView.findViewById(R.id.message)
     private val messageContainer: View = itemView.findViewById(R.id.button_strip_message_container)
     private val videoCall: View = itemView.findViewById(R.id.start_video)
@@ -60,20 +62,25 @@ object ButtonStripPreference {
     private val searchContainer: View = itemView.findViewById(R.id.button_strip_search_container)
 
     override fun bind(model: Model) {
-      messageContainer.visible = model.state.isMessageAvailable
-      videoContainer.visible = model.state.isVideoAvailable
-      audioContainer.visible = model.state.isAudioAvailable
+      messageContainer.isGone = model.state.isMessageAvailable
+     // videoContainer.isGone = model.state.isVideoAvailable
+//      addToStory.isGone
+      //videoCall.isGone
+     /// audioCall.isGone
+     // audioLabel.isGone
+//      addToStoryContainer.isGone = model.state.isAddToStoryAvailable
+     // audioContainer.isGone = model.state.isAudioAvailable
       muteContainer.visible = model.state.isMuteAvailable
       searchContainer.visible = model.state.isSearchAvailable
-      addToStoryContainer.visible = model.state.isAddToStoryAvailable
 
-      if (model.state.isAudioSecure) {
-        audioLabel.setText(R.string.ConversationSettingsFragment__audio)
-        audioCall.setImageDrawable(AppCompatResources.getDrawable(context, R.drawable.ic_phone_right_24))
-      } else {
-        audioLabel.setText(R.string.ConversationSettingsFragment__call)
-        audioCall.setImageDrawable(AppCompatResources.getDrawable(context, R.drawable.ic_phone_right_unlock_primary_accent_24))
-      }
+
+//      if (model.state.isAudioSecure) {
+//        audioLabel.setText(R.string.ConversationSettingsFragment__audio)
+//        audioCall.setImageDrawable(AppCompatResources.getDrawable(context, R.drawable.ic_phone_right_24))
+//      } else {
+//        audioLabel.setText(R.string.ConversationSettingsFragment__call)
+//        audioCall.setImageDrawable(AppCompatResources.getDrawable(context, R.drawable.ic_phone_right_unlock_primary_accent_24))
+//      }
 
       if (model.state.isMuted) {
         mute.setImageDrawable(AppCompatResources.getDrawable(context, R.drawable.ic_bell_disabled_24))
@@ -83,23 +90,23 @@ object ButtonStripPreference {
         muteLabel.setText(R.string.ConversationSettingsFragment__mute)
       }
 
-      if (model.background != null) {
-        listOf(message, videoCall, audioCall, mute, search).forEach {
-          it.background = model.background.resolve(context)
-        }
-      }
+//      if (model.background != null) {
+//        listOf(message, videoCall, audioCall, mute, search).forEach {
+//          it.background = model.background.resolve(context)
+//        }
+//      }
 
-      listOf(messageContainer, videoContainer, audioContainer, muteContainer, addToStoryContainer, searchContainer).forEach {
-        it.alpha = if (model.enabled) 1.0f else 0.5f
-        ViewUtil.setEnabledRecursive(it, model.enabled)
-      }
+//      listOf(messageContainer, videoContainer, audioContainer, muteContainer, addToStoryContainer, searchContainer).forEach {
+//        it.alpha = if (model.enabled) 1.0f else 0.5f
+//        ViewUtil.setEnabledRecursive(it, model.enabled)
+//      }
 
       message.setOnClickListener { model.onMessageClick() }
-      videoCall.setOnClickListener { model.onVideoClick() }
-      audioCall.setOnClickListener { model.onAudioClick() }
+//      videoCall.setOnClickListener { model.onVideoClick() }
+//      audioCall.setOnClickListener { model.onAudioClick() }
       mute.setOnClickListener { model.onMuteClick() }
       search.setOnClickListener { model.onSearchClick() }
-      addToStory.setOnClickListener { model.onAddToStoryClick() }
+     // addToStory.setOnClickListener { model.onAddToStoryClick() }
     }
   }
 

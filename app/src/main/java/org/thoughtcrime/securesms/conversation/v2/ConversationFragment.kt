@@ -1260,6 +1260,7 @@ class ConversationFragment :
     if (!args.conversationScreenType.isInPopup) {
       optionsMenuCallback = ConversationOptionsMenuCallback()
       menuProvider = ConversationOptionsMenu.Provider(optionsMenuCallback, disposables)
+      binding.toolbar.overflowIcon = ContextCompat.getDrawable(requireContext(), R.drawable.ic_more_vert_24)
       binding.toolbar.addMenuProvider(menuProvider!!)
       invalidateOptionsMenu()
     }
@@ -1281,8 +1282,8 @@ class ConversationFragment :
 
   private fun presentNavigationIconForBubble() {
     binding.toolbar.navigationIcon = DrawableUtil.tint(
-      ContextUtil.requireDrawable(requireContext(), R.drawable.ic_notification),
-      ContextCompat.getColor(requireContext(), R.color.signal_accent_primary)
+      ContextUtil.requireDrawable(requireContext(), R.drawable.notification_icon_new),
+      ContextCompat.getColor(requireContext(), R.color.text6)
     )
 
     binding.toolbar.setNavigationContentDescription(R.string.ConversationFragment__content_description_launch_signal_button)
@@ -1324,9 +1325,9 @@ class ConversationFragment :
     val toolbarTint = ContextCompat.getColor(
       requireContext(),
       if (chatWallpaper != null) {
-        R.color.signal_colorNeutralInverse
+        R.color.text6
       } else {
-        R.color.signal_colorOnSurface
+        R.color.text6
       }
     )
 
@@ -3228,9 +3229,9 @@ class ConversationFragment :
       val toolbarTextAndIconColor = ContextCompat.getColor(
         requireContext(),
         if (viewModel.wallpaperSnapshot != null) {
-          R.color.signal_colorNeutralInverse
+          R.color.text1
         } else {
-          R.color.signal_colorOnSurface
+          R.color.text6
         }
       )
 
@@ -4051,7 +4052,7 @@ class ConversationFragment :
         when (button) {
           AttachmentKeyboardButton.GALLERY -> conversationActivityResultContracts.launchGallery(recipient.id, composeText.textTrimmed, inputPanel.quote.isPresent)
           AttachmentKeyboardButton.CONTACT -> conversationActivityResultContracts.launchSelectContact()
-          AttachmentKeyboardButton.LOCATION -> conversationActivityResultContracts.launchSelectLocation(recipient.chatColors)
+//          AttachmentKeyboardButton.LOCATION -> conversationActivityResultContracts.launchSelectLocation(recipient.chatColors)
           AttachmentKeyboardButton.PAYMENT -> AttachmentManager.selectPayment(this@ConversationFragment, recipient)
           AttachmentKeyboardButton.FILE -> {
             if (!conversationActivityResultContracts.launchSelectFile()) {

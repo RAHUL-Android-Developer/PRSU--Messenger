@@ -13,6 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="64dp"
         android:minHeight="64dp"
+        android:background="@drawable/rounded_dialog"
         app:navigationIcon="@drawable/ic_arrow_left_24" />
 
     <androidx.fragment.app.FragmentContainerView

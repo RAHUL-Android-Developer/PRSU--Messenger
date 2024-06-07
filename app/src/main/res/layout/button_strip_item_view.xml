@@ -4,21 +4,34 @@
     tools:viewBindingIgnore="true"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
+    android:background="@color/text6"
     android:layout_height="wrap_content"
     tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
 
-    <androidx.appcompat.widget.AppCompatImageView
+    <ImageView
         android:id="@+id/icon"
         style="@style/Signal.Widget.ImageView.ActionButton"
+        android:layout_width="78dp"
+        android:layout_height="78dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/button_strip_item_design"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@drawable/ic_bell_24" />
+        tools:srcCompat="@drawable/ic_bell_24"
+        app:tint="@color/text1" />
 
     <TextView
         android:id="@+id/label"
-        style="@style/Signal.Widget.TextView.ActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="@id/icon"
+        android:textSize="16sp"
+        android:textColor="@color/text1"
+        android:fontFamily="@font/opensans_semibold"
         app:layout_constraintStart_toStartOf="@id/icon"
         app:layout_constraintTop_toBottomOf="@id/icon"
         tools:text="@string/ConversationSettingsFragment__mute" />

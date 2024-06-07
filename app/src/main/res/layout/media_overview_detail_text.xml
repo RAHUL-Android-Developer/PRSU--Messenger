@@ -23,6 +23,7 @@
         android:ellipsize="marquee"
         android:marqueeRepeatLimit="marquee_forever"
         android:singleLine="true"
+        android:textColor="@color/text1"
         android:textAppearance="@style/Signal.Text.Body"
         app:layout_constraintStart_toEndOf="@+id/image_container"
         app:layout_constraintTop_toTopOf="parent"
@@ -34,8 +35,8 @@
         android:layout_height="wrap_content"
         android:ellipsize="marquee"
         android:singleLine="true"
+        android:textColor="@color/text1"
         android:textAppearance="@style/TextAppearance.Signal.Body2"
-        android:textColor="@color/signal_text_secondary"
         app:layout_constraintStart_toEndOf="@+id/image_container"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="2.7 MB, 11.06.19 at 5:25 AM" />

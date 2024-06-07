@@ -86,19 +86,19 @@ class AppearanceSettingsFragment : DSLSettingsFragment(R.string.preferences__app
         }
       )
 
-      clickPref(
-        title = DSLSettingsText.from(R.string.preferences_navigation_bar_size),
-        summary = DSLSettingsText.from(
-          if (state.isCompactNavigationBar) {
-            R.string.preferences_compact
-          } else {
-            R.string.preferences_normal
-          }
-        ),
-        onClick = {
-          ChooseNavigationBarStyleFragment().show(childFragmentManager, null)
-        }
-      )
+//      clickPref(
+//        title = DSLSettingsText.from(R.string.preferences_navigation_bar_size),
+//        summary = DSLSettingsText.from(
+//          if (state.isCompactNavigationBar) {
+//            R.string.preferences_compact
+//          } else {
+//            R.string.preferences_normal
+//          }
+//        ),
+//        onClick = {
+//          ChooseNavigationBarStyleFragment().show(childFragmentManager, null)
+//        }
+//      )
     }
   }
 }

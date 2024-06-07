@@ -7,6 +7,7 @@
     android:layout_height="wrap_content"
     android:layout_gravity="center_horizontal"
     android:orientation="vertical"
+    android:background="@color/text6"
     android:padding="?attr/dialogPreferredPadding">
 
     <androidx.appcompat.widget.AppCompatImageView

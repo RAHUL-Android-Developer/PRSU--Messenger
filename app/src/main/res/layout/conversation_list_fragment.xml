@@ -6,7 +6,7 @@
     android:id="@+id/constraint_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?android:windowBackground"
+    android:background="@drawable/bgimg"
     tools:viewBindingIgnore="true">
 
     <ViewStub
@@ -67,7 +67,6 @@
             android:id="@+id/list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/signal_colorBackground"
             android:clipToPadding="false"
             android:nextFocusDown="@+id/fab"
             android:nextFocusForward="@+id/fab"
@@ -115,29 +114,15 @@
                 app:srcCompat="@drawable/symbol_camera_24"
                 app:tint="@color/signal_colorOnSurface"
                 app:shapeAppearanceOverlay="@style/Signal.ShapeOverlay.Rounded.Fab"
-                tools:visibility="visible" />
+                tools:visibility="gone" />
 
-            <org.thoughtcrime.securesms.components.registration.PulsingFloatingActionButton
-                android:id="@+id/fab"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="16dp"
-                android:contentDescription="@string/conversation_list_fragment__fab_content_description"
-                android:focusable="true"
-                android:theme="@style/Widget.Material3.FloatingActionButton.Secondary"
-                android:transitionName="new_convo_fab"
-                android:visibility="gone"
-                app:backgroundTint="@color/signal_colorPrimaryContainer"
-                app:srcCompat="@drawable/symbol_edit_24"
-                app:tint="@color/signal_colorOnSurface"
-                app:shapeAppearanceOverlay="@style/Signal.ShapeOverlay.Rounded.Fab"
-                tools:visibility="visible" />
+
 
             <ViewStub
                 android:id="@+id/megaphone_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:visibility="gone"
                 android:layout="@layout/conversation_list_megaphone_container"
                 app:layout_constraintBottom_toBottomOf="parent" />
 
@@ -157,4 +142,132 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@color/text1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+
+            <ImageView
+                android:id="@+id/inviteFriends_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/invite_friends_nav_bar" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/invite_friends"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:fontFamily="@font/opensansbold"/>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+
+            <ImageView
+                android:id="@+id/creteGroup_new"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/account_group_nav_bar" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/newgroup"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:fontFamily="@font/opensansbold"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="25sp"
+        android:background="@drawable/halfdrawable"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout">
+
+
+        <ImageView
+            android:id="@+id/fab"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@drawable/chat_icon"
+            android:theme="@style/Widget.Material3.FloatingActionButton.Secondary"
+            app:backgroundTint="@color/text1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:tint="@color/white"
+            tools:visibility="visible" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="16dp"
+            android:text="@string/chat"
+            android:textColor="@color/white"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+
+    </LinearLayout>
+
+
+    <ImageView
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginBottom="70dp"
+        android:layout_weight="1"
+        android:rotationY="-180"
+        android:scaleType="fitEnd"
+
+        android:src="@drawable/quaterdrawable"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <ImageView
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginBottom="70dp"
+        android:layout_weight="1"
+        android:scaleType="fitEnd"
+        android:src="@drawable/quaterdrawable"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

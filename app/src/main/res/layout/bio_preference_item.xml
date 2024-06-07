@@ -1,22 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/text2"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/dsl_preference_item_background"
-    android:minHeight="56dp"
+    android:minHeight="70dp"
+    android:padding="15dp"
+
     tools:viewBindingIgnore="true">
+
+    <!--    android:background="@drawable/bio_setting_desgn"-->
 
     <org.thoughtcrime.securesms.components.AvatarImageView
         android:id="@+id/icon"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginBottom="24dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="8dp"
         android:importantForAccessibility="no"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:src="@drawable/person_new"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -24,67 +27,28 @@
         android:id="@+id/badge"
         android:layout_width="24dp"
         android:layout_height="24dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginStart="72dp"
         android:contentDescription="@string/ImageView__badge"
         app:badge_size="medium"
+        app:layout_constraintBottom_toBottomOf="@+id/icon"
         app:layout_constraintStart_toStartOf="@id/icon"
-        app:layout_constraintTop_toTopOf="@id/icon" />
+        app:layout_constraintTop_toTopOf="@id/icon"
+        app:layout_constraintVertical_bias="1.0" />
 
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="12dp"
-        android:layout_marginBottom="14dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/qr_button"
-        app:layout_constraintStart_toEndOf="@id/icon"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_goneMarginEnd="24dp">
-
-        <org.thoughtcrime.securesms.components.emoji.EmojiTextView
-            android:id="@+id/title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAlignment="viewStart"
-            android:textAppearance="@style/Signal.Text.TitleLarge"
-            tools:text="Peter Parker" />
-
-        <org.thoughtcrime.securesms.components.emoji.EmojiTextView
-            android:id="@+id/summary"
-            style="@style/Signal.Text.BodyMedium"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAlignment="viewStart"
-            android:textColor="@color/signal_colorOnSurfaceVariant"
-            tools:text="+1 (999) 555-1234" />
-
-        <org.thoughtcrime.securesms.components.emoji.EmojiTextView
-            android:id="@+id/username"
-            style="@style/Signal.Text.BodyMedium"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAlignment="viewStart"
-            android:textColor="@color/signal_colorOnSurfaceVariant"
-            android:visibility="gone"
-            tools:text="miles.07" />
-
-        <org.thoughtcrime.securesms.components.emoji.EmojiTextView
-            android:id="@+id/about"
-            style="@style/Signal.Text.BodySmall"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:ellipsize="end"
-            android:maxLines="1"
-            android:textAlignment="viewStart"
-            android:textColor="@color/signal_colorOnSurfaceVariant"
-            tools:text="Crusin' the web" />
-
-    </LinearLayout>
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginEnd="4dp"
+        android:contentDescription="@string/ImageView__badge"
+        android:src="@drawable/edit_icon"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/badge"
+        app:layout_constraintEnd_toEndOf="@+id/icon"
+        app:layout_constraintTop_toTopOf="@+id/icon"
+        app:layout_constraintVertical_bias="0.0"
+        android:tint="@color/white"
+        tools:ignore="UseAppTint" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/qr_button"
@@ -92,13 +56,109 @@
         android:layout_width="36dp"
         android:layout_height="36dp"
         android:layout_marginEnd="24dp"
-        app:backgroundTint="@color/signal_colorSurface4"
+        app:backgroundTint="@color/signal_light_colorSurface3"
         app:icon="@drawable/symbol_qrcode_24"
         app:iconSize="20dp"
-        app:iconTint="@color/signal_colorOnSurface"
+        app:iconTint="@color/core_black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.346"
+        app:layout_constraintStart_toEndOf="@+id/linearLayout4"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.858" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="7dp"
+        android:layout_marginStart="10dp"
+
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="7dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/icon"
+        app:layout_constraintStart_toStartOf="@+id/icon"
+        app:layout_constraintTop_toBottomOf="@+id/icon">
 
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+            <org.thoughtcrime.securesms.components.emoji.EmojiTextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="22dp"
+                android:fontFamily="@font/opensansbold"
+                android:textColor="@color/text1"
+                android:textAppearance="@style/Signal.Text.TitleLarge"
+                tools:layout_editor_absoluteX="183dp"
+                tools:layout_editor_absoluteY="67dp"
+                tools:text="Peter Parker" />
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:contentDescription="@string/ImageView__badge"
+                android:src="@drawable/edit_icon"
+                app:badge_size="medium"
+                app:layout_constraintBottom_toTopOf="@+id/badge"
+                app:layout_constraintEnd_toEndOf="@+id/icon"
+                app:layout_constraintTop_toTopOf="@+id/icon"
+                app:layout_constraintVertical_bias="0.0"
+                android:tint="@color/text1"
+                tools:ignore="UseAppTint" />
+
+
+        </LinearLayout>
+
+        <org.thoughtcrime.securesms.components.emoji.EmojiTextView
+            android:id="@+id/about"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:ellipsize="end"
+            android:fontFamily="@font/opensans_semibold"
+            android:maxLines="1"
+            android:textAlignment="viewStart"
+            android:textColor="@color/signal_colorOnSurfaceVariant"
+            tools:ignore="RtlCompat"
+            tools:layout_editor_absoluteX="171dp"
+            tools:layout_editor_absoluteY="73dp"
+            tools:text="Crusin' the web" />
+
+        <org.thoughtcrime.securesms.components.emoji.EmojiTextView
+            android:id="@+id/username"
+            style="@style/Signal.Text.BodyMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="viewStart"
+            android:layout_gravity="center"
+            android:textColor="@color/signal_colorOnSurfaceVariant"
+            android:visibility="visible"
+            tools:ignore="RtlCompat"
+            tools:text="miles.07" />
+
+        <org.thoughtcrime.securesms.components.emoji.EmojiTextView
+            android:id="@+id/summary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/opensans_semibold"
+            android:textAlignment="viewStart"
+            android:textColor="@color/signal_colorOnSurfaceVariant"
+            tools:ignore="RtlCompat"
+            tools:layout_editor_absoluteX="229dp"
+            tools:layout_editor_absoluteY="61dp"
+            tools:text="+1 (999) 555-1234" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

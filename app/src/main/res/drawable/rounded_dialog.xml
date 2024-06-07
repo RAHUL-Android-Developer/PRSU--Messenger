@@ -1,0 +1,22 @@
+<!-- toolbar_background.xml -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Bottom cut rectangle -->
+    <item>
+
+        <shape android:shape="rectangle">
+            <solid android:color="@color/text1" />/>
+        </shape>
+    </item>
+
+    <!-- Inverted rectangle to cut off bottom part -->
+    <item android:top="80dp"> <!-- Increase this value to reduce the height -->
+        <shape android:shape="rectangle">
+            <solid android:color="#FDFDFD" /> <!-- Any color, this won't be visible -->
+            <corners
+                android:topLeftRadius="30dp"
+                android:topRightRadius="30dp"/>
+        </shape>
+    </item>
+
+</layer-list>

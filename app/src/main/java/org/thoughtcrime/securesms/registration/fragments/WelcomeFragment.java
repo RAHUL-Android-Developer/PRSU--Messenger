@@ -3,16 +3,20 @@ package org.thoughtcrime.securesms.registration.fragments;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.ViewModelProvider;
@@ -60,6 +64,13 @@ public final class WelcomeFragment extends LoggingFragment {
   public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
     super.onViewCreated(view, savedInstanceState);
 
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+      Window window = getActivity().getWindow();
+      window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+      window.setStatusBarColor(ContextCompat.getColor(getContext(), R.color.text6));
+
+    }
+
     viewModel = new ViewModelProvider(requireActivity()).get(RegistrationViewModel.class);
 
     if (viewModel.isReregister()) {
@@ -68,6 +79,8 @@ public final class WelcomeFragment extends LoggingFragment {
         if (!Navigation.findNavController(view).popBackStack()) {
           FragmentActivity activity = requireActivity();
           activity.finish();
+          Log.i(TAG, "defdesfWe've come back to the home fragment on a restore, user must be backing out");
+
           ActivityNavigator.applyPopAnimationsToPendingTransition(activity);
         }
         return;
@@ -85,16 +98,18 @@ public final class WelcomeFragment extends LoggingFragment {
       setDebugLogSubmitMultiTapView(view.findViewById(R.id.title));
 
       continueButton = view.findViewById(R.id.welcome_continue_button);
+//      continueButton.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.text1));
+
       continueButton.setOnClickListener(v -> onContinueClicked());
 
-      Button restoreFromBackup = view.findViewById(R.id.welcome_transfer_or_restore);
-      restoreFromBackup.setOnClickListener(v -> onRestoreFromBackupClicked());
+      //  Button restoreFromBackup = view.findViewById(R.id.welcome_transfer_or_restore);
+      // restoreFromBackup.setOnClickListener(v -> onRestoreFromBackupClicked());
 
       TextView welcomeTermsButton = view.findViewById(R.id.welcome_terms_button);
       welcomeTermsButton.setOnClickListener(v -> onTermsClicked());
 
       if (!canUserSelectBackup()) {
-        restoreFromBackup.setText(R.string.registration_activity__transfer_account);
+        //  restoreFromBackup.setText(R.string.registration_activity__transfer_account);
       }
     }
   }
@@ -110,8 +125,11 @@ public final class WelcomeFragment extends LoggingFragment {
     if (EventBus.getDefault().getStickyEvent(TransferStatus.class) != null) {
       Log.i(TAG, "Found existing transferStatus, redirect to transfer flow");
       SafeNavigation.safeNavigate(NavHostFragment.findNavController(this), R.id.action_welcomeFragment_to_deviceTransferSetup);
+
     } else {
+
       DeviceToDeviceTransferService.stop(requireContext());
+
     }
   }
 
@@ -231,8 +249,8 @@ public final class WelcomeFragment extends LoggingFragment {
 
     if (localNumber.isPresent()) {
       Log.i(TAG, "Phone number detected");
-      Phonenumber.PhoneNumber phoneNumber    = localNumber.get();
-      String                  nationalNumber = PhoneNumberUtil.getInstance().format(phoneNumber, PhoneNumberUtil.PhoneNumberFormat.NATIONAL);
+      Phonenumber.PhoneNumber phoneNumber   = localNumber.get();
+      String nationalNumber = PhoneNumberUtil.getInstance().format(phoneNumber, PhoneNumberUtil.PhoneNumberFormat.NATIONAL);
 
       viewModel.onNumberDetected(phoneNumber.getCountryCode(), nationalNumber);
     } else {

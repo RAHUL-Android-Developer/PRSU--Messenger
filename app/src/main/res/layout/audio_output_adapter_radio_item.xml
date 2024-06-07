@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:viewBindingIgnore="true"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="?attr/selectableItemBackground"
+    android:background="@color/text6"
     android:layout_width="match_parent"
     android:layout_height="?attr/listPreferredItemHeight">
     <RadioButton

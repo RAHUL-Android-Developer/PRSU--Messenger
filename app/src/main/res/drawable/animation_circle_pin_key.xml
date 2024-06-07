@@ -1,0 +1,28 @@
+<!-- drawable/two_circles.xml -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Outer Circle -->
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="#3360DE86" />
+            <size android:width="165dp" android:height="165dp" />
+        </shape>
+    </item>
+
+    <!-- Inner Circle 1 -->
+    <item android:gravity="center">
+        <shape android:shape="oval">
+            <solid android:color="#4D60DE86" />
+            <size android:width="135dp" android:height="135dp" />
+        </shape>
+    </item>
+
+    <!-- Inner Circle 2 -->
+    <item android:gravity="center">
+        <shape android:shape="oval">
+            <!-- Use green color with opacity -->
+            <solid android:color="@color/Green" /> <!-- #88 for 50% opacity -->
+            <size android:width="90dp" android:height="90dp" />
+        </shape>
+    </item>
+</layer-list>

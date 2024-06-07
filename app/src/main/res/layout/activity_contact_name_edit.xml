@@ -6,15 +6,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/bgimg"
     android:orientation="vertical">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/signal_m3_toolbar_height"
-        android:minHeight="@dimen/signal_m3_toolbar_height"
+        android:background="@drawable/rounded_dialog"
+        android:minHeight="85dp"
         app:navigationIcon="@drawable/ic_x_tinted"
         app:title="@string/ContactShareEditActivity__edit_name"
+        app:titleMarginBottom="53dp"
+        app:titleTextColor="@color/white"
         app:titleTextAppearance="@style/Signal.Text.TitleLarge" />
 
     <ScrollView
@@ -31,6 +35,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
+                android:layout_marginTop="10dp"
+                android:defaultFocusHighlightEnabled="false"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp"
                 android:minHeight="56dp">
 
                 <org.thoughtcrime.securesms.components.emoji.EmojiEditText
@@ -38,6 +46,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/ContactNameEditActivity_prefix"
+                    android:background="@drawable/edittext_border"
                     android:textAppearance="@style/Signal.Text.BodyLarge" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -47,6 +56,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
+                android:defaultFocusHighlightEnabled="false"
+                app:boxStrokeWidth="0dp"
                 android:minHeight="56dp">
 
                 <org.thoughtcrime.securesms.components.emoji.EmojiEditText
@@ -54,6 +65,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/ContactNameEditActivity_given_name"
+                    android:background="@drawable/edittext_border"
                     tools:text="@tools:sample/first_names"
                     android:textAppearance="@style/Signal.Text.BodyLarge" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -63,6 +75,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
+                android:defaultFocusHighlightEnabled="false"
+                app:boxStrokeWidth="0dp"
                 android:minHeight="56dp">
 
                 <org.thoughtcrime.securesms.components.emoji.EmojiEditText
@@ -70,6 +84,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/ContactNameEditActivity_middle_name"
+                    android:background="@drawable/edittext_border"
+
                     android:textAppearance="@style/Signal.Text.BodyLarge" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -78,6 +94,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
+                android:defaultFocusHighlightEnabled="false"
+                app:boxStrokeWidth="0dp"
                 android:minHeight="56dp">
 
                 <org.thoughtcrime.securesms.components.emoji.EmojiEditText
@@ -85,12 +103,17 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/ContactNameEditActivity_family_name"
+                    android:background="@drawable/edittext_border"
+
                     android:textAppearance="@style/Signal.Text.BodyLarge" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.Signal.TextInputLayout.FilledBox.ContactNameEditor"
                 android:layout_width="match_parent"
+                android:defaultFocusHighlightEnabled="false"
+                android:minHeight="56dp"
+                app:boxStrokeWidth="0dp"
                 android:layout_height="wrap_content">
 
                 <org.thoughtcrime.securesms.components.emoji.EmojiEditText
@@ -98,6 +121,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/ContactNameEditActivity_suffix"
+                    android:background="@drawable/edittext_border"
+
                     android:textAppearance="@style/Signal.Text.BodyLarge" />
             </com.google.android.material.textfield.TextInputLayout>
 

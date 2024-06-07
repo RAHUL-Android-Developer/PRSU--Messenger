@@ -1,0 +1,29 @@
+<!--
+  ~ Copyright 2024 Signal Messenger, LLC
+  ~ SPDX-License-Identifier: AGPL-3.0-only
+  -->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="27dp"
+    android:height="27dp"
+    android:viewportWidth="64"
+    android:viewportHeight="64">
+    <path
+        android:fillColor="#f9bf44"
+        android:pathData="M32,32m-27.758,0a27.758,27.758 0,1 1,55.516 0a27.758,27.758 0,1 1,-55.516 0" />
+    <path
+        android:fillColor="#382a12"
+        android:pathData="M37.759,31.13a1,1 0,0 1,-0.9 -1.442A6.793,6.793 0,0 1,43 25.88a6.693,6.693 0,0 1,1.939 0.283,6.847 6.847,0 0,1 4.082,3.324 1,1 0,0 1,-1.762 0.946A4.843,4.843 0,0 0,44.37 28.08a4.718,4.718 0,0 0,-1.37 -0.2,4.805 4.805,0 0,0 -4.343,2.692A1,1 0,0 1,37.759 31.13Z" />
+    <path
+        android:fillColor="#382a12"
+        android:pathData="M15.769,31.13a1,1 0,0 1,-0.9 -1.442A6.785,6.785 0,0 1,21 25.88a6.855,6.855 0,0 1,6.024 3.6,1 1,0 1,1 -1.768,0.936A4.855,4.855 0,0 0,21 27.88a4.8,4.8 0,0 0,-4.333 2.692A1,1 0,0 1,15.769 31.13Z" />
+    <path
+        android:fillColor="#382a12"
+        android:pathData="M31.389,43.13a12.506,12.506 0,0 1,-9.05 -3.817,1 1,0 1,1 1.441,-1.386 10.782,10.782 0,0 0,17.55 -3.283,1 1,0 1,1 1.847,0.769A12.577,12.577 0,0 1,33.813 42.9,13.1 13.1,0 0,1 31.389,43.13Z" />
+    <path
+        android:fillColor="#382a12"
+        android:pathData="M21.151,29.745a2.5,2.87 0,1 0,5 0a2.5,2.87 0,1 0,-5 0z" />
+    <path
+        android:fillColor="#382a12"
+        android:pathData="M43.145,29.745a2.5,2.87 0,1 0,5 0a2.5,2.87 0,1 0,-5 0z" />
+</vector>

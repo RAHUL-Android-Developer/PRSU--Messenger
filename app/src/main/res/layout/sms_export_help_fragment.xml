@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
+    android:background="@drawable/bgimg"
     android:layout_height="match_parent">
 
     <androidx.appcompat.widget.Toolbar
@@ -11,6 +12,8 @@
         android:layout_height="64dp"
         android:minHeight="64dp"
         app:title="@string/preferences__help"
+        android:background="@drawable/rounded_dialog"
+        app:titleTextColor="@color/white"
         app:navigationIcon="@drawable/ic_arrow_left_24" />
 
     <androidx.fragment.app.FragmentContainerView

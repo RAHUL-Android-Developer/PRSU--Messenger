@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:viewBindingIgnore="true"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/text6"
     tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
 
     <com.airbnb.lottie.LottieAnimationView

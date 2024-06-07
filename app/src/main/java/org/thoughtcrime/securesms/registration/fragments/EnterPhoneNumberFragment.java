@@ -1,5 +1,6 @@
 package org.thoughtcrime.securesms.registration.fragments;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ScrollView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -77,6 +79,7 @@ public final class EnterPhoneNumberFragment extends LoggingFragment implements R
   private View                           cancel;
   private ScrollView                     scrollView;
   private RegistrationViewModel          viewModel;
+  String e164number;
 
   private final LifecycleDisposable disposables = new LifecycleDisposable();
 
@@ -167,6 +170,7 @@ public final class EnterPhoneNumberFragment extends LoggingFragment implements R
     }
   }
 
+  @SuppressLint("LogTagInlined")
   private void handleRegister(@NonNull Context context) {
     if (viewModel.getNumber().getCountryCode() == 0) {
       showErrorDialog(context, getString(R.string.RegistrationActivity_you_must_specify_your_country_code));
@@ -179,7 +183,7 @@ public final class EnterPhoneNumberFragment extends LoggingFragment implements R
     }
 
     final NumberViewState number     = viewModel.getNumber();
-    final String          e164number = number.getE164Number();
+    e164number = number.getE164Number();
 
     if (!number.isValid()) {
       Dialogs.showAlertDialog(context,
@@ -205,23 +209,31 @@ public final class EnterPhoneNumberFragment extends LoggingFragment implements R
 
   private void onE164EnteredSuccessfully(@NonNull Context context, boolean fcmSupported) {
     enterInProgressUiState();
-    Log.d(TAG, "E164 entered successfully.");
-    Disposable disposable = viewModel.canEnterSkipSmsFlow()
-                                     .observeOn(AndroidSchedulers.mainThread())
-                                     .onErrorReturnItem(false)
-                                     .subscribe(canEnter -> {
-                                       if (canEnter) {
-                                         Log.i(TAG, "Entering skip flow.");
-                                         SafeNavigation.safeNavigate(NavHostFragment.findNavController(this), EnterPhoneNumberFragmentDirections.actionReRegisterWithPinFragment());
-                                       } else {
-                                         Log.i(TAG, "Unable to collect necessary data to enter skip flow, returning to normal");
-                                         handleRequestVerification(context, fcmSupported);
-                                       }
-                                     });
-    disposables.add(disposable);
+    if (CheckNumberExitOrNot(e164number) && ChekNumberVaildOrNot(e164number)) {
+      Log.d(TAG, "E164 entered successfully.");
+      @SuppressLint("LogTagInlined") Disposable disposable = viewModel.canEnterSkipSmsFlow()
+                                                                      .observeOn(AndroidSchedulers.mainThread())
+                                                                      .onErrorReturnItem(false)
+                                                                      .subscribe(canEnter -> {
+                                                                        if (canEnter) {
+                                                                          Log.i(TAG, "Entering skip flow.");
+                                                                          SafeNavigation.safeNavigate(NavHostFragment.findNavController(this), EnterPhoneNumberFragmentDirections.actionReRegisterWithPinFragment());
+                                                                        } else {
+                                                                          Log.i(TAG, "Unable to collect necessary data to enter skip flow, returning to normal");
+                                                                          handleRequestVerification(context, fcmSupported);
+                                                                        }
+                                                                      });
+      disposables.add(disposable);
+    } else {
+      Dialogs.showAlertDialog(context,
+                              getString(R.string.invalid_Number_titile),
+                              getString(R.string.invalid_Number_error));
+//      Toast.makeText(context, "Sorry this number doesn't exist or Vaild", Toast.LENGTH_SHORT).show();
+      exitInProgressUiState();
+    }
   }
 
-  private void handleRequestVerification(@NonNull Context context, boolean fcmSupported) {
+  @SuppressLint("LogTagInlined") private void handleRequestVerification(@NonNull Context context, boolean fcmSupported) {
     if (fcmSupported) {
       SmsRetrieverClient client  = SmsRetriever.getClient(context);
       Task<Void>         task    = client.startSmsRetriever();
@@ -291,47 +303,48 @@ public final class EnterPhoneNumberFragment extends LoggingFragment implements R
     NavController                         navController       = NavHostFragment.findNavController(this);
     MccMncProducer                        mccMncProducer      = new MccMncProducer(requireContext());
     final DialogInterface.OnClickListener proceedToNextScreen = (dialog, which) -> SafeNavigation.safeNavigate(navController, EnterPhoneNumberFragmentDirections.actionEnterVerificationCode());
-    Disposable request = viewModel.requestVerificationCode(mode, mccMncProducer.getMcc(), mccMncProducer.getMnc())
-                                  .doOnSubscribe(unused -> SignalStore.account().setRegistered(false))
-                                  .observeOn(AndroidSchedulers.mainThread())
-                                  .subscribe((RegistrationSessionProcessor processor) -> {
-                                    Context context = getContext();
-                                    if (context == null) {
-                                      Log.w(TAG, "[requestVerificationCode] Invalid context! Skipping.");
-                                      return;
-                                    }
+    @SuppressLint("LogTagInlined") Disposable request = viewModel.requestVerificationCode(mode, mccMncProducer.getMcc(), mccMncProducer.getMnc())
+                                                                 .doOnSubscribe(unused -> SignalStore.account().setRegistered(false))
+                                                                 .observeOn(AndroidSchedulers.mainThread())
+                                                                 .subscribe((RegistrationSessionProcessor processor) -> {
+                                                                   Context context = getContext();
+                                                                   if (context == null) {
+                                                                     Log.w(TAG, "[requestVerificationCode] Invalid context! Skipping.");
+                                                                     return;
+                                                                   }
 
-                                    if (processor.verificationCodeRequestSuccess()) {
-                                      disposables.add(updateFcmTokenValue());
-                                      SafeNavigation.safeNavigate(navController, EnterPhoneNumberFragmentDirections.actionEnterVerificationCode());
-                                    } else if (processor.captchaRequired(viewModel.getExcludedChallenges())) {
-                                      Log.i(TAG, "Unable to request sms code due to captcha required");
-                                      SafeNavigation.safeNavigate(navController, EnterPhoneNumberFragmentDirections.actionRequestCaptcha());
-                                    } else if (processor.exhaustedVerificationCodeAttempts()) {
-                                      Log.i(TAG, "Unable to request sms code due to exhausting attempts");
-                                      showErrorDialog(context, context.getString(R.string.RegistrationActivity_rate_limited_to_service));
-                                    } else if (processor.rateLimit()) {
-                                      Log.i(TAG, "Unable to request sms code due to rate limit");
-                                      showErrorDialog(context, context.getString(R.string.RegistrationActivity_rate_limited_to_try_again, formatMillisecondsToString(processor.getRateLimit())));
-                                    } else if (processor.isImpossibleNumber()) {
-                                      Log.w(TAG, "Impossible number", processor.getError());
-                                      Dialogs.showAlertDialog(requireContext(),
-                                                              context.getString(R.string.RegistrationActivity_invalid_number),
-                                                              String.format(context.getString(R.string.RegistrationActivity_the_number_you_specified_s_is_invalid), viewModel.getNumber().getFullFormattedNumber()));
-                                    } else if (processor.isNonNormalizedNumber()) {
-                                      handleNonNormalizedNumberError(processor.getOriginalNumber(), processor.getNormalizedNumber(), mode);
-                                    } else if (processor.isTokenRejected()) {
-                                      Log.i(TAG, "The server did not accept the information.", processor.getError());
-                                      showErrorDialog(context, context.getString(R.string.RegistrationActivity_we_need_to_verify_that_youre_human));
-                                    } else if (processor.externalServiceFailure()) {
-                                      Log.w(TAG, "The server reported a failure with an external service.", processor.getError());
-                                      showErrorDialog(context, context.getString(R.string.RegistrationActivity_unable_to_connect_to_service), proceedToNextScreen);
-                                    } else if (processor.invalidTransportModeFailure()) {
-                                      Log.w(TAG, "The server reported an invalid transport mode failure.", processor.getError());
-                                      new MaterialAlertDialogBuilder(context)
-                                          .setMessage(R.string.RegistrationActivity_we_couldnt_send_you_a_verification_code)
-                                          .setPositiveButton(R.string.RegistrationActivity_voice_call, (dialog, which) -> requestVerificationCode(Mode.PHONE_CALL))
-                                          .setNegativeButton(R.string.RegistrationActivity_cancel, null)
+                                                                   if (processor.verificationCodeRequestSuccess()) {
+                                                                     disposables.add(updateFcmTokenValue());
+                                                                     SafeNavigation.safeNavigate(navController, EnterPhoneNumberFragmentDirections.actionEnterVerificationCode());
+                                                                   } else if (processor.captchaRequired(viewModel.getExcludedChallenges())) {
+                                                                     Log.i(TAG, "Unable to request sms code due to captcha required");
+                                                                     SafeNavigation.safeNavigate(navController, EnterPhoneNumberFragmentDirections.actionRequestCaptcha());
+                                                                   } else if (processor.exhaustedVerificationCodeAttempts()) {
+                                                                     Log.i(TAG, "Unable to request sms code due to exhausting attempts");
+                                                                     showErrorDialog(context, context.getString(R.string.RegistrationActivity_rate_limited_to_service));
+                                                                   } else if (processor.rateLimit()) {
+                                                                     Log.i(TAG, "Unable to request sms code due to rate limit");
+                                                                     showErrorDialog(context, context.getString(R.string.RegistrationActivity_rate_limited_to_try_again, formatMillisecondsToString(processor.getRateLimit())));
+                                                                   } else if (processor.isImpossibleNumber()) {
+                                                                     Log.w(TAG, "Impossible number", processor.getError());
+                                                                     Dialogs.showAlertDialog(requireContext(),
+                                                                                             context.getString(R.string.RegistrationActivity_invalid_number),
+                                                                                             String.format(context.getString(R.string.RegistrationActivity_the_number_you_specified_s_is_invalid), viewModel.getNumber()
+                                                                                                                                                                                                            .getFullFormattedNumber()));
+                                                                   } else if (processor.isNonNormalizedNumber()) {
+                                                                     handleNonNormalizedNumberError(processor.getOriginalNumber(), processor.getNormalizedNumber(), mode);
+                                                                   } else if (processor.isTokenRejected()) {
+                                                                     Log.i(TAG, "The server did not accept the information.", processor.getError());
+                                                                     showErrorDialog(context, context.getString(R.string.RegistrationActivity_we_need_to_verify_that_youre_human));
+                                                                   } else if (processor.externalServiceFailure()) {
+                                                                     Log.w(TAG, "The server reported a failure with an external service.", processor.getError());
+                                                                     showErrorDialog(context, context.getString(R.string.RegistrationActivity_unable_to_connect_to_service), proceedToNextScreen);
+                                                                   } else if (processor.invalidTransportModeFailure()) {
+                                                                     Log.w(TAG, "The server reported an invalid transport mode failure.", processor.getError());
+                                                                     new MaterialAlertDialogBuilder(context)
+                                                                         .setMessage(R.string.RegistrationActivity_we_couldnt_send_you_a_verification_code)
+                                                                         .setPositiveButton(R.string.RegistrationActivity_voice_call, (dialog, which) -> requestVerificationCode(Mode.PHONE_CALL))
+                                                                         .setNegativeButton(R.string.RegistrationActivity_cancel, null)
                                           .show();
                                     } else if ( processor.isMalformedRequest()){
                                       Log.w(TAG, "The server reported a malformed request.", processor.getError());
@@ -472,30 +485,70 @@ public final class EnterPhoneNumberFragment extends LoggingFragment implements R
         viewModel.canEnterSkipSmsFlow()
                  .observeOn(AndroidSchedulers.mainThread())
                  .subscribe(canSkipSms -> {
-                   Log.d(TAG, "Showing confirm number dialog. canSkipSms = " + canSkipSms + " hasUserSkipped = " + viewModel.hasUserSkippedReRegisterFlow());
-                   final EditText editText = this.number.getEditText();
-                   showConfirmNumberDialogIfTranslated(context,
-                                                       viewModel.hasUserSkippedReRegisterFlow() ? R.string.RegistrationActivity_additional_verification_required
-                                                                                                : R.string.RegistrationActivity_phone_number_verification_dialog_title,
-                                                       canSkipSms ? null
-                                                                  : R.string.RegistrationActivity_a_verification_code_will_be_sent_to_this_number,
-                                                       e164number,
-                                                       () -> {
-                                                         Log.d(TAG, "User confirmed number.");
-                                                         if (editText != null) {
-                                                           ViewUtil.hideKeyboard(context, editText);
-                                                         }
-                                                         onConfirmed.run();
-                                                       },
-                                                       () -> {
-                                                         Log.d(TAG, "User canceled confirm number, returning to edit number.");
-                                                         exitInProgressUiState();
-                                                         if (editText != null) {
-                                                           ViewUtil.focusAndMoveCursorToEndAndOpenKeyboard(editText);
-                                                         }
-                                                       });
+                              Log.d(TAG, "Showing confirm number dialog. canSkipSms = " + canSkipSms + " hasUserSkipped = " + viewModel.hasUserSkippedReRegisterFlow());
+                              final EditText editText = this.number.getEditText();
+                              showConfirmNumberDialogIfTranslated(context,
+                                                                  viewModel.hasUserSkippedReRegisterFlow() ? R.string.RegistrationActivity_additional_verification_required
+                                                                                                           : R.string.RegistrationActivity_phone_number_verification_dialog_title,
+                                                                  canSkipSms ? null
+                                                                             : R.string.RegistrationActivity_a_verification_code_will_be_sent_to_this_number,
+                                                                  e164number,
+                                                                  () -> {
+                                                                    Log.d(TAG, "User confirmed number.");
+                                                                    if (editText != null) {
+                                                                      ViewUtil.hideKeyboard(context, editText);
+                                                                    }
+                                                                    onConfirmed.run();
+                                                                  },
+                                                                  () -> {
+                                                                    Log.d(TAG, "User canceled confirm number, returning to edit number.");
+                                                                    exitInProgressUiState();
+                                                                    if (editText != null) {
+                                                                      ViewUtil.focusAndMoveCursorToEndAndOpenKeyboard(editText);
+                                                                    }
+                                                                  });
                             }
                  )
     );
+  }
+
+  private boolean CheckNumberExitOrNot(String numb)
+  {
+    //Toast.makeText(getContext(), "Number:" + numb, Toast.LENGTH_SHORT).show();
+    String number = "8983589054";
+
+    if (!number.startsWith("+")) {
+      number = "+91" + number;
+    }
+//    Toast.makeText(getContext(), "Number:"+number, Toast.LENGTH_SHORT).show();
+
+//    if(number.equals(numb))
+//    {
+//      return true;
+//    }
+//    return false;
+
+    return true;
+        //number.equals(numb);
+
+  }
+
+  private boolean ChekNumberVaildOrNot(String numb)
+  {
+    int count = 0;
+    if(numb.startsWith("+91"))
+    {
+
+
+      //Counts each character except space
+      for(int i = 0; i < numb.length(); i++) {
+        if(numb.charAt(i) != ' ')
+          count++;
+      }
+    }
+    //Toast.makeText(getContext(), "Number:" + count, Toast.LENGTH_SHORT).show();
+
+    return count==13;
+
   }
 }

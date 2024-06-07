@@ -8,6 +8,7 @@
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/media_keyboard_fragment_container"
         android:layout_width="match_parent"
+        android:background="@drawable/bgimg"
         android:layout_height="match_parent" />
 
 </merge>

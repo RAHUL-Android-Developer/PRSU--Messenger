@@ -5,6 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bgimg"
+
     android:orientation="vertical">
 
     <include layout="@layout/dsl_settings_toolbar" />

@@ -25,6 +25,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.load.resource.bitmap.CircleCrop;
 import com.bumptech.glide.load.resource.bitmap.DownsampleStrategy;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.target.Target;
@@ -207,7 +208,7 @@ public final class AvatarImageView extends AppCompatImageView {
           if (shouldBlur) {
             transforms.add(new BlurTransformation(ApplicationDependencies.getApplication(), 0.25f, BlurTransformation.MAX_RADIUS));
           }
-          transforms.add(new CircleCrop());
+          transforms.add(new RoundedCorners(30));
           blurred = shouldBlur;
 
           RequestBuilder<Drawable> request = requestManager.load(photo.contactPhoto)

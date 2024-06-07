@@ -4,103 +4,457 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true">
+    android:background="#062463"
+    android:fillViewport="true"
+    android:orientation="vertical"
+    tools:viewBindingIgnore="true">
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:background="#062463"
+        android:fillViewport="true">
 
-        <TextView
-            android:id="@+id/kbs_lock_pin_title"
+
+        <LinearLayout
+            android:id="@+id/linearLayout3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:text="@string/RegistrationLockFragment__enter_your_pin"
-            android:textAppearance="@style/Signal.Text.HeadlineMedium"
-            app:layout_constraintBottom_toTopOf="@id/kbs_lock_keyboard_toggle"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.20" />
-
-        <TextView
-            android:id="@+id/kbs_lock_pin_description"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="27dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="27dp"
-            android:gravity="center_horizontal"
-            android:minHeight="66dp"
-            android:text="@string/RegistrationLockFragment__enter_the_pin_you_created"
-            android:textAppearance="@style/Signal.Text.BodyLarge"
-            android:textColor="@color/signal_text_secondary"
-            app:layout_constraintTop_toBottomOf="@id/kbs_lock_pin_title" />
-
-        <EditText
-            android:id="@+id/kbs_lock_pin_input"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="12dp"
-            android:gravity="center_horizontal"
-            android:inputType="numberPassword"
-            android:minWidth="210dp"
-            android:textColor="@color/signal_colorOnSurface"
+            android:orientation="vertical"
+            android:padding="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/kbs_lock_pin_description" />
+            app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/kbs_lock_pin_input_label"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="25dp"
+                android:fontFamily="@font/opensans_extrabold"
+                android:text="@string/ToolbarName"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:gravity="center_horizontal"
-            android:textAppearance="@style/Signal.Text.BodyMedium"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/kbs_lock_pin_input"
-            tools:text="@string/RegistrationLockFragment__incorrect_pin_try_again" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/kbs_lock_forgot_pin"
-            style="@style/Signal.Widget.Button.Large.Secondary"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginEnd="32dp"
-            android:text="@string/RegistrationLockFragment__forgot_pin"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/kbs_lock_pin_input_label" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/kbs_lock_keyboard_toggle"
-            style="@style/Signal.Widget.Button.Large.Secondary"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/RegistrationLockFragment__switch_keyboard"
-            app:icon="@drawable/ic_keyboard_24"
-            app:iconGravity="textStart"
-            app:iconPadding="8dp"
-            app:layout_constraintBottom_toTopOf="@id/kbs_lock_pin_confirm"
-            app:layout_constraintTop_toBottomOf="@id/kbs_lock_forgot_pin"
-            app:layout_constraintVertical_bias="0.0"
-            tools:layout_editor_absoluteX="32dp" />
-
-        <org.thoughtcrime.securesms.util.views.CircularProgressMaterialButton
-            android:id="@+id/kbs_lock_pin_confirm"
-            style="@style/Signal.Widget.Button.Large.Tonal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginEnd="32dp"
-            android:layout_marginBottom="16dp"
-            app:circularProgressMaterialButton__label="@string/RegistrationActivity_continue"
+            android:layout_height="0dp"
+            android:background="@drawable/cardview_design"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:materialThemeOverlay="@style/ThemeOverlay.Signal.CircularProgressIndicator.Tonal" />
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+            app:layout_constraintVertical_bias="0.0">
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/bgimg"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/kbs_lock_pin_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/opensansbold"
+                android:gravity="center_horizontal"
+                android:text="@string/RegistrationLockFragment__enter_your_pin"
+                android:textColor="@color/text1"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@id/kbs_lock_keyboard_toggle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.20" />
+
+            <TextView
+                android:id="@+id/kbs_lock_pin_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/opensans_semibold"
+                android:gravity="center_horizontal"
+                android:minHeight="66dp"
+                android:text="@string/RegistrationLockFragment__enter_the_pin_you_created"
+                android:textAppearance="@style/Signal.Text.BodyLarge"
+                android:textColor="@color/text3"
+                android:textSize="14sp"
+                app:layout_constraintTop_toBottomOf="@id/kbs_lock_pin_title"
+                tools:layout_editor_absoluteX="27dp" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/kbs_lock_pin_input"
+                style="@style/Widget.Signal.TextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="24dp"
+                android:layoutDirection="ltr"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/kbs_lock_pin_description"
+                app:materialThemeOverlay="@style/Signal.ThemeOverlay.TextInputLayout">
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/kbs_lock_pin_input1"
+                    style="@style/Widget.Signal.TextInputLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@drawable/edittext_border"
+                    app:boxCornerRadiusBottomEnd="5dp"
+                    app:boxCornerRadiusBottomStart="5dp"
+                    app:boxCornerRadiusTopEnd="5dp"
+                    app:boxCornerRadiusTopStart="5dp"
+                    app:boxStrokeWidth="0dp"
+                    app:errorEnabled="false"
+                    app:hintEnabled="false"
+                    app:layout_constraintDimensionRatio="6:7"
+                    app:layout_constraintEnd_toStartOf="@+id/kbs_lock_pin_input2"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:boxStrokeWidthFocused="0dp"
+                    android:defaultFocusHighlightEnabled="false"
+                    app:materialThemeOverlay="@style/Signal.ThemeOverlay.TextInputLayout">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/pinEntry1"
+                        style="@style/Widget.MaterialComponents.TextInputEditText.FilledBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:importantForAccessibility="yes"
+                        android:inputType="numberPassword"
+                        android:padding="0dp"
+                        android:textColor="@color/text1"
+
+                        app:boxStrokeWidthFocused="0dp"
+                        android:defaultFocusHighlightEnabled="false"
+                        android:textSize="18sp"
+                        android:textAppearance="@style/Signal.Text.BodyLarge"
+                        tools:text="0" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/kbs_lock_pin_input2"
+                    style="@style/Widget.Signal.TextInputLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="4dp"
+                    app:boxStrokeWidth="0dp"
+                    app:errorEnabled="false"
+                    app:hintEnabled="false"
+                    app:layout_constraintDimensionRatio="6:7"
+                    app:layout_constraintEnd_toStartOf="@+id/kbs_lock_pin_input3"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/kbs_lock_pin_input1"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:boxStrokeWidthFocused="0dp"
+                    android:defaultFocusHighlightEnabled="false"
+                    app:materialThemeOverlay="@style/Signal.ThemeOverlay.TextInputLayout">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/pinEntry2"
+                        style="@style/Widget.MaterialComponents.TextInputEditText.FilledBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:background="@drawable/edittext_border"
+                        android:gravity="center"
+                        android:importantForAccessibility="yes"
+                        android:inputType="numberPassword"
+                        android:textColor="@color/text1"
+
+                        android:textSize="18sp"
+                        app:boxStrokeWidthFocused="0dp"
+                        android:defaultFocusHighlightEnabled="false"
+                        android:padding="0dp"
+                        android:textAppearance="@style/Signal.Text.BodyLarge"
+                        tools:text="1" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/kbs_lock_pin_input3"
+                    style="@style/Widget.Signal.TextInputLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="4dp"
+                    app:boxStrokeWidth="0dp"
+                    app:errorEnabled="false"
+                    app:hintEnabled="false"
+                    app:layout_constraintDimensionRatio="6:7"
+                    app:layout_constraintEnd_toStartOf="@+id/separator"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/kbs_lock_pin_input2"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:boxStrokeWidthFocused="0dp"
+                    android:defaultFocusHighlightEnabled="false"
+                    app:materialThemeOverlay="@style/Signal.ThemeOverlay.TextInputLayout">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/pinEntry3"
+                        style="@style/Widget.MaterialComponents.TextInputEditText.FilledBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:background="@drawable/edittext_border"
+                        android:gravity="center"
+                        android:importantForAccessibility="yes"
+                        android:inputType="numberPassword"
+                        android:padding="0dp"
+                        android:textColor="@color/text1"
+
+                        android:textSize="18sp"
+                        app:boxStrokeWidthFocused="0dp"
+                        android:defaultFocusHighlightEnabled="false"
+                        android:textAppearance="@style/Signal.Text.BodyLarge"
+                        app:boxCornerRadiusBottomEnd="5dp"
+                        app:boxCornerRadiusBottomStart="5dp"
+                        app:boxCornerRadiusTopEnd="5dp"
+                        app:boxCornerRadiusTopStart="5dp"
+                        tools:text="2" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/separator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="4dp"
+                    android:gravity="center"
+                    android:importantForAccessibility="no"
+                    android:textSize="28sp"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/kbs_lock_pin_input4"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/kbs_lock_pin_input3"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:materialThemeOverlay="@style/Signal.ThemeOverlay.TextInputLayout"
+                    tools:ignore="HardcodedText" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/kbs_lock_pin_input4"
+                    style="@style/Widget.Signal.TextInputLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="4dp"
+                    app:boxStrokeWidth="0dp"
+                    app:errorEnabled="false"
+                    app:hintEnabled="false"
+                    app:layout_constraintDimensionRatio="6:7"
+                    app:layout_constraintEnd_toStartOf="@+id/kbs_lock_pin_input5"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/separator"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:boxStrokeWidthFocused="0dp"
+                    android:defaultFocusHighlightEnabled="false"
+                    app:materialThemeOverlay="@style/Signal.ThemeOverlay.TextInputLayout">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/pinEntry4"
+                        style="@style/Widget.MaterialComponents.TextInputEditText.FilledBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:background="@drawable/edittext_border"
+                        android:gravity="center"
+                        android:importantForAccessibility="yes"
+                        android:inputType="numberPassword"
+                        android:padding="0dp"
+                        android:textColor="@color/text1"
+
+                        android:textSize="18sp"
+                        app:boxStrokeWidthFocused="0dp"
+                        android:defaultFocusHighlightEnabled="false"
+                        android:textAppearance="@style/Signal.Text.BodyLarge"
+                        app:boxCornerRadiusBottomEnd="5dp"
+                        app:boxCornerRadiusBottomStart="5dp"
+                        app:boxCornerRadiusTopEnd="5dp"
+                        app:boxCornerRadiusTopStart="5dp"
+                        tools:text="3" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/kbs_lock_pin_input5"
+                    style="@style/Widget.Signal.TextInputLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="4dp"
+                    app:boxStrokeWidth="0dp"
+                    app:errorEnabled="false"
+                    app:hintEnabled="false"
+                    app:layout_constraintDimensionRatio="6:7"
+                    app:layout_constraintEnd_toStartOf="@+id/kbs_lock_pin_input6"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/kbs_lock_pin_input4"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:boxStrokeWidthFocused="0dp"
+                    android:defaultFocusHighlightEnabled="false"
+                    app:materialThemeOverlay="@style/Signal.ThemeOverlay.TextInputLayout">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/pinEntry5"
+                        style="@style/Widget.MaterialComponents.TextInputEditText.FilledBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:background="@drawable/edittext_border"
+                        android:gravity="center"
+                        android:importantForAccessibility="yes"
+                        android:inputType="numberPassword"
+                        android:padding="0dp"
+                        android:textSize="18sp"
+                        android:textColor="@color/text1"
+
+                        android:textAppearance="@style/Signal.Text.BodyLarge"
+                        app:boxCornerRadiusBottomEnd="5dp"
+                        app:boxCornerRadiusBottomStart="5dp"
+                        app:boxCornerRadiusTopEnd="5dp"
+                        app:boxCornerRadiusTopStart="5dp"
+                        tools:text="4" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/kbs_lock_pin_input6"
+                    style="@style/Widget.Signal.TextInputLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="4dp"
+                    app:boxStrokeWidth="0dp"
+                    app:errorEnabled="false"
+                    app:hintEnabled="false"
+                    app:boxStrokeWidthFocused="0dp"
+                    android:defaultFocusHighlightEnabled="false"
+                    app:layout_constraintDimensionRatio="6:7"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/kbs_lock_pin_input5"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:materialThemeOverlay="@style/Signal.ThemeOverlay.TextInputLayout">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/pinEntry6"
+                        style="@style/Widget.MaterialComponents.TextInputEditText.FilledBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:background="@drawable/edittext_border"
+                        android:gravity="center"
+                        android:importantForAccessibility="yes"
+                        android:inputType="numberPassword"
+                        android:padding="0dp"
+                        android:textSize="18sp"
+                        android:textColor="@color/text1"
+
+                        android:textAppearance="@style/Signal.Text.BodyLarge"
+                        app:boxCornerRadiusBottomEnd="5dp"
+                        app:boxCornerRadiusBottomStart="5dp"
+                        app:boxCornerRadiusTopEnd="5dp"
+                        app:boxCornerRadiusTopStart="5dp"
+                        tools:text="5" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <TextView
+                android:id="@+id/kbs_lock_pin_input_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center_horizontal"
+                android:textAppearance="@style/Signal.Text.BodyMedium"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/kbs_lock_pin_input"
+                tools:text="@string/RegistrationLockFragment__incorrect_pin_try_again" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/kbs_lock_forgot_pin"
+                style="@style/Signal.Widget.Button.Large.Secondary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="28dp"
+                android:layout_marginEnd="32dp"
+                android:text="@string/RegistrationLockFragment__forgot_pin"
+                android:textColor="@color/text1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/kbs_lock_pin_input_label" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/kbs_lock_keyboard_toggle"
+                style="@style/Signal.Widget.Button.Large.Secondary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/RegistrationLockFragment__switch_keyboard"
+                android:textColor="@color/text1"
+                android:visibility="gone"
+                app:icon="@drawable/ic_keyboard_24"
+                app:iconGravity="textStart"
+                app:iconPadding="8dp"
+                app:layout_constraintBottom_toTopOf="@id/kbs_lock_pin_confirm"
+                app:layout_constraintTop_toBottomOf="@id/kbs_lock_forgot_pin"
+                app:layout_constraintVertical_bias="0.0"
+                tools:layout_editor_absoluteX="32dp" />
+
+            <org.thoughtcrime.securesms.util.views.CircularProgressMaterialButton
+                android:id="@+id/kbs_lock_pin_confirm"
+                style="@style/Signal.Widget.Button.Large.Tonal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="85dp"
+                android:layout_marginRight="85dp"
+                android:layout_marginBottom="10dp"
+                android:textColor="@color/white"
+                app:circularProgressMaterialButton__label="@string/RegistrationActivity_continue"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.431"
+                app:layout_constraintStart_toStartOf="parent"
+                app:materialThemeOverlay="@style/ThemeOverlay.Signal.CircularProgressIndicator.Tonal" />
+
+            <TextView
+                android:id="@+id/reset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="32dp"
+                android:text="@string/reset"
+                android:textAllCaps="false"
+                android:textColor="@color/text1"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/kbs_lock_forgot_pin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/kbs_lock_pin_input_label"
+                app:layout_constraintVertical_bias="0.4" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </ScrollView>

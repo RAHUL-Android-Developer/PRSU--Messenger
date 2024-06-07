@@ -61,4 +61,20 @@
 
     <color name="safety_number_card_grey">#ffEBEAE8</color>
     <color name="safety_number_card_blue">#ff506ECD</color>
+
+
+
+
+
+    //new
+    <color name="text1">#0b245b</color>
+    <color name="text4">#020B1E</color>
+    <color name="text2">#e4edff</color>
+    <color name="text3">#4f628b</color>
+    <color name="text5">#c8dafd</color>
+    <color name="text6">#e4edff</color>
+    <color name="text8">#CDDAF8</color>
+    <color name="Green">#60de86</color>
+
+
 </resources>

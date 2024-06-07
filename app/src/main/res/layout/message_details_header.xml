@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/group_media_card"
     android:layout_width="match_parent"
+    android:background="@color/text6"
     android:layout_height="wrap_content">
 
     <LinearLayout
@@ -68,9 +69,11 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:text="@string/message_recipients_list_item__resend"
+                android:backgroundTint="@color/text1"
                 android:visibility="gone"
+                android:textColor="@color/white"
                 app:icon="@drawable/symbol_refresh_24"
-                app:iconTint="@color/signal_colorOnPrimaryContainer"
+                app:iconTint="@color/text6"
                 tools:visibility="visible" />
 
         </LinearLayout>

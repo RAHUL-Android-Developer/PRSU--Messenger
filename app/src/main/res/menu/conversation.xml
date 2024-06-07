@@ -4,7 +4,8 @@
 
     <item
         android:id="@+id/menu_view_media"
-        android:title="@string/conversation__menu_view_all_media" />
+        android:title="@string/conversation__menu_view_all_media"
+        />
 
     <item
         android:id="@+id/menu_conversation_settings"

@@ -17,6 +17,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -36,6 +37,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -107,6 +109,10 @@ fun IconSelectionScreen(activeIcon: AppIconPreset, onItemConfirmed: (AppIconPres
   var pendingIcon: AppIconPreset by remember {
     mutableStateOf(activeIcon)
   }
+  val backgroundImage = painterResource(id = R.drawable.bgimg)
+
+
+
 
   if (showDialog) {
     ChangeIconDialog(
@@ -122,28 +128,39 @@ fun IconSelectionScreen(activeIcon: AppIconPreset, onItemConfirmed: (AppIconPres
     )
   }
 
-  Column(modifier = modifier.verticalScroll(rememberScrollState())) {
-    Spacer(modifier = Modifier.size(12.dp))
-    CaveatWarning(
-      onClick = onWarningClick,
-      modifier = Modifier.padding(horizontal = 24.dp)
+  Box(modifier = Modifier.fillMaxSize()) {
+    Image(
+      painter = backgroundImage,
+      contentDescription = null,
+      modifier = Modifier.fillMaxSize()
     )
-    Spacer(modifier = Modifier.size(12.dp))
+
     Column(
-      modifier = Modifier
-        .fillMaxWidth()
-        .padding(horizontal = 18.dp),
-      horizontalAlignment = Alignment.CenterHorizontally
+      modifier = modifier.verticalScroll(rememberScrollState())
     ) {
-      enumValues<AppIconPreset>().toList().chunked(COLUMN_COUNT).map { it.toImmutableList() }.forEach { items ->
-        IconRow(
-          presets = items,
-          isSelected = { it == pendingIcon },
-          onItemClick = {
-            pendingIcon = it
-            showDialog = true
+      Spacer(modifier = Modifier.size(12.dp))
+      CaveatWarning(
+        onClick = onWarningClick,
+        modifier = Modifier.padding(horizontal = 24.dp)
+      )
+      Spacer(modifier = Modifier.size(12.dp))
+      Column(
+        modifier = Modifier
+          .fillMaxWidth()
+          .padding(horizontal = 18.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
+      ) {
+        enumValues<AppIconPreset>().toList().chunked(COLUMN_COUNT)
+          .map { it.toImmutableList() }.forEach { items ->
+            IconRow(
+              presets = items,
+              isSelected = { it == pendingIcon },
+              onItemClick = {
+                pendingIcon = it
+                showDialog = true
+              }
+            )
           }
-        )
       }
     }
   }
@@ -232,7 +249,7 @@ fun IconGridElement(preset: AppIconPreset, isSelected: Boolean, onClickHandler: 
       text = stringResource(id = preset.labelResId),
       textAlign = TextAlign.Center,
       style = MaterialTheme.typography.bodySmall,
-      color = MaterialTheme.colorScheme.onSurfaceVariant
+      color = Color.Black
     )
   }
 }
@@ -286,7 +303,7 @@ fun CaveatWarning(onClick: () -> Unit, modifier: Modifier = Modifier) {
     )
     withStyle(
       style = SpanStyle(
-        color = MaterialTheme.colorScheme.primary
+        color = Color.Black
       )
     ) {
       append(learnMoreString)
@@ -300,7 +317,8 @@ fun CaveatWarning(onClick: () -> Unit, modifier: Modifier = Modifier) {
     text = annotatedText,
     onClick = { onClick() },
     style = MaterialTheme.typography.bodyMedium,
-    modifier = modifier
+    modifier = modifier,
+
   )
 }
 
@@ -317,7 +335,7 @@ private fun MainScreenPreviewLight() {
 @Preview(name = "Dark Theme")
 @Composable
 private fun MainScreenPreviewDark() {
-  SignalTheme(isDarkMode = true) {
+  SignalTheme(isDarkMode = false) {
     Surface {
       IconSelectionScreen(AppIconPreset.DEFAULT, onItemConfirmed = {}, onWarningClick = {})
     }

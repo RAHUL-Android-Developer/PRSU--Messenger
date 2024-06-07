@@ -41,6 +41,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.activity.OnBackPressedCallback;
@@ -211,16 +212,16 @@ public class ConversationListFragment extends MainFragment implements ActionMode
 
   private static final String TAG = Log.tag(ConversationListFragment.class);
 
-  private static final int MAXIMUM_PINNED_CONVERSATIONS = 4;
-  private static final int MAX_CHATS_ABOVE_FOLD = 7;
-  private static final int MAX_CONTACTS_ABOVE_FOLD = 5;
+  private static final int MAXIMUM_PINNED_CONVERSATIONS     = 6;
+  private static final int MAX_CHATS_ABOVE_FOLD             = 7;
+  private static final int MAX_CONTACTS_ABOVE_FOLD          = 5;
   private static final int MAX_GROUP_MEMBERSHIPS_ABOVE_FOLD = 5;
 
-  private ActionMode                             actionMode;
-  private View                                   coordinator;
-  private RecyclerView                           list;
-  private Stub<ReminderView>                     reminderView;
-  private PulsingFloatingActionButton            fab;
+  private ActionMode         actionMode;
+  private View               coordinator;
+  private RecyclerView       list;
+  private Stub<ReminderView> reminderView;
+  private ImageView          fab, inviteFriends_id, creteGroup_new;
   private PulsingFloatingActionButton            cameraFab;
   private ConversationListFilterPullView         pullView;
   private AppBarLayout                           pullViewAppBarLayout;
@@ -289,9 +290,11 @@ public class ConversationListFragment extends MainFragment implements ActionMode
     cameraFab               = view.findViewById(R.id.camera_fab);
     pullView                = view.findViewById(R.id.pull_view);
     pullViewAppBarLayout    = view.findViewById(R.id.recycler_coordinator_app_bar);
+    creteGroup_new          = view.findViewById(R.id.creteGroup_new);
+    inviteFriends_id        = view.findViewById(R.id.inviteFriends_id);
 
     fab.setVisibility(View.VISIBLE);
-    cameraFab.setVisibility(View.VISIBLE);
+    cameraFab.setVisibility(View.GONE);
 
     contactSearchMediator = new ContactSearchMediator(this,
                                                       Collections.emptySet(),
@@ -375,8 +378,8 @@ public class ConversationListFragment extends MainFragment implements ActionMode
       pullView.onUserDrag(progress);
     });
 
-    fab.show();
-    cameraFab.show();
+    fab.setVisibility(View.VISIBLE);
+    cameraFab.hide();
 
     archiveDecoration = new ConversationListArchiveItemDecoration(new ColorDrawable(getResources().getColor(R.color.conversation_list_archive_background_end)));
     itemAnimator      = new ConversationListItemAnimator();
@@ -392,6 +395,9 @@ public class ConversationListFragment extends MainFragment implements ActionMode
                                                     getResources().getColor(R.color.conversation_list_archive_background_end))).attachToRecyclerView(list);
 
     fab.setOnClickListener(v -> startActivity(new Intent(getActivity(), NewConversationActivity.class)));
+    inviteFriends_id.setOnClickListener(v -> handleInvite());
+    creteGroup_new.setOnClickListener(v -> handleCreateGroup());
+
     cameraFab.setOnClickListener(v -> {
       Permissions.with(this)
                  .request(Manifest.permission.CAMERA)
@@ -465,7 +471,7 @@ public class ConversationListFragment extends MainFragment implements ActionMode
     super.onResume();
 
     initializeSearchListener();
-    updateReminders();
+    //updateReminders();
     EventBus.getDefault().register(this);
     itemAnimator.disable();
     SpoilerAnnotation.resetRevealedSpoilers();
@@ -533,7 +539,7 @@ public class ConversationListFragment extends MainFragment implements ActionMode
     super.onPause();
 
     requireCallback().getSearchAction().setOnClickListener(null);
-    fab.stopPulse();
+//    fab.stopPulse();
     cameraFab.stopPulse();
     EventBus.getDefault().unregister(this);
   }
@@ -773,7 +779,7 @@ public class ConversationListFragment extends MainFragment implements ActionMode
   }
 
   private void initializeReminderView() {
-    reminderView.get().setOnDismissListener(this::updateReminders);
+   // reminderView.get().setOnDismissListener(this::updateReminders);
     reminderView.get().setOnActionClickListener(this::onReminderAction);
   }
 
@@ -1021,7 +1027,7 @@ public class ConversationListFragment extends MainFragment implements ActionMode
       if (isSearchOpen() || actionMode != null) {
         megaphoneContainer.get().setVisibility(View.GONE);
       } else {
-        megaphoneContainer.get().setVisibility(View.VISIBLE);
+        megaphoneContainer.get().setVisibility(View.GONE);
       }
     } else {
       megaphoneContainer.get().setVisibility(View.GONE);
@@ -1309,35 +1315,35 @@ public class ConversationListFragment extends MainFragment implements ActionMode
 
   private void fadeOutButtonsAndMegaphone(int fadeDuration) {
     if (fab != null) {
-      ViewUtil.fadeOut(fab, fadeDuration);
+//      ViewUtil.fadeOut(fab, fadeDuration);
     }
     if (cameraFab != null) {
-      ViewUtil.fadeOut(cameraFab, fadeDuration);
+//      ViewUtil.fadeOut(cameraFab, fadeDuration);
     }
     if (megaphoneContainer != null && megaphoneContainer.resolved()) {
-      ViewUtil.fadeOut(megaphoneContainer.get(), fadeDuration);
+//      ViewUtil.fadeOut(megaphoneContainer.get(), fadeDuration);
     }
   }
 
   private void fadeInButtonsAndMegaphone(int fadeDuration) {
     if (fab != null) {
-      ViewUtil.fadeIn(fab, fadeDuration);
+//      ViewUtil.fadeIn(fab, fadeDuration);
     }
     if (cameraFab != null) {
-      ViewUtil.fadeIn(cameraFab, fadeDuration);
+//      ViewUtil.fadeIn(cameraFab, fadeDuration);
     }
     if (megaphoneContainer != null && megaphoneContainer.resolved()) {
-      ViewUtil.fadeIn(megaphoneContainer.get(), fadeDuration);
+//      ViewUtil.fadeIn(megaphoneContainer.get(), fadeDuration);
     }
   }
 
   private void startActionMode() {
     actionMode = ((AppCompatActivity) getActivity()).startSupportActionMode(ConversationListFragment.this);
     ViewUtil.animateIn(bottomActionBar, bottomActionBar.getEnterAnimation());
-    ViewUtil.fadeOut(fab, 250);
-    ViewUtil.fadeOut(cameraFab, 250);
+//    ViewUtil.fadeOut(fab, 250);
+//    ViewUtil.fadeOut(cameraFab, 250);
     if (megaphoneContainer.resolved()) {
-      ViewUtil.fadeOut(megaphoneContainer.get(), 250);
+//      ViewUtil.fadeOut(megaphoneContainer.get(), 250);
     }
     requireCallback().onMultiSelectStarted();
   }
@@ -1352,10 +1358,10 @@ public class ConversationListFragment extends MainFragment implements ActionMode
     actionMode.finish();
     actionMode = null;
     ViewUtil.animateOut(bottomActionBar, bottomActionBar.getExitAnimation());
-    ViewUtil.fadeIn(fab, 250);
-    ViewUtil.fadeIn(cameraFab, 250);
+//    ViewUtil.fadeIn(fab, 250);
+//    ViewUtil.fadeIn(cameraFab, 250);
     if (megaphoneContainer.resolved()) {
-      ViewUtil.fadeIn(megaphoneContainer.get(), 250);
+//      ViewUtil.fadeIn(megaphoneContainer.get(), 250);
     }
     requireCallback().onMultiSelectFinished();
   }
@@ -1363,14 +1369,14 @@ public class ConversationListFragment extends MainFragment implements ActionMode
   void updateEmptyState(boolean isConversationEmpty) {
     if (isConversationEmpty) {
       Log.i(TAG, "Received an empty data set.");
-      fab.startPulse(3 * 1000);
-      cameraFab.startPulse(3 * 1000);
+//      fab.startPulse(3 * 1000);
+//      cameraFab.startPulse(3 * 1000);
 
       SignalStore.onboarding().setShowNewGroup(true);
       SignalStore.onboarding().setShowInviteFriends(true);
     } else {
-      fab.stopPulse();
-      cameraFab.stopPulse();
+//      fab.stopPulse();
+//      cameraFab.stopPulse();
     }
   }
 
@@ -1483,8 +1489,8 @@ public class ConversationListFragment extends MainFragment implements ActionMode
   public void onDestroyActionMode(ActionMode mode) {
     viewModel.endSelection();
 
-    TypedArray color = getActivity().getTheme().obtainStyledAttributes(new int[] { android.R.attr.statusBarColor });
-    WindowUtil.setStatusBarColor(getActivity().getWindow(), color.getColor(0, Color.BLACK));
+    TypedArray color = getActivity().getTheme().obtainStyledAttributes(new int[] { R.color.text1 });
+    WindowUtil.setStatusBarColor(getActivity().getWindow(), color.getColor(0, Color.WHITE));
     color.recycle();
 
     if (Build.VERSION.SDK_INT >= 23) {
@@ -1503,7 +1509,7 @@ public class ConversationListFragment extends MainFragment implements ActionMode
 
   @Subscribe(threadMode = ThreadMode.MAIN)
   public void onEvent(ReminderUpdateEvent event) {
-    updateReminders();
+   // updateReminders();
   }
 
   @Subscribe(threadMode = ThreadMode.MAIN, sticky = true)

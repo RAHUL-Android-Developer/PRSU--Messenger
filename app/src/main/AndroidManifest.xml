@@ -932,7 +932,7 @@
             <data android:scheme="mms" />
             <data android:scheme="mmsto" />
         </intent-filter>
-        <intent-filter>
+        <intent-filter android:scheme="http">
             <action android:name="android.intent.action.VIEW" />
             <category android:name="android.intent.category.DEFAULT" />
             <data android:mimeType="vnd.android.cursor.item/vnd.org.thoughtcrime.securesms.contact" />
@@ -947,7 +947,7 @@
               android:launchMode="singleTask"
               android:configChanges="touchscreen|keyboard|keyboardHidden|orientation|screenLayout|screenSize">
 
-        <intent-filter>
+        <intent-filter android:scheme="http">
             <action android:name="android.intent.action.VIEW" />
             <category android:name="android.intent.category.DEFAULT" />
             <data android:mimeType="vnd.android.cursor.item/vnd.org.thoughtcrime.securesms.call" />

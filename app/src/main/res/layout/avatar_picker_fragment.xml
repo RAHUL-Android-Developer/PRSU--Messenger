@@ -4,6 +4,7 @@
     tools:viewBindingIgnore="true"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/bgimg"
     android:layout_height="match_parent">
 
     <ScrollView
@@ -134,6 +135,7 @@
         android:layout_height="wrap_content"
         android:minHeight="?actionBarSize"
         app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/rounded_dialog"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:navigationIcon="@drawable/ic_x_tinted" />
@@ -146,6 +148,8 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:text="@string/AvatarPickerFragment__save"
+        android:backgroundTint="@color/text1"
+        android:textColor="@color/white"
         app:cornerRadius="28dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

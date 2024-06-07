@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <style name="TextSecure.LightTheme" parent="TextSecure.BaseLightTheme">
-        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightStatusBar">false</item>
         <item name="android:statusBarColor">@color/signal_colorBackground</item>
     </style>
 
     <style name="TextSecure.DarkTheme" parent="TextSecure.BaseDarkTheme">
-        <item name="android:navigationBarColor">@color/signal_colorBackground</item>
+        <item name="android:navigationBarColor">@color/text2</item>
         <item name="android:statusBarColor">@color/signal_colorBackground</item>
         <item name="android:windowLightStatusBar">false</item>
     </style>
 
     <style name="TextSecure.LightRegistrationTheme" parent="TextSecure.LightNoActionBar">
-        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightStatusBar">false</item>
         <item name="android:statusBarColor">@color/signal_colorBackground</item>
         <item name="android:navigationBarColor">@color/core_black</item>
     </style>
@@ -25,20 +25,31 @@
 
     <style name="TextSecure.LightNoActionBar" parent="TextSecure.BaseLightNoActionBar">
         <item name="android:statusBarColor">@color/signal_colorBackground</item>
-        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightStatusBar">false</item>
     </style>
 
     <style name="TextSecure.DarkNoActionBar" parent="TextSecure.BaseDarkNoActionBar">
         <item name="android:statusBarColor">@color/signal_colorBackground</item>
         <item name="android:windowLightStatusBar">false</item>
-        <item name="android:navigationBarColor">@color/signal_colorBackground</item>
+        <item name="android:navigationBarColor">@color/conversation_ultramarine</item>
     </style>
 
     <style name="Theme.Signal.BottomSheetDialog.Fixed">
         <item name="android:windowIsFloating">false</item>
-        <item name="android:navigationBarColor">@color/signal_colorBackground</item>
-        <item name="android:statusBarColor">@color/transparent</item>
+        <item name="android:statusBarColor">@color/signal_colorBackground</item>
         <item name="android:windowLightStatusBar">false</item>
+    </style>
+
+    <style name="Signal.Transparent" parent="Theme.AppCompat">
+        <item name="android:forceDarkAllowed" tools:targetApi="29">false</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="contactCheckboxBackground">@drawable/contact_selection_checkbox</item>
     </style>
 
 </resources>

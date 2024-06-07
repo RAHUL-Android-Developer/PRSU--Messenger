@@ -7,6 +7,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement.Center
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -101,46 +102,55 @@ class ExportAccountDataFragment : ComposeFragment() {
           .padding(contentPadding)
           .wrapContentSize()
       ) {
-        LazyColumn(horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier.fillMaxWidth()) {
-          item {
-            Image(
-              painter = painterResource(id = R.drawable.export_account_data),
-              contentDescription = stringResource(R.string.ExportAccountDataFragment__your_account_data),
-              modifier = Modifier.padding(top = 47.dp)
-            )
-          }
+        Box(modifier = Modifier.fillMaxSize()) {
+          // Background image
+          Image(
+            painter = painterResource(id = R.drawable.bgimg), // Replace with your background image
+            contentDescription = null,
+            modifier = Modifier.fillMaxSize()
+          )
 
-          item {
-            Text(
-              text = stringResource(id = R.string.ExportAccountDataFragment__your_account_data),
-              style = MaterialTheme.typography.headlineMedium,
-              modifier = Modifier.padding(top = 16.dp)
-            )
-          }
+          LazyColumn(horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier.fillMaxWidth()) {
+            item {
+              Image(
+                painter = painterResource(id = R.drawable.export_account_data),
+                contentDescription = stringResource(R.string.ExportAccountDataFragment__your_account_data),
+                modifier = Modifier.padding(top = 47.dp)
+              )
+            }
 
-          item {
-            val learnMore = stringResource(R.string.ExportAccountDataFragment__learn_more)
-            val explanation = stringResource(R.string.ExportAccountDataFragment__export_explanation, learnMore)
-            Texts.LinkifiedText(
-              textWithUrlSpans = SpanUtil.urlSubsequence(explanation, learnMore, stringResource(R.string.export_account_data_url)),
-              onUrlClick = { url ->
-                CommunicationActions.openBrowserLink(requireContext(), url)
-              },
-              modifier = Modifier.padding(top = 12.dp, start = 32.dp, end = 32.dp, bottom = 20.dp),
-              style = LocalTextStyle.current.copy(color = MaterialTheme.colorScheme.onSurface, textAlign = TextAlign.Center)
-            )
-          }
+            item {
+              Text(
+                text = stringResource(id = R.string.ExportAccountDataFragment__your_account_data),
+                style = MaterialTheme.typography.headlineMedium,
+                modifier = Modifier.padding(top = 16.dp)
+              )
+            }
 
-          item {
-            ExportReportOptions(exportAsJson = state.exportAsJson)
+            item {
+              val learnMore = stringResource(R.string.ExportAccountDataFragment__learn_more)
+              val explanation = stringResource(R.string.ExportAccountDataFragment__export_explanation, learnMore)
+              Texts.LinkifiedText(
+                textWithUrlSpans = SpanUtil.urlSubsequence(explanation, learnMore, stringResource(R.string.export_account_data_url)),
+                onUrlClick = { url ->
+                  CommunicationActions.openBrowserLink(requireContext(), url)
+                },
+                modifier = Modifier.padding(top = 12.dp, start = 32.dp, end = 32.dp, bottom = 20.dp),
+                style = LocalTextStyle.current.copy(color = MaterialTheme.colorScheme.onSurface, textAlign = TextAlign.Center)
+              )
+            }
+
+            item {
+              ExportReportOptions(exportAsJson = state.exportAsJson)
+            }
           }
-        }
-        if (state.downloadInProgress) {
-          DownloadProgressDialog()
-        } else if (state.showDownloadFailedDialog) {
-          DownloadFailedDialog()
-        } else if (state.showExportDialog) {
-          ExportReportConfirmationDialog()
+          if (state.downloadInProgress) {
+            DownloadProgressDialog()
+          } else if (state.showDownloadFailedDialog) {
+            DownloadFailedDialog()
+          } else if (state.showExportDialog) {
+            ExportReportConfirmationDialog()
+          }
         }
       }
     }
@@ -168,6 +178,7 @@ class ExportAccountDataFragment : ComposeFragment() {
         }
       }
     }
+
   }
 
   @Composable

@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bgimg"
     android:fillViewport="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -42,6 +43,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/ChangeNumberPinDiffersFragment__keep_old_pin"
+            android:textSize="18sp"
+            android:textColor="@color/text1"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/opensansbold"
             app:layout_constraintBottom_toTopOf="@id/change_number_pin_differs_update_pin"
             tools:layout_editor_absoluteX="32dp" />
 

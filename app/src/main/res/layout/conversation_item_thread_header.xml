@@ -9,6 +9,7 @@
     android:layout_height="wrap_content"
     android:layout_marginHorizontal="52dp"
     android:paddingTop="22dp"
+    android:background="@color/text6"
     android:paddingBottom="4dp"
     app:layout_constraintTop_toTopOf="parent"
     tools:viewBindingIgnore="true" />

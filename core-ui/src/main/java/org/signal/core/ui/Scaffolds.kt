@@ -37,7 +37,7 @@ object Scaffolds {
     modifier: Modifier = Modifier,
     navigationContentDescription: String? = null,
     titleContent: @Composable (Float, String) -> Unit = { _, title ->
-      Text(text = title, style = MaterialTheme.typography.titleLarge)
+      Text(text = title, style = MaterialTheme.typography.titleLarge,color = Color.Black)
     },
     snackbarHost: @Composable () -> Unit = {},
     content: @Composable (PaddingValues) -> Unit
@@ -81,14 +81,13 @@ object Scaffolds {
         ) {
           Icon(
             painter = navigationIconPainter,
-            contentDescription = navigationContentDescription
+            contentDescription = navigationContentDescription,
+              tint = Color.Black,
           )
         }
       },
-      scrollBehavior = scrollBehavior,
-      colors = TopAppBarDefaults.topAppBarColors(
-        scrolledContainerColor = SignalTheme.colors.colorSurface2
-      )
+      colors = TopAppBarDefaults.smallTopAppBarColors(containerColor = Color.White)
+
     )
   }
 }

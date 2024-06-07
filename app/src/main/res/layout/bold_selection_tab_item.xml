@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:viewBindingIgnore="true"
     android:layout_width="wrap_content"
+    android:background="@color/text6"
     android:layout_height="wrap_content">
 
     <TextView

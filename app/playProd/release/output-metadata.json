@@ -1,0 +1,72 @@
+{
+  "version": 3,
+  "artifactType": {
+    "type": "APK",
+    "kind": "Directory"
+  },
+  "applicationId": "org.thing.PrsuCollage",
+  "variantName": "playProdRelease",
+  "elements": [
+    {
+      "type": "UNIVERSAL",
+      "filters": [],
+      "attributes": [],
+      "versionCode": 139900,
+      "versionName": "7.1.2",
+      "outputFile": "Signal-Android-play-prod-universal-release-7.1.2.apk"
+    },
+    {
+      "type": "ONE_OF_MANY",
+      "filters": [
+        {
+          "filterType": "ABI",
+          "value": "x86_64"
+        }
+      ],
+      "attributes": [],
+      "versionCode": 139904,
+      "versionName": "7.1.2",
+      "outputFile": "Signal-Android-play-prod-x86_64-release-7.1.2.apk"
+    },
+    {
+      "type": "ONE_OF_MANY",
+      "filters": [
+        {
+          "filterType": "ABI",
+          "value": "x86"
+        }
+      ],
+      "attributes": [],
+      "versionCode": 139903,
+      "versionName": "7.1.2",
+      "outputFile": "Signal-Android-play-prod-x86-release-7.1.2.apk"
+    },
+    {
+      "type": "ONE_OF_MANY",
+      "filters": [
+        {
+          "filterType": "ABI",
+          "value": "armeabi-v7a"
+        }
+      ],
+      "attributes": [],
+      "versionCode": 139901,
+      "versionName": "7.1.2",
+      "outputFile": "Signal-Android-play-prod-armeabi-v7a-release-7.1.2.apk"
+    },
+    {
+      "type": "ONE_OF_MANY",
+      "filters": [
+        {
+          "filterType": "ABI",
+          "value": "arm64-v8a"
+        }
+      ],
+      "attributes": [],
+      "versionCode": 139902,
+      "versionName": "7.1.2",
+      "outputFile": "Signal-Android-play-prod-arm64-v8a-release-7.1.2.apk"
+    }
+  ],
+  "elementType": "File"
+}

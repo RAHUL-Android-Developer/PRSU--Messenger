@@ -7,7 +7,7 @@
     android:layout_height="wrap_content"
     android:layout_marginStart="@dimen/dsl_settings_gutter"
     android:layout_marginEnd="@dimen/dsl_settings_gutter"
-    android:background="@drawable/notification_entry_pref_background">
+    android:background="@color/text6">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

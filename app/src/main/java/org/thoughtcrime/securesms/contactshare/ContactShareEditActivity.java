@@ -78,7 +78,7 @@ public class ContactShareEditActivity extends PassphraseRequiredActivity impleme
     }
 
     View sendButton = findViewById(R.id.contact_share_edit_send);
-    ViewCompat.setBackgroundTintList(sendButton, ColorStateList.valueOf(getIntent().getIntExtra(KEY_SEND_BUTTON_COLOR, Color.RED)));
+//    ViewCompat.setBackgroundTintList(sendButton, ColorStateList.valueOf(getIntent().getIntExtra(KEY_SEND_BUTTON_COLOR, Color.RED)));
     sendButton.setOnClickListener(v -> onSendClicked(viewModel.getFinalizedContacts()));
 
     RecyclerView contactList = findViewById(R.id.contact_share_edit_list);
@@ -87,8 +87,8 @@ public class ContactShareEditActivity extends PassphraseRequiredActivity impleme
 
     Toolbar toolbar = findViewById(R.id.toolbar);
     toolbar.setNavigationOnClickListener(unused -> onBackPressed());
-    Material3OnScrollHelper onScrollHelper = new Material3OnScrollHelper(this, Collections.singletonList(toolbar), Collections.emptyList(), this);
-    onScrollHelper.attach(contactList);
+//    Material3OnScrollHelper onScrollHelper = new Material3OnScrollHelper(this, Collections.singletonList(toolbar), Collections.emptyList(), this);
+//    onScrollHelper.attach(contactList);
 
     ContactShareEditAdapter contactAdapter = new ContactShareEditAdapter(Glide.with(this), dynamicLanguage.getCurrentLocale(), this);
     contactList.setAdapter(contactAdapter);

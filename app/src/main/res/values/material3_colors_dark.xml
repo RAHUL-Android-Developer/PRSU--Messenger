@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="signal_dark_colorPrimary">#B6C5FA</color>
-    <color name="signal_dark_colorPrimaryContainer">#464B5C</color>
-    <color name="signal_dark_colorSecondary">#C1C6DD</color>
-    <color name="signal_dark_colorSecondaryContainer">#414659</color>
-    <color name="signal_dark_colorSurface">#1B1C1F</color>
-    <color name="signal_dark_colorSurfaceVariant">#303133</color>
-    <color name="signal_dark_colorBackground">#1B1C1F</color>
-    <color name="signal_dark_colorError">#FFB4A9</color>
-    <color name="signal_dark_colorErrorContainer">#930006</color>
-    <color name="signal_dark_colorOnPrimary">#1E2438</color>
-    <color name="signal_dark_colorOnPrimaryContainer">#DBE1FC</color>
-    <color name="signal_dark_colorOnSecondary">#2A3042</color>
-    <color name="signal_dark_colorOnSecondaryContainer">#DCE1F9</color>
-    <color name="signal_dark_colorOnSurface">#E2E1E5</color>
-    <color name="signal_dark_colorOnSurfaceVariant">#BEBFC5</color>
-    <color name="signal_dark_colorOnSurfaceVariant1">#4D5059</color>
-    <color name="signal_dark_colorOnBackground">#E2E1E5</color>
-    <color name="signal_dark_colorOutline">#5C5E65</color>
-    <color name="signal_dark_neutralSurface">#14FFFFFF</color>
+    <color name="signal_dark_colorPrimary">#2C58C3</color>
+    <color name="signal_dark_colorPrimaryContainer">#D2DFFB</color>
+    <color name="signal_dark_colorSecondary">#586071</color>
+    <color name="signal_dark_colorSecondaryContainer">#DCE5F9</color>
+    <color name="signal_dark_colorSurface">#FBFCFF</color>
+    <color name="signal_dark_colorSurfaceVariant">#E7EBF3</color>
+    <color name="signal_dark_colorBackground">#0b245b</color>
+    <color name="signal_dark_colorError">#BA1B1B</color>
+    <color name="signal_dark_colorErrorContainer">#FFDAD4</color>
+    <color name="signal_dark_colorOnPrimary">#FFFFFF</color>
+    <color name="signal_dark_colorOnPrimaryContainer">#051845</color>
+    <color name="signal_dark_colorOnSecondary">#FFFFFF</color>
+    <color name="signal_dark_colorOnSecondaryContainer">#151D2C</color>
+    <color name="signal_dark_colorOnSurface">#1B1B1D</color>
+    <color name="signal_dark_colorOnSurfaceVariant">#545863</color>
+    <color name="signal_dark_colorOnSurfaceVariant1">#BBBFC8</color>
+    <color name="signal_dark_colorOnBackground">#1B1D1D</color>
+    <color name="signal_dark_colorOutline">#808389</color>
+    <color name="signal_dark_neutralSurface">#99FFFFFF</color>
     <color name="signal_dark_colorOnCustom">#FFFFFF</color>
     <color name="signal_dark_colorOnCustomVariant">#B3FFFFFF</color>
 
     <color name="signal_dark_colorSurface1">#23242A</color>
     <color name="signal_dark_colorSurface2">#272A31</color>
     <color name="signal_dark_colorSurface3">#2C2F37</color>
-    <color name="signal_dark_colorSurface4">#2E3039</color>
+    <color name="signal_dark_colorSurface4">#E6EAF3</color>
     <color name="signal_dark_colorSurface5">#31343E</color>
 
     <color name="signal_dark_colorTransparent1">#0AFFFFFF</color>

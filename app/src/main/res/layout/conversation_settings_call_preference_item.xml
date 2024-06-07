@@ -5,6 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:minHeight="72dp"
+    android:background="@color/text6"
+android:visibility="gone"
     android:paddingHorizontal="@dimen/dsl_settings_gutter"
     android:paddingVertical="14dp">
 

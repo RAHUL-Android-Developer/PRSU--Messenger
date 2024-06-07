@@ -21,7 +21,7 @@ import java.util.Locale;
 public final class BlurTransformation extends BitmapTransformation {
 
   private static final int  VERSION = 1;
-  public static final float MAX_RADIUS = 25f;
+  public static final float MAX_RADIUS = 30f;
 
   private final RenderScript rs;
   private final float        bitmapScaleFactor;

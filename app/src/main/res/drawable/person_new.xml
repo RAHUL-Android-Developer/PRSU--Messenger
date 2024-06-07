@@ -1,0 +1,23 @@
+<!--
+  ~ Copyright 2024 Signal Messenger, LLC
+  ~ SPDX-License-Identifier: AGPL-3.0-only
+  -->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="28dp"
+    android:height="28dp"
+    android:viewportWidth="512"
+    android:viewportHeight="512">
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M344,144c-3.92,52.87 -44,96 -88,96s-84.15,-43.12 -88,-96c-4,-55 35,-96 88,-96s92,42 88,96Z"
+        android:strokeWidth="32"
+        android:strokeColor="#0b245b"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M256,304c-87,0 -175.3,48 -191.64,138.6C62.39,453.52 68.57,464 80,464h352c11.44,0 17.62,-10.48 15.65,-21.4C431.3,352 343,304 256,304Z"
+        android:strokeWidth="32"
+        android:strokeColor="#0b245b" />
+</vector>

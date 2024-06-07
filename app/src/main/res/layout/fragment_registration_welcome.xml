@@ -4,70 +4,80 @@
     tools:viewBindingIgnore="true"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+    android:background="@drawable/bgimg"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/image"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_margin="16dp"
-        android:importantForAccessibility="no"
-        android:src="@drawable/welcome"
-        app:layout_constraintBottom_toTopOf="@+id/title"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/title"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/opensans_semibold"
         android:gravity="center"
         android:text="@string/RegistrationActivity_take_privacy_with_you_be_yourself_in_every_message"
-        android:textAppearance="@style/Signal.Text.HeadlineMedium"
-        app:layout_constraintBottom_toTopOf="@+id/welcome_terms_button"
-        app:layout_constraintEnd_toEndOf="@+id/welcome_continue_button"
-        app:layout_constraintStart_toStartOf="@+id/welcome_continue_button" />
+        android:textAlignment="center"
+        android:textAppearance="@style/Signal.Text.Body"
+        android:textColor="@color/text3"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/welcom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginBottom="12dp"
+        android:fontFamily="@font/opensansbold"
+        android:text="@string/welcome"
+        android:textColor="@color/text1"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/title"
+        app:layout_constraintEnd_toEndOf="@+id/title"
+        app:layout_constraintStart_toStartOf="@+id/title" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/welcome_terms_button"
         style="@style/Signal.Widget.Button.Large.Secondary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/opensans_semibold"
+        android:textStyle="italic"
         android:gravity="center"
         android:text="@string/RegistrationActivity_terms_and_privacy"
-        android:textColor="@color/signal_colorOnSurfaceVariant"
-        app:layout_constraintBottom_toTopOf="@+id/welcome_continue_button"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="@+id/welcome_continue_button"
-        app:layout_constraintStart_toStartOf="@+id/welcome_continue_button" />
+        app:layout_constraintStart_toStartOf="@+id/welcome_continue_button"
+        app:layout_constraintTop_toBottomOf="@+id/welcome_continue_button" />
 
     <org.thoughtcrime.securesms.util.views.CircularProgressMaterialButton
         android:id="@+id/welcome_continue_button"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="17dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="65dp"
+        android:layout_marginEnd="65dp"
+        android:layout_marginBottom="188dp"
         app:circularProgressMaterialButton__label="@string/RegistrationActivity_continue"
-        app:layout_constraintBottom_toTopOf="@id/welcome_transfer_or_restore"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_goneMarginBottom="@dimen/registration_button_bottom_margin"
-        app:materialThemeOverlay="@style/ThemeOverlay.Signal.CircularProgressIndicator.Tonal" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/welcome_transfer_or_restore"
-        style="@style/Signal.Widget.Button.Large.Secondary"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="24dp"
-        android:text="@string/registration_activity__transfer_or_restore_account"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/welcome_continue_button"
-        app:layout_constraintStart_toStartOf="@+id/welcome_continue_button" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_goneMarginBottom="@dimen/registration_button_bottom_margin" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="364dp"
+        android:layout_height="319dp"
+        android:layout_marginBottom="44dp"
+        app:layout_constraintBottom_toTopOf="@+id/welcome_continue_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/welcomeimage" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

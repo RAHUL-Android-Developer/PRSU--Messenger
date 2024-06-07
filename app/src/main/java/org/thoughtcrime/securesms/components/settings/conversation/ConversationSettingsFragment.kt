@@ -473,8 +473,11 @@ class ConversationSettingsFragment : DSLSettingsFragment(
       val summary = DSLSettingsText.from(formatDisappearingMessagesLifespan(state.disappearingMessagesLifespan))
       val icon = if (state.disappearingMessagesLifespan <= 0 || state.recipient.isBlocked) {
         R.drawable.ic_update_timer_disabled_16
+
       } else {
         R.drawable.ic_update_timer_16
+
+
       }
 
       var enabled = !state.recipient.isBlocked
@@ -486,7 +489,7 @@ class ConversationSettingsFragment : DSLSettingsFragment(
         clickPref(
           title = DSLSettingsText.from(R.string.ConversationSettingsFragment__disappearing_messages),
           summary = summary,
-          icon = DSLSettingsIcon.from(icon),
+          icon = DSLSettingsIcon.from(icon,R.color.text1),
           isEnabled = enabled && !state.isDeprecatedOrUnregistered,
           onClick = {
             val action = ConversationSettingsFragmentDirections.actionConversationSettingsFragmentToAppSettingsExpireTimer()
@@ -502,7 +505,7 @@ class ConversationSettingsFragment : DSLSettingsFragment(
       if (!state.recipient.isReleaseNotes) {
         clickPref(
           title = DSLSettingsText.from(R.string.preferences__chat_color_and_wallpaper),
-          icon = DSLSettingsIcon.from(R.drawable.ic_color_24),
+          icon = DSLSettingsIcon.from(R.drawable.ic_color_24,R.color.text1),
           onClick = {
             startActivity(ChatWallpaperActivity.createIntent(requireContext(), state.recipient.id))
           }
@@ -512,7 +515,7 @@ class ConversationSettingsFragment : DSLSettingsFragment(
       if (!state.recipient.isSelf) {
         clickPref(
           title = DSLSettingsText.from(R.string.ConversationSettingsFragment__sounds_and_notifications),
-          icon = DSLSettingsIcon.from(R.drawable.ic_speaker_24),
+          icon = DSLSettingsIcon.from(R.drawable.ic_speaker_24,R.color.text1),
           isEnabled = !state.isDeprecatedOrUnregistered,
           onClick = {
             val action = ConversationSettingsFragmentDirections.actionConversationSettingsFragmentToSoundsAndNotificationsSettingsFragment(state.recipient.id)
@@ -528,7 +531,7 @@ class ConversationSettingsFragment : DSLSettingsFragment(
             @Suppress("DEPRECATION")
             clickPref(
               title = DSLSettingsText.from(R.string.ConversationSettingsFragment__contact_details),
-              icon = DSLSettingsIcon.from(R.drawable.ic_profile_circle_24),
+              icon = DSLSettingsIcon.from(R.drawable.ic_profile_circle_24,R.color.text1),
               onClick = {
                 startActivityForResult(Intent(Intent.ACTION_VIEW, state.recipient.contactUri), REQUEST_CODE_VIEW_CONTACT)
               }
@@ -539,7 +542,7 @@ class ConversationSettingsFragment : DSLSettingsFragment(
             @Suppress("DEPRECATION")
             clickPref(
               title = DSLSettingsText.from(R.string.ConversationSettingsFragment__add_as_a_contact),
-              icon = DSLSettingsIcon.from(R.drawable.ic_plus_24),
+              icon = DSLSettingsIcon.from(R.drawable.ic_plus_24,        R.color.text1),
               onClick = {
                 try {
                   startActivityForResult(RecipientExporter.export(state.recipient).asAddContactIntent(), REQUEST_CODE_ADD_CONTACT)
@@ -557,7 +560,7 @@ class ConversationSettingsFragment : DSLSettingsFragment(
         if (!state.recipient.isReleaseNotes && !state.recipient.isSelf) {
           clickPref(
             title = DSLSettingsText.from(R.string.ConversationSettingsFragment__view_safety_number),
-            icon = DSLSettingsIcon.from(R.drawable.ic_safety_number_24),
+            icon = DSLSettingsIcon.from(R.drawable.ic_safety_number_24,        R.color.text1),
             isEnabled = !state.isDeprecatedOrUnregistered,
             onClick = {
               VerifyIdentityActivity.startOrShowExchangeMessagesDialog(requireActivity(), recipientState.identityRecord)
@@ -719,7 +722,7 @@ class ConversationSettingsFragment : DSLSettingsFragment(
           clickPref(
             title = DSLSettingsText.from(R.string.ConversationSettingsFragment__group_link),
             summary = DSLSettingsText.from(if (groupState.groupLinkEnabled) R.string.preferences_on else R.string.preferences_off),
-            icon = DSLSettingsIcon.from(R.drawable.ic_link_16),
+            icon = DSLSettingsIcon.from(R.drawable.ic_link_16,        R.color.text1),
             isEnabled = !state.isDeprecatedOrUnregistered,
             onClick = {
               navController.safeNavigate(ConversationSettingsFragmentDirections.actionConversationSettingsFragmentToShareableGroupLinkFragment(groupState.groupId.requireV2().toString()))
@@ -728,7 +731,7 @@ class ConversationSettingsFragment : DSLSettingsFragment(
 
           clickPref(
             title = DSLSettingsText.from(R.string.ConversationSettingsFragment__requests_and_invites),
-            icon = DSLSettingsIcon.from(R.drawable.ic_update_group_add_16),
+            icon = DSLSettingsIcon.from(R.drawable.ic_update_group_add_16,        R.color.text1),
             isEnabled = !state.isDeprecatedOrUnregistered,
             onClick = {
               startActivity(ManagePendingAndRequestingMembersActivity.newIntent(requireContext(), groupState.groupId.requireV2()))
@@ -738,7 +741,7 @@ class ConversationSettingsFragment : DSLSettingsFragment(
           if (groupState.isSelfAdmin) {
             clickPref(
               title = DSLSettingsText.from(R.string.ConversationSettingsFragment__permissions),
-              icon = DSLSettingsIcon.from(R.drawable.ic_lock_24),
+              icon = DSLSettingsIcon.from(R.drawable.ic_lock_24,        R.color.text1),
               isEnabled = !state.isDeprecatedOrUnregistered,
               onClick = {
                 val action = ConversationSettingsFragmentDirections.actionConversationSettingsFragmentToPermissionsSettingsFragment(ParcelableGroupId.from(groupState.groupId))

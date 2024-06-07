@@ -147,7 +147,7 @@ public class ApplicationMigrations {
     static final int EMOJI_VERSION_10              = 103;
   }
 
-  public static final int CURRENT_VERSION = 103;
+  public static final int CURRENT_VERSION = 1;
 
   /**
    * This *must* be called after the {@link JobManager} has been instantiated, but *before* the call

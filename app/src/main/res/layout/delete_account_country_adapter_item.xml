@@ -6,6 +6,6 @@
     style="?attr/spinnerDropDownItemStyle"
     android:layout_width="match_parent"
     android:layout_height="?attr/listPreferredItemHeight"
-    android:background="?selectableItemBackground"
+    android:background="@color/text6"
     android:ellipsize="marquee"
     android:singleLine="true" />

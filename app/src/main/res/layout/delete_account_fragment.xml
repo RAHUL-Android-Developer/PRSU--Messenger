@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bgimg"
     android:fillViewport="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -13,11 +14,13 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/delete_account_fragment_warning"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_marginTop="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            android:fontFamily="@font/opensansbold"
+
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_warning_40"
             app:tint="@color/signal_alert_primary" />
@@ -29,6 +32,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
+            android:fontFamily="@font/opensansbold"
             android:text="@string/DeleteAccountFragment__deleting_your_account_will"
             android:textAppearance="@style/Signal.Text.Body"
             app:layout_constraintEnd_toEndOf="parent"
@@ -43,6 +47,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
+            android:fontFamily="@font/opensans_semibold"
             android:textAppearance="@style/TextAppearance.Signal.Body2"
             app:layout_constraintTop_toBottomOf="@id/delete_account_fragment_notice"
             tools:text="Some\nbullets\nhere" />
@@ -52,6 +57,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
+            android:fontFamily="@font/opensansbold"
+            android:textSize="20sp"
             android:text="@string/DeleteAccountFragment__enter_your_phone_number"
             android:textAppearance="@style/TextAppearance.Signal.Body1.Bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -76,6 +83,7 @@
                 android:id="@+id/delete_account_fragment_country_spinner"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/edittext_border"
                 android:padding="16dp"
                 android:textAlignment="viewStart" />
 
@@ -101,7 +109,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="12dp"
                 android:layout_weight="1"
-                app:labeledEditText_background="@color/white"
+                android:textColor="@color/text1"
+                app:labeledEditText_background="@color/signal_background_primary"
                 app:labeledEditText_textLayout="@layout/delete_account_country_code_text" />
 
             <org.thoughtcrime.securesms.components.LabeledEditText
@@ -109,8 +118,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
-                app:labeledEditText_background="?android:windowBackground"
                 app:labeledEditText_label="@string/RegistrationActivity_phone_number_description"
+                android:layout_gravity="end|bottom"
                 app:labeledEditText_textLayout="@layout/phone_text" />
         </LinearLayout>
 
@@ -120,12 +129,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
-            android:layout_marginTop="16dp"
             android:layout_marginEnd="32dp"
             android:text="@string/DeleteAccountFragment__delete_account"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/delete_account_fragment_linearLayout" />
+            app:layout_constraintTop_toBottomOf="@+id/delete_account_fragment_linearLayout" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

@@ -4,9 +4,10 @@
     tools:viewBindingIgnore="true"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/signal_background_primary"
+    android:background="@color/text6"
     android:minHeight="48dp"
     android:paddingTop="16dp"
+
     android:paddingBottom="12dp">
 
     <TextView

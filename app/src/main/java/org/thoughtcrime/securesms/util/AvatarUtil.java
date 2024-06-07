@@ -21,6 +21,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.resource.bitmap.BitmapTransformation;
 import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.bumptech.glide.load.resource.bitmap.CircleCrop;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.target.CustomTarget;
 import com.bumptech.glide.request.target.CustomViewTarget;
 import com.bumptech.glide.request.transition.Transition;
@@ -94,7 +95,7 @@ public final class AvatarUtil {
   public static void loadIconIntoImageView(@NonNull Recipient recipient, @NonNull ImageView target, int requestedSize) {
     Context context = target.getContext();
 
-    requestCircle(Glide.with(context).asDrawable(), context, recipient, requestedSize).into(target);
+    requestSquare(Glide.with(context).asDrawable(), context, recipient).into(target);
   }
 
   public static Bitmap loadIconBitmapSquareNoCache(@NonNull Context context,
@@ -142,11 +143,11 @@ public final class AvatarUtil {
   }
 
   private static <T> RequestBuilder<T> requestCircle(@NonNull RequestBuilder<T> requestBuilder, @NonNull Context context, @NonNull Recipient recipient, int targetSize) {
-    return request(requestBuilder, context, recipient, targetSize, new CircleCrop());
+    return request(requestBuilder, context, recipient, targetSize, new CenterCrop());
   }
 
   private static <T> RequestBuilder<T> requestSquare(@NonNull RequestBuilder<T> requestBuilder, @NonNull Context context, @NonNull Recipient recipient) {
-    return request(requestBuilder, context, recipient, UNDEFINED_SIZE, new CenterCrop());
+    return request(requestBuilder, context, recipient, UNDEFINED_SIZE, new RoundedCorners(30));
   }
 
   private static <T> RequestBuilder<T> request(@NonNull RequestBuilder<T> requestBuilder, @NonNull Context context, @NonNull Recipient recipient, int targetSize, @Nullable BitmapTransformation transformation) {

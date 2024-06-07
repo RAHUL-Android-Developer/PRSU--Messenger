@@ -1,0 +1,15 @@
+<!--
+  ~ Copyright 2024 Signal Messenger, LLC
+  ~ SPDX-License-Identifier: AGPL-3.0-only
+  -->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="27dp"
+    android:height="27dp"
+    android:viewportWidth="16"
+    android:viewportHeight="16">
+  <path
+      android:fillColor="@color/text1"
+      android:pathData="M9,7l5,0l0,2l-5,0l0,5l-2,0l0,-5l-5,0l0,-2l5,0l0,-5l2,0z"
+      android:fillType="evenOdd"/>
+</vector>

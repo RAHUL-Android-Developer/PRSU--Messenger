@@ -124,7 +124,7 @@ class ChooseInitialMyStoryMembershipBottomSheetDialogFragment :
         .save()
         .subscribe { recipientId ->
           dismissAllowingStateLoss()
-          findListener<Callback>()?.onMyStoryConfigured(recipientId)
+        //  findListener<Callback>()?.onMyStoryConfigured(recipientId)
         }
     }
   }

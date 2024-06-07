@@ -4,6 +4,7 @@
     tools:viewBindingIgnore="true"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/bgimg"
     android:layout_height="match_parent">
 
     <LinearLayout
@@ -186,10 +187,11 @@
             android:layout_marginBottom="20dp"
             android:background="@drawable/primary_action_button_background_36dp"
             android:paddingStart="16dp"
+
             android:paddingEnd="16dp"
             android:text="@string/BackupsPreferenceFragment__turn_on"
             android:textColor="@color/core_white"
-            app:backgroundTint="?colorAccent" />
+            app:backgroundTint="@color/text1" />
 
         <View
             android:layout_width="match_parent"

@@ -5,13 +5,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/bgimg"
     android:layout_height="match_parent">
 
   <androidx.appcompat.widget.Toolbar
       android:id="@+id/toolbar"
       android:layout_width="match_parent"
-      android:layout_height="?attr/actionBarSize"
+      android:layout_height="110dp"
       android:visibility="visible"
+      android:background="@drawable/rounded_dialog"
+      app:titleMarginBottom="56dp"
+      android:minHeight="85dp"
+      app:titleTextColor="@color/text6"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
@@ -27,7 +32,7 @@
       android:background="?selectableItemBackgroundBorderless"
       android:scaleType="fitCenter"
       app:srcCompat="@drawable/symbol_emoji_plus_24"
-      app:tint="@color/signal_text_secondary"
+      app:tint="@color/text1"
       app:layout_constraintTop_toTopOf="@id/edit_about_body"
       app:layout_constraintBottom_toBottomOf="@id/edit_about_body"
       app:layout_constraintStart_toStartOf="parent"/>
@@ -40,6 +45,8 @@
       android:layout_marginStart="5dp"
       android:layout_marginEnd="8dp"
       style="@style/Signal.Text.Body"
+      android:textColor="@color/text1"
+      android:textColorHint="@color/black"
       android:hint="@string/EditAboutFragment_write_a_few_words_about_yourself"
       android:inputType="textCapSentences"
       android:maxLines="1"

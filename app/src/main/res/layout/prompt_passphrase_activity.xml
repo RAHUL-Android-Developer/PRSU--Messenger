@@ -1,40 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:tools="http://schemas.android.com/tools"
-    tools:viewBindingIgnore="true"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                android:id="@+id/prompt_layout"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:fitsSystemWindows="true">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/prompt_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bgimg"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:viewBindingIgnore="true">
 
-    <View android:id="@+id/shim"
-          android:layout_width="match_parent"
-          android:layout_height="1dp"
-          android:layout_centerVertical="true"
-          android:visibility="invisible"/>
+    <View
+        android:id="@+id/shim"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_centerVertical="true"
+        android:visibility="invisible" />
 
     <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/login_top_background"
-            android:layout_above="@id/shim">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/shim"
+        android:background="@color/login_top_background">
 
     </FrameLayout>
 
     <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="wrap_content"
             android:layout_marginTop="20dp">
 
-        <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/ic_launcher_foreground"
-                android:layout_gravity="center"/>
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/icon_gredient"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+            <ImageView
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:src="@drawable/collage_icon_" />
+        </LinearLayout>
 
     </androidx.appcompat.widget.Toolbar>
 

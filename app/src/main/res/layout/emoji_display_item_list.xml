@@ -4,7 +4,7 @@
     tools:viewBindingIgnore="true"
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
-    android:background="?selectableItemBackgroundBorderless"
+    android:background="@color/white"
     tools:layout_height="60dp">
 
     <androidx.appcompat.widget.AppCompatImageView

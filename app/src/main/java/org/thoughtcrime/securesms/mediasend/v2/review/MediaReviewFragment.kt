@@ -498,9 +498,9 @@ class MediaReviewFragment : Fragment(R.layout.v2_media_review_fragment), Schedul
 
   private fun presentSendButton(sendType: MessageSendType, recipient: Recipient?) {
     val sendButtonBackgroundTint = when {
-      recipient != null -> recipient.chatColors.asSingleColor()
-      sendType.usesSignalTransport -> ContextCompat.getColor(requireContext(), R.color.signal_colorOnSecondaryContainer)
-      else -> ContextCompat.getColor(requireContext(), R.color.core_grey_50)
+//      recipient != null -> recipient.chatColors.asSingleColor()
+      sendType.usesSignalTransport -> ContextCompat.getColor(requireContext(), R.color.text1)
+      else -> ContextCompat.getColor(requireContext(), R.color.text1)
     }
 
     val sendButtonForegroundDrawable = when {
@@ -509,8 +509,8 @@ class MediaReviewFragment : Fragment(R.layout.v2_media_review_fragment), Schedul
     }
 
     val sendButtonForegroundTint = when {
-      recipient != null -> ContextCompat.getColor(requireContext(), R.color.signal_colorOnCustom)
-      else -> ContextCompat.getColor(requireContext(), R.color.signal_colorSecondaryContainer)
+      recipient != null -> ContextCompat.getColor(requireContext(), R.color.white)
+      else -> ContextCompat.getColor(requireContext(), R.color.white)
     }
 
     sendButton.setImageDrawable(sendButtonForegroundDrawable)

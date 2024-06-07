@@ -33,6 +33,7 @@
         android:layout_width="56dp"
         android:layout_height="56dp"
         android:layout_gravity="center"
+        android:background="@drawable/circle_tintable"
         android:padding="16dp"
         app:tint="@color/core_white"
         app:srcCompat="@drawable/ic_compose_24" />

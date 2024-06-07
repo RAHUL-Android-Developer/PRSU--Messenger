@@ -4,17 +4,21 @@
     tools:viewBindingIgnore="true"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/bgimg"
     android:layout_height="match_parent">
 
     <org.thoughtcrime.securesms.util.views.DarkOverflowToolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:theme="?attr/settingsToolbarStyle"
+        android:layout_height="?attr/actionBarSize"
+        app:titleTextColor="@color/white"
+        android:background="@drawable/rounded_dialog"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:title="@string/EditNotificationProfileFragment__name_your_profile"
         app:navigationContentDescription="@string/DSLSettingsToolbar__navigate_up"
+
         app:navigationIcon="@drawable/ic_arrow_left_24"
         app:titleTextAppearance="@style/Signal.Text.Title" />
 
@@ -26,6 +30,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="24dp"
         android:gravity="center"
+        android:visibility="gone"
         android:textAppearance="@style/TextAppearance.Signal.Title1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -65,6 +70,7 @@
             android:layout_height="wrap_content"
             android:inputType="textCapSentences"
             android:maxLines="1"
+            android:textColor="@color/text1"
             app:emoji_forceCustom="true" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -114,7 +120,7 @@
 
     <org.thoughtcrime.securesms.util.views.CircularProgressMaterialButton
         android:id="@+id/edit_notification_profile_save"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_marginEnd="16dp"

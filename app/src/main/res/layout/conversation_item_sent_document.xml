@@ -7,7 +7,7 @@
     android:layout_width="210dp"
     android:layout_height="wrap_content"
     android:visibility="gone"
-    app:doc_captionColor="@color/conversation_item_sent_text_secondary_color"
-    app:doc_downloadButtonTint="@color/signal_colorOnCustom"
-    app:doc_titleColor="@color/conversation_item_sent_text_primary_color"
+    app:doc_captionColor="@color/text1"
+    app:doc_downloadButtonTint="@color/text1"
+    app:doc_titleColor="@color/text1"
     tools:visibility="visible" />

@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:viewBindingIgnore="true"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/bgimg"
     tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
 
     <View
@@ -10,7 +11,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:alpha="0"
-        android:background="@color/signal_colorSurface2"
+        android:background="@color/text1"
         app:layout_constraintBottom_toBottomOf="@id/toolbar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,14 +20,19 @@
     <org.thoughtcrime.securesms.util.views.DarkOverflowToolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/signal_m3_toolbar_height"
-        android:minHeight="@dimen/signal_m3_toolbar_height"
-        android:theme="?attr/settingsToolbarStyle"
+        android:layout_height="70dp"
+        android:background="@drawable/rounded_dialog"
+        android:minHeight="85dp"
+        android:visibility="visible"
+        android:backgroundTint="@color/text1"
+        app:contentInsetStart="0dp"
         app:contentInsetStartWithNavigation="60dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:navigationIcon="@drawable/ic_arrow_left_24">
+        app:navigationIcon="@drawable/ic_arrow_left_24"
+        app:titleTextColor="@color/white">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -44,9 +50,21 @@
 
                 <org.thoughtcrime.securesms.components.AvatarImageView
                     android:id="@+id/toolbar_avatar"
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     app:fallbackImageSize="small" />
+
+                <!--                <com.google.android.material.imageview.ShapeableImageView-->
+                <!--                    android:id="@+id/toolbar_avatar"-->
+                <!--                    android:layout_width="36dp"-->
+                <!--                    android:layout_height="36dp"-->
+                <!--                    android:layout_marginTop="8dp"-->
+                <!--                    android:padding="5dp"-->
+                <!--                    app:layout_constraintEnd_toEndOf="parent"-->
+                <!--                    app:layout_constraintHorizontal_bias="0.5"-->
+                <!--                    app:shapeAppearanceOverlay="@style/RoundedSquare"-->
+                <!--                    app:strokeColor="#000"-->
+                <!--                    app:strokeWidth="5dp" />-->
 
                 <org.thoughtcrime.securesms.badges.BadgeImageView
                     android:id="@+id/toolbar_badge"
@@ -66,12 +84,14 @@
                 android:layout_marginStart="16dp"
                 android:alpha="0"
                 android:ellipsize="end"
+                android:textColor="@color/white"
                 android:maxLines="1"
                 android:textAppearance="@style/Signal.Text.TitleLarge"
                 android:translationY="56dp"
                 tools:alpha="1"
                 tools:text="Miles Morales"
                 tools:translationY="0dp" />
+
 
         </LinearLayout>
 

@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bgimg"
     android:orientation="vertical">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -17,10 +18,11 @@
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="?actionBarSize"
-            android:background="@android:color/transparent"
+            android:layout_height="@dimen/signal_m3_toolbar_height"
+            app:titleMarginBottom="55dp"
+            android:background="@drawable/rounded_dialog"
             app:title="@string/ChooseNewAdminActivity_choose_new_admin"
-            app:titleTextColor="@color/signal_text_primary" />
+            app:titleTextColor="@color/white" />
 
     </com.google.android.material.appbar.AppBarLayout>
 

@@ -6,6 +6,7 @@
     android:layout_height="wrap_content"
     android:minHeight="48dp"
     android:orientation="horizontal"
+    android:visibility="gone"
     tools:viewBindingIgnore="true">
 
     <TextView

@@ -4,6 +4,7 @@
     android:layout_height="wrap_content"
     android:gravity="center"
     android:minHeight="88dp"
+    android:background="@color/transparent"
     android:orientation="vertical">
 
     <com.google.android.material.button.MaterialButton
@@ -13,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="@string/ConversationListFragment__clear_filter"
-        android:textColor="@color/signal_colorOnSurfaceVariant" />
+        android:textColor="@color/text1" />
 
     <TextView
         android:id="@+id/clear_filter_tip"
@@ -24,7 +25,7 @@
         android:paddingEnd="@dimen/dsl_settings_gutter"
         android:text="@string/ChatFilter__tip_pull_down"
         android:textAppearance="@style/Signal.Text.BodySmall"
-        android:textColor="@color/signal_colorOnSurfaceVariant"
+        android:textColor="@color/text1"
         android:visibility="gone" />
 
 </LinearLayout>

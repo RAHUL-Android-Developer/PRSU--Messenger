@@ -5,9 +5,11 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewTreeObserver;
+import android.view.Window;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -145,6 +147,8 @@ public class MainActivity extends PassphraseRequiredActivity implements VoiceNot
   @Override
   protected void onResume() {
     super.onResume();
+  //  setStatusBarIconColor();
+
     dynamicTheme.onResume(this);
     if (SignalStore.misc().isOldDeviceTransferLocked()) {
       new MaterialAlertDialogBuilder(this)
@@ -191,7 +195,7 @@ public class MainActivity extends PassphraseRequiredActivity implements VoiceNot
   }
 
   private void updateTabVisibility() {
-    findViewById(R.id.conversation_list_tabs).setVisibility(View.VISIBLE);
+    findViewById(R.id.conversation_list_tabs).setVisibility(View. GONE);
     WindowUtil.setNavigationBarColor(this, ContextCompat.getColor(this, R.color.signal_colorSurface2));
   }
 
@@ -249,5 +253,16 @@ public class MainActivity extends PassphraseRequiredActivity implements VoiceNot
   @Override
   public @NonNull VoiceNoteMediaController getVoiceNoteMediaController() {
     return mediaController;
+  }
+
+
+  private void setStatusBarIconColor() {
+    Window window = getWindow();
+    // Set the status bar icon color to white
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+      window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+    } else {
+      window.setStatusBarColor(ContextCompat.getColor(this, R.color.text1));
+    }
   }
 }

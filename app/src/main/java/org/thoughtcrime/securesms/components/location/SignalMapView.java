@@ -25,7 +25,8 @@ import java.util.concurrent.ExecutionException;
 
 public class SignalMapView extends LinearLayout {
 
-  private MapView   mapView;
+  private
+  MapView   mapView;
   private ImageView imageView;
   private TextView  textView;
 

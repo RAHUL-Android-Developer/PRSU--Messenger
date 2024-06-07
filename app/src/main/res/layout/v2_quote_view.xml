@@ -7,6 +7,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:background="@color/text6"
     tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout"
     tools:viewBindingIgnore="true">
 

@@ -4,7 +4,9 @@ import android.os.Bundle
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
+import android.widget.Toolbar
 import androidx.annotation.IdRes
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import org.greenrobot.eventbus.EventBus
@@ -59,7 +61,9 @@ class AppSettingsFragment : DSLSettingsFragment(
     super.onViewCreated(view, savedInstanceState)
     reminderView = ViewUtil.findStubById(view, R.id.reminder_stub)
 
-    updateReminders()
+//    updateReminders()
+
+
   }
 
   override fun bindAdapter(adapter: MappingAdapter) {
@@ -74,7 +78,7 @@ class AppSettingsFragment : DSLSettingsFragment(
 
   @Subscribe(threadMode = ThreadMode.MAIN)
   fun onEvent(event: ReminderUpdateEvent?) {
-    updateReminders()
+//    updateReminders()
   }
 
   private fun updateReminders() {
@@ -147,71 +151,71 @@ class AppSettingsFragment : DSLSettingsFragment(
       )
 
       clickPref(
-        title = DSLSettingsText.from(R.string.AccountSettingsFragment__account),
-        icon = DSLSettingsIcon.from(R.drawable.symbol_person_circle_24),
+        title = DSLSettingsText.from(R.string.AccountSettingsFragment__account,ContextCompat.getColor(requireContext(),R.color.text1)),
+        icon = DSLSettingsIcon.from(R.drawable.symbol_person_circle_24,R.color.text1),
         onClick = {
           findNavController().safeNavigate(R.id.action_appSettingsFragment_to_accountSettingsFragment)
         }
       )
 
+//      clickPref(
+//        title = DSLSettingsText.from(R.string.preferences__linked_devices),
+//        icon = DSLSettingsIcon.from(R.drawable.symbol_devices_24),
+//        onClick = {
+//          findNavController().safeNavigate(R.id.action_appSettingsFragment_to_deviceActivity)
+//        },
+//        isEnabled = state.isDeprecatedOrUnregistered()
+//      )
+
+//      if (state.allowUserToGoToDonationManagementScreen) {
+//        clickPref(
+//          title = DSLSettingsText.from(R.string.preferences__donate_to_signal),
+//          icon = DSLSettingsIcon.from(R.drawable.symbol_heart_24),
+//          iconEnd = if (state.hasExpiredGiftBadge) DSLSettingsIcon.from(R.drawable.symbol_info_fill_24, R.color.signal_accent_primary) else null,
+//          onClick = {
+//            findNavController().safeNavigate(AppSettingsFragmentDirections.actionAppSettingsFragmentToManageDonationsFragment())
+//          },
+//          onLongClick = this@AppSettingsFragment::copySubscriberIdToClipboard
+//        )
+//      } else {
+//        externalLinkPref(
+//          title = DSLSettingsText.from(R.string.preferences__donate_to_signal),
+//          icon = DSLSettingsIcon.from(R.drawable.symbol_heart_24),
+//          linkId = R.string.donate_url
+//        )
+//      }
+//
+//      dividerPref()
+
       clickPref(
-        title = DSLSettingsText.from(R.string.preferences__linked_devices),
-        icon = DSLSettingsIcon.from(R.drawable.symbol_devices_24),
-        onClick = {
-          findNavController().safeNavigate(R.id.action_appSettingsFragment_to_deviceActivity)
-        },
-        isEnabled = state.isDeprecatedOrUnregistered()
-      )
-
-      if (state.allowUserToGoToDonationManagementScreen) {
-        clickPref(
-          title = DSLSettingsText.from(R.string.preferences__donate_to_signal),
-          icon = DSLSettingsIcon.from(R.drawable.symbol_heart_24),
-          iconEnd = if (state.hasExpiredGiftBadge) DSLSettingsIcon.from(R.drawable.symbol_info_fill_24, R.color.signal_accent_primary) else null,
-          onClick = {
-            findNavController().safeNavigate(AppSettingsFragmentDirections.actionAppSettingsFragmentToManageDonationsFragment())
-          },
-          onLongClick = this@AppSettingsFragment::copySubscriberIdToClipboard
-        )
-      } else {
-        externalLinkPref(
-          title = DSLSettingsText.from(R.string.preferences__donate_to_signal),
-          icon = DSLSettingsIcon.from(R.drawable.symbol_heart_24),
-          linkId = R.string.donate_url
-        )
-      }
-
-      dividerPref()
-
-      clickPref(
-        title = DSLSettingsText.from(R.string.preferences__appearance),
-        icon = DSLSettingsIcon.from(R.drawable.symbol_appearance_24),
+        title = DSLSettingsText.from(R.string.preferences__appearance,ContextCompat.getColor(requireContext(),R.color.text1)),
+        icon = DSLSettingsIcon.from(R.drawable.symbol_appearance_24,R.color.text1),
         onClick = {
           findNavController().safeNavigate(R.id.action_appSettingsFragment_to_appearanceSettingsFragment)
         }
       )
 
       clickPref(
-        title = DSLSettingsText.from(R.string.preferences_chats__chats),
-        icon = DSLSettingsIcon.from(R.drawable.symbol_chat_24),
+        title = DSLSettingsText.from(R.string.preferences_chats__chats,ContextCompat.getColor(requireContext(),R.color.text1)),
+        icon = DSLSettingsIcon.from(R.drawable.symbol_chat_24,R.color.text1),
         onClick = {
           findNavController().safeNavigate(R.id.action_appSettingsFragment_to_chatsSettingsFragment)
         },
         isEnabled = state.isDeprecatedOrUnregistered()
       )
 
-      clickPref(
-        title = DSLSettingsText.from(R.string.preferences__stories),
-        icon = DSLSettingsIcon.from(R.drawable.symbol_stories_24),
-        onClick = {
-          findNavController().safeNavigate(AppSettingsFragmentDirections.actionAppSettingsFragmentToStoryPrivacySettings(R.string.preferences__stories))
-        },
-        isEnabled = state.isDeprecatedOrUnregistered()
-      )
+//      clickPref(
+//        title = DSLSettingsText.from(R.string.preferences__stories),
+//        icon = DSLSettingsIcon.from(R.drawable.symbol_stories_24),
+//        onClick = {
+//          findNavController().safeNavigate(AppSettingsFragmentDirections.actionAppSettingsFragmentToStoryPrivacySettings(R.string.preferences__stories))
+//        },
+//        isEnabled = state.isDeprecatedOrUnregistered()
+//      )
 
       clickPref(
-        title = DSLSettingsText.from(R.string.preferences__notifications),
-        icon = DSLSettingsIcon.from(R.drawable.symbol_bell_24),
+        title = DSLSettingsText.from(R.string.preferences__notifications,ContextCompat.getColor(requireContext(),R.color.text1)),
+        icon = DSLSettingsIcon.from(R.drawable.symbol_bell_24,R.color.text1),
         onClick = {
           findNavController().safeNavigate(R.id.action_appSettingsFragment_to_notificationsSettingsFragment)
         },
@@ -219,8 +223,8 @@ class AppSettingsFragment : DSLSettingsFragment(
       )
 
       clickPref(
-        title = DSLSettingsText.from(R.string.preferences__privacy),
-        icon = DSLSettingsIcon.from(R.drawable.symbol_lock_white_48),
+        title = DSLSettingsText.from(R.string.preferences__privacy,ContextCompat.getColor(requireContext(),R.color.text1)),
+        icon = DSLSettingsIcon.from(R.drawable.symbol_lock_white_48,R.color.text1),
         onClick = {
           findNavController().safeNavigate(R.id.action_appSettingsFragment_to_privacySettingsFragment)
         },
@@ -228,48 +232,48 @@ class AppSettingsFragment : DSLSettingsFragment(
       )
 
       clickPref(
-        title = DSLSettingsText.from(R.string.preferences__data_and_storage),
-        icon = DSLSettingsIcon.from(R.drawable.symbol_data_24),
+        title = DSLSettingsText.from(R.string.preferences__data_and_storage,ContextCompat.getColor(requireContext(),R.color.text1)),
+        icon = DSLSettingsIcon.from(R.drawable.symbol_data_24,R.color.text1),
         onClick = {
           findNavController().safeNavigate(R.id.action_appSettingsFragment_to_dataAndStorageSettingsFragment)
         }
       )
 
-      if (Environment.IS_NIGHTLY) {
-        clickPref(
-          title = DSLSettingsText.from("App updates"),
-          icon = DSLSettingsIcon.from(R.drawable.symbol_calendar_24),
-          onClick = {
-            findNavController().safeNavigate(R.id.action_appSettingsFragment_to_appUpdatesSettingsFragment)
-          }
-        )
-      }
+//      if (Environment.IS_NIGHTLY) {
+//        clickPref(
+//          title = DSLSettingsText.from("App updates"),
+//          icon = DSLSettingsIcon.from(R.drawable.symbol_calendar_24),
+//          onClick = {
+//            findNavController().safeNavigate(R.id.action_appSettingsFragment_to_appUpdatesSettingsFragment)
+//          }
+//        )
+//      }
+//
+//      dividerPref()
 
-      dividerPref()
+//      if (SignalStore.paymentsValues().paymentsAvailability.showPaymentsMenu()) {
+//        customPref(
+//          PaymentsPreference(
+//            unreadCount = state.unreadPaymentsCount
+//          ) {
+//            findNavController().safeNavigate(R.id.action_appSettingsFragment_to_paymentsActivity)
+//          }
+//        )
+//
+//        dividerPref()
+//      }
 
-      if (SignalStore.paymentsValues().paymentsAvailability.showPaymentsMenu()) {
-        customPref(
-          PaymentsPreference(
-            unreadCount = state.unreadPaymentsCount
-          ) {
-            findNavController().safeNavigate(R.id.action_appSettingsFragment_to_paymentsActivity)
-          }
-        )
-
-        dividerPref()
-      }
+//      clickPref(
+//        title = DSLSettingsText.from(R.string.preferences__help),
+//        icon = DSLSettingsIcon.from(R.drawable.symbol_help_24),
+//        onClick = {
+//          findNavController().safeNavigate(R.id.action_appSettingsFragment_to_helpSettingsFragment)
+//        }
+//      )
 
       clickPref(
-        title = DSLSettingsText.from(R.string.preferences__help),
-        icon = DSLSettingsIcon.from(R.drawable.symbol_help_24),
-        onClick = {
-          findNavController().safeNavigate(R.id.action_appSettingsFragment_to_helpSettingsFragment)
-        }
-      )
-
-      clickPref(
-        title = DSLSettingsText.from(R.string.AppSettingsFragment__invite_your_friends),
-        icon = DSLSettingsIcon.from(R.drawable.symbol_invite_24),
+        title = DSLSettingsText.from(R.string.AppSettingsFragment__invite_your_friends,ContextCompat.getColor(requireContext(),R.color.text1)),
+        icon = DSLSettingsIcon.from(R.drawable.symbol_invite_24,R.color.text1),
         onClick = {
           findNavController().safeNavigate(R.id.action_appSettingsFragment_to_inviteActivity)
         }

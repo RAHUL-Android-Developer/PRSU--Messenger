@@ -3,14 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:viewBindingIgnore="true"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/attachment_keyboard_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/signal_background_primary"
+        android:background="@drawable/bgimg"
         tools:layout_height="200dp">
 
         <androidx.recyclerview.widget.RecyclerView
@@ -34,6 +34,7 @@
             android:layout_marginBottom="8dp"
             android:clipChildren="false"
             android:clipToPadding="false"
+            app:fastScrollEnabled="false"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -46,8 +47,9 @@
             android:layout_marginStart="12dp"
             android:layout_marginEnd="12dp"
             android:gravity="center"
+            android:fontFamily="@font/opensans_semibold"
             android:text="@string/AttachmentKeyboard_Signal_needs_permission_to_show_your_photos_and_videos"
-            android:textColor="@color/attachment_keyboard_button_foreground"
+            android:textColor="@color/text1"
             android:visibility="gone"
             app:layout_constraintBottom_toTopOf="@id/attachment_keyboard_permission_button"
             app:layout_constraintEnd_toEndOf="parent"
@@ -61,6 +63,9 @@
             android:layout_height="wrap_content"
             android:text="@string/AttachmentKeyboard_give_access"
             android:visibility="gone"
+            android:backgroundTint="@color/text1"
+            android:textColor="@color/white"
+            android:fontFamily="@font/opensansbold"
             app:layout_constraintBottom_toTopOf="@id/attachment_keyboard_button_list"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

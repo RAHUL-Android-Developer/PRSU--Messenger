@@ -1,0 +1,41 @@
+<!--
+  ~ Copyright 2024 Signal Messenger, LLC
+  ~ SPDX-License-Identifier: AGPL-3.0-only
+  -->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="500"
+    android:viewportHeight="500">
+    <path
+        android:fillColor="#F1EA23"
+        android:pathData="M250,250m-250,0a250,250 0,1 1,500 0a250,250 0,1 1,-500 0"
+        android:strokeWidth="1"
+        android:strokeColor="#E7E515" />
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="M126.2,175.7a39.8,50 0,1 0,79.6 0a39.8,50 0,1 0,-79.6 0z"
+        android:strokeWidth="1"
+        android:strokeColor="#E7E515" />
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="M273.7,175.7a39.8,50 0,1 0,79.6 0a39.8,50 0,1 0,-79.6 0z"
+        android:strokeWidth="1"
+        android:strokeColor="#E7E515" />
+    <path
+        android:fillColor="#ED1C24"
+        android:pathData="m347.3,380.3c0,14.6 -59.4,47.9 -102.1,47.9 -35.3,0 -102.1,-33.3 -102.1,-52.3 0,-20.5 39.1,40.5 103.8,40.5 61.9,-0.1 100.4,-47.6 100.4,-36.1z"
+        android:strokeWidth="1"
+        android:strokeColor="#E7E515" />
+    <path
+        android:fillColor="#F2F2F2"
+        android:pathData="M160.5,199.4a14.1,15.8 0,1 0,28.2 0a14.1,15.8 0,1 0,-28.2 0z"
+        android:strokeWidth="1"
+        android:strokeColor="#E7E515" />
+    <path
+        android:fillColor="#F2F2F2"
+        android:pathData="M288.3,199.4a14.1,15.8 0,1 0,28.2 0a14.1,15.8 0,1 0,-28.2 0z"
+        android:strokeWidth="1"
+        android:strokeColor="#E7E515" />
+</vector>

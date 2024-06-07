@@ -17,6 +17,7 @@
     app:icon="@drawable/symbol_copy_android_24"
     app:iconGravity="end"
     app:iconSize="24dp"
+    android:background="@color/text6"
     app:iconTint="@color/signal_colorOnSurface"
     app:rippleColor="@color/signal_colorOutline"
     app:strokeColor="@color/signal_colorOutline_38"

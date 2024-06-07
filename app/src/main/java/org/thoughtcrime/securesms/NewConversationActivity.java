@@ -278,8 +278,8 @@ public class NewConversationActivity extends ContactSelectionActivity
 
     return Stream.of(
         createMessageActionItem(recipient),
-        createAudioCallActionItem(recipient),
-        createVideoCallActionItem(recipient),
+//        createAudioCallActionItem(recipient),
+//        createVideoCallActionItem(recipient),
         createRemoveActionItem(recipient),
         createBlockActionItem(recipient)
     ).filter(Objects::nonNull).collect(Collectors.toList());

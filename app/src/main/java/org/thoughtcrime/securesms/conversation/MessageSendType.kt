@@ -57,9 +57,9 @@ sealed class MessageSendType(
   data class SmsMessageSendType(override val simName: CharSequence? = null, override val simSubscriptionId: Int? = null) : MessageSendType(
     titleRes = R.string.ConversationActivity_transport_insecure_sms,
     composeHintRes = R.string.conversation_activity__type_message_sms_insecure,
-    buttonDrawableRes = R.drawable.ic_send_unlock_24,
+    buttonDrawableRes = R.drawable.send_chat_white,
     menuDrawableRes = R.drawable.ic_insecure_24,
-    backgroundColorRes = R.color.core_grey_50,
+    backgroundColorRes = R.color.sendermesger,
     transportType = TransportType.SMS,
     characterCalculator = SmsCharacterCalculator(),
     simName = simName,
@@ -81,9 +81,9 @@ sealed class MessageSendType(
   data class MmsMessageSendType(override val simName: CharSequence? = null, override val simSubscriptionId: Int? = null) : MessageSendType(
     titleRes = R.string.ConversationActivity_transport_insecure_mms,
     composeHintRes = R.string.conversation_activity__type_message_mms_insecure,
-    buttonDrawableRes = R.drawable.ic_send_unlock_24,
+    buttonDrawableRes = R.drawable.send_chat_white,
     menuDrawableRes = R.drawable.ic_insecure_24,
-    backgroundColorRes = R.color.core_grey_50,
+    backgroundColorRes = R.color.sendermesger,
     transportType = TransportType.SMS,
     characterCalculator = MmsCharacterCalculator(),
     simName = simName,
@@ -103,11 +103,11 @@ sealed class MessageSendType(
    */
   @Parcelize
   object SignalMessageSendType : MessageSendType(
-    titleRes = R.string.ConversationActivity_send_message_content_description,
+    titleRes = R.string.ConversationActivity_transport_signal,
     composeHintRes = R.string.conversation_activity__type_message_push,
-    buttonDrawableRes = R.drawable.ic_send_lock_24,
+    buttonDrawableRes = R.drawable.send_chat_white,
     menuDrawableRes = R.drawable.ic_secure_24,
-    backgroundColorRes = R.color.core_ultramarine,
+    backgroundColorRes = R.color.sendermesger,
     transportType = TransportType.SIGNAL,
     characterCalculator = PushCharacterCalculator()
   )

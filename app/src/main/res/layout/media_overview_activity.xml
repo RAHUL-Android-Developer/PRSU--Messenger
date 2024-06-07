@@ -4,6 +4,7 @@
     tools:viewBindingIgnore="true"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/bgimg"
     android:layout_height="match_parent">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -17,20 +18,21 @@
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"
-            android:background="@color/signal_colorBackground"
+            android:background="@drawable/rounded_dialog"
             android:layout_width="match_parent"
             android:layout_height="@dimen/signal_m3_toolbar_height"
-            android:minHeight="@dimen/signal_m3_toolbar_height"
+            android:minHeight="85dp"
+            app:titleMarginBottom="55dp"
             app:layout_scrollFlags="scroll|enterAlways"
             app:titleTextAppearance="@style/Signal.Text.TitleLarge"
-            app:titleTextColor="@color/media_overview_toolbar_foreground"
+            app:titleTextColor="@color/white"
             tools:title="Media Overview" />
 
         <org.thoughtcrime.securesms.components.ControllableTabLayout
             android:id="@+id/tab_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/signal_colorBackground"
+            android:background="@color/white"
             app:tabIndicatorColor="@color/signal_inverse_primary"
             app:tabIndicatorFullWidth="false"
             app:tabMode="scrollable"

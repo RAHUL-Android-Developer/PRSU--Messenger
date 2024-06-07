@@ -28,10 +28,11 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/signal_background_primary"
+        android:background="@drawable/rounded_dialog"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/status_bar_guideline"
         app:navigationIcon="@drawable/ic_arrow_left_24"
+        app:titleTextColor="@color/white"
         app:title="@string/ChatWallpaperPreviewActivity__preview" />
 
     <TextView
@@ -75,7 +76,7 @@
             android:layout_height="wrap_content"
             android:text="@string/ChatWallpaperPreviewActivity__swipe_to_preview_more_wallpapers"
             android:textAppearance="@style/Signal.Text.Body"
-            android:textColor="@color/signal_text_primary" />
+            android:textColor="@color/text1" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -111,7 +112,7 @@
             android:layout_height="wrap_content"
             android:text="@string/ChatWallpaperPreviewActivity__set_wallpaper_for_all_chats"
             android:textAppearance="@style/Signal.Text.Body"
-            android:textColor="@color/core_white" />
+            android:textColor="@color/text1" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="wrap_content"
@@ -121,14 +122,14 @@
             android:text="@string/DateUtils_just_now"
             android:textAppearance="@style/Signal.Text.Caption"
             android:textColor="@color/transparent_white_80"
-            app:drawableEndCompat="@drawable/symbol_messagestatus_read_24"
+            app:drawableEndCompat="@drawable/ic_delivery_status_read"
             app:drawableTint="@color/core_white" />
     </LinearLayout>
 
     <View
         android:id="@+id/preview_guideline"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="80dp"
         android:background="@color/signal_background_primary"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="@id/navigation_bar_guideline" />
@@ -136,9 +137,14 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/preview_set_wallpaper"
         style="@style/Signal.Widget.Button.Small.Primary"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:backgroundTint="@color/text1"
+        android:textSize="16dp"
+        android:fontFamily="@font/opensans_semibold"
+        android:textColor="@color/white"
         android:text="@string/ChatWallpaperPreviewActivity__set_wallpaper"
+
         app:layout_constraintBottom_toBottomOf="@id/navigation_bar_guideline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

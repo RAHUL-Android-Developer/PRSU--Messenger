@@ -5,7 +5,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@color/signal_background_primary"
+
+    android:background="@drawable/bgimg"
     android:orientation="vertical">
 
     <EditText
@@ -14,7 +15,9 @@
         android:layout_height="wrap_content"
         android:drawableStart="@drawable/symbol_search_24"
         android:hint="@string/country_selection_fragment__search"
-        app:drawableTint="@color/signal_icon_tint_primary" />
+        android:textColor="@color/text1"
+        android:textColorHint="@color/text1"
+        app:drawableTint="@color/text1" />
 
     <ListView
         android:id="@android:id/list"

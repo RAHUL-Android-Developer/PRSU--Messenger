@@ -12,6 +12,7 @@
     android:ellipsize="end"
     android:gravity="center_vertical"
     android:maxLines="1"
+    android:background="@color/text6"
     android:textAppearance="@style/Signal.Text.BodyMedium"
     android:textColor="@color/core_grey_90"
     app:drawableStartCompat="@drawable/ic_document_small"

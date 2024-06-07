@@ -7,6 +7,7 @@
     android:layout_width="@dimen/media_rail_item_size"
     android:layout_height="@dimen/media_rail_item_size"
     android:layout_margin="4dp"
+    android:background="@color/text6"
     android:animateLayoutChanges="true">
 
     <org.thoughtcrime.securesms.components.ThumbnailView

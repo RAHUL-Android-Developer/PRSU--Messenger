@@ -6,7 +6,7 @@
     <color name="signal_light_colorSecondaryContainer">#DCE5F9</color>
     <color name="signal_light_colorSurface">#FBFCFF</color>
     <color name="signal_light_colorSurfaceVariant">#E7EBF3</color>
-    <color name="signal_light_colorBackground">#FBFCFF</color>
+    <color name="signal_light_colorBackground">#0b245b</color>
     <color name="signal_light_colorError">#BA1B1B</color>
     <color name="signal_light_colorErrorContainer">#FFDAD4</color>
     <color name="signal_light_colorOnPrimary">#FFFFFF</color>

@@ -1,41 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#062463"
+    android:fillViewport="true"
     android:orientation="vertical"
-    tools:context=".registration.fragments.EnterSmsCodeFragment"
+    android:id="@+id/scroll_view"
     tools:viewBindingIgnore="true">
 
-    <ScrollView
-        android:id="@+id/scroll_view"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:fillViewport="true">
+        android:layout_height="match_parent"
+        android:background="#062463"
+        android:orientation="vertical"
+        tools:context=".registration.fragments.EnterSmsCodeFragment"
+        tools:viewBindingIgnore="true">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="#062463"
+            android:visibility="gone"
+
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="25dp"
+                android:fontFamily="@font/opensans_extrabold"
+                android:text="@string/ToolbarName"
+
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="25dp"
+                android:fontFamily="@font/opensans_extrabold"
+                android:text="@string/ToolbarName"
+                android:textColor="@color/white"
+
+                android:textSize="24sp" />
+
+        </LinearLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:context=".registration.fragments.EnterSmsCodeFragment">
+            android:layout_height="0dp"
+            android:background="@drawable/cardview_design"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+            app:layout_constraintVertical_bias="0.0">
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:src="@drawable/bgimg"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/wrong_number"
                 style="@style/Signal.Widget.Button.Large.Secondary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="22dp"
                 android:layout_marginTop="8dp"
-                android:layout_marginEnd="@dimen/registrationactivity_text_view_padding"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/opensansbold"
                 android:hyphenationFrequency="normal"
                 android:maxWidth="150dp"
                 android:text="@string/RegistrationActivity_wrong_number"
-                android:textColor="@color/signal_colorPrimary"
+                android:textColor="@color/text1"
+                app:layout_constraintBottom_toTopOf="@+id/call_me_count_down"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/verification_subheader" />
+                app:layout_constraintTop_toBottomOf="@+id/code"
+                app:layout_constraintVertical_bias="0.066" />
 
             <TextView
                 android:id="@+id/verify_header"
@@ -44,20 +107,26 @@
                 android:layout_gravity="center"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="40dp"
+                android:fontFamily="@font/opensansbold"
                 android:gravity="start"
                 android:text="@string/RegistrationActivity_verification_code"
-                android:textAppearance="@style/Signal.Text.HeadlineMedium"
+                android:textColor="@color/text1"
+                android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+
             <TextView
                 android:id="@+id/verification_subheader"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="2dp"
                 android:layout_marginEnd="16dp"
+                android:fontFamily="@font/opensans_semibold"
+                android:textColor="@color/text3"
+                android:textSize="14dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/verify_header"
@@ -70,16 +139,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/code"
-                android:layout_marginEnd="22dp"
+                android:layout_marginEnd="20dp"
                 android:layout_marginBottom="8dp"
+                android:fontFamily="@font/opensansbold"
                 android:hyphenationFrequency="normal"
                 android:maxWidth="150dp"
                 android:maxLines="2"
-                android:textColor="@color/signal_text_secondary"
+                android:textColor="@color/text1"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/code"
-                app:layout_constraintVertical_bias="1.0"
+                app:layout_constraintVertical_bias="0.144"
                 tools:text="@string/RegistrationActivity_call" />
 
             <org.thoughtcrime.securesms.components.registration.ActionCountDownButton
@@ -90,18 +160,18 @@
                 android:layout_below="@id/code"
                 android:layout_marginStart="22dp"
                 android:layout_marginBottom="8dp"
+                android:fontFamily="@font/opensansbold"
                 android:hyphenationFrequency="normal"
                 android:maxWidth="150dp"
                 android:maxLines="2"
-                android:textColor="@color/signal_text_secondary"
+                android:textColor="@color/text1"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/call_me_count_down"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/code"
-                app:layout_constraintVertical_bias="1.0"
+                app:layout_constraintVertical_bias="0.144"
                 tools:text="@string/RegistrationActivity_resend_code" />
-
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/having_trouble_button"
@@ -123,20 +193,29 @@
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
                 android:layout_marginStart="32dp"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="48dp"
                 android:layout_marginEnd="32dp"
+                android:layout_marginBottom="152dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/wrong_number" />
+                app:layout_constraintTop_toBottomOf="@+id/verification_subheader"
+                app:layout_constraintVertical_bias="0.058" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </ScrollView>
+        <org.thoughtcrime.securesms.components.registration.VerificationPinKeyboard
+            android:id="@+id/keyboard"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            tools:visibility="visible" />
 
-    <org.thoughtcrime.securesms.components.registration.VerificationPinKeyboard
-        android:id="@+id/keyboard"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:visibility="visible" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
 
-</LinearLayout>

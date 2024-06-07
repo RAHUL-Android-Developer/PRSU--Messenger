@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/white"
     android:layout_height="match_parent">
 
     <View
@@ -36,13 +37,13 @@
         android:layout_gravity="bottom"
         android:layout_marginStart="16dp"
         android:layout_marginBottom="8dp"
-        android:background="?selectableItemBackgroundBorderless"
         android:contentDescription="@string/conversation_activity__emoji_toggle_description"
         android:paddingStart="8dp"
         android:paddingEnd="6dp"
+        android:background="@color/transparent"
         app:layout_constraintBottom_toTopOf="@id/emoji_drawer_stub"
         app:layout_constraintStart_toStartOf="parent"
-        app:tint="@color/signal_colorOnSurface" />
+        />
 
     <org.thoughtcrime.securesms.components.ComposeText
         android:id="@+id/add_a_message_input"
@@ -52,6 +53,7 @@
         android:layout_marginBottom="8dp"
         android:background="@null"
         android:hint="@string/MediaReviewFragment__add_a_message"
+        android:textColorHint="@color/black"
         android:imeOptions="flagNoEnterAction"
         android:inputType="textAutoCorrect|textCapSentences|textMultiLine"
         android:maxLength="65536"

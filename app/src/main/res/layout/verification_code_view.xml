@@ -13,13 +13,21 @@
         style="@style/Widget.Signal.TextInputLayout"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="@drawable/edittext_border"
         app:errorEnabled="false"
         app:hintEnabled="false"
+        app:boxCornerRadiusBottomEnd="5dp"
+        app:boxCornerRadiusBottomStart="5dp"
+        app:boxCornerRadiusTopEnd="5dp"
+        app:boxCornerRadiusTopStart="5dp"
         app:layout_constraintDimensionRatio="6:7"
         app:layout_constraintEnd_toStartOf="@+id/container_one"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp"
+        android:defaultFocusHighlightEnabled="false"
         app:materialThemeOverlay="@style/Signal.ThemeOverlay.TextInputLayout">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -29,12 +37,12 @@
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:gravity="center"
+            android:textColor="@color/text1"
             android:importantForAccessibility="yes"
             android:inputType="none"
             android:padding="0dp"
             android:textAppearance="@style/Signal.Text.BodyLarge"
             tools:text="0" />
-
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -50,6 +58,9 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/container_zero"
         app:layout_constraintTop_toTopOf="parent"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp"
+        android:defaultFocusHighlightEnabled="false"
         app:materialThemeOverlay="@style/Signal.ThemeOverlay.TextInputLayout">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -58,9 +69,12 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
+            android:background="@drawable/edittext_border"
             android:gravity="center"
             android:importantForAccessibility="yes"
             android:inputType="none"
+            android:textColor="@color/text1"
+
             android:padding="0dp"
             android:textAppearance="@style/Signal.Text.BodyLarge"
             tools:text="1" />
@@ -80,6 +94,9 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/container_one"
         app:layout_constraintTop_toTopOf="parent"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp"
+        android:defaultFocusHighlightEnabled="false"
         app:materialThemeOverlay="@style/Signal.ThemeOverlay.TextInputLayout">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -88,9 +105,16 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
+            android:background="@drawable/edittext_border"
             android:gravity="center"
+            android:textColor="@color/text1"
+
             android:importantForAccessibility="yes"
             android:inputType="none"
+            app:boxCornerRadiusBottomEnd="5dp"
+            app:boxCornerRadiusBottomStart="5dp"
+            app:boxCornerRadiusTopEnd="5dp"
+            app:boxCornerRadiusTopStart="5dp"
             android:padding="0dp"
             android:textAppearance="@style/Signal.Text.BodyLarge"
             tools:text="2" />
@@ -104,8 +128,8 @@
         android:layout_marginStart="4dp"
         android:gravity="center"
         android:importantForAccessibility="no"
-        android:text="-"
         android:textSize="28sp"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/container_three"
         app:layout_constraintHorizontal_bias="0.5"
@@ -127,6 +151,9 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/separator"
         app:layout_constraintTop_toTopOf="parent"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp"
+        android:defaultFocusHighlightEnabled="false"
         app:materialThemeOverlay="@style/Signal.ThemeOverlay.TextInputLayout">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -135,10 +162,17 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
+            android:background="@drawable/edittext_border"
             android:gravity="center"
             android:importantForAccessibility="yes"
+            android:textColor="@color/text1"
+
             android:inputType="none"
             android:padding="0dp"
+            app:boxCornerRadiusBottomEnd="5dp"
+            app:boxCornerRadiusBottomStart="5dp"
+            app:boxCornerRadiusTopEnd="5dp"
+            app:boxCornerRadiusTopStart="5dp"
             android:textAppearance="@style/Signal.Text.BodyLarge"
             tools:text="3" />
 
@@ -157,6 +191,9 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/container_three"
         app:layout_constraintTop_toTopOf="parent"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp"
+        android:defaultFocusHighlightEnabled="false"
         app:materialThemeOverlay="@style/Signal.ThemeOverlay.TextInputLayout">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -165,10 +202,17 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
+            android:background="@drawable/edittext_border"
             android:gravity="center"
             android:importantForAccessibility="yes"
             android:inputType="none"
             android:padding="0dp"
+            android:textColor="@color/text1"
+
+            app:boxCornerRadiusBottomEnd="5dp"
+            app:boxCornerRadiusBottomStart="5dp"
+            app:boxCornerRadiusTopEnd="5dp"
+            app:boxCornerRadiusTopStart="5dp"
             android:textAppearance="@style/Signal.Text.BodyLarge"
             tools:text="4" />
 
@@ -182,6 +226,9 @@
         android:layout_marginStart="4dp"
         app:errorEnabled="false"
         app:hintEnabled="false"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp"
+        android:defaultFocusHighlightEnabled="false"
         app:layout_constraintDimensionRatio="6:7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -195,10 +242,17 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
+            android:background="@drawable/edittext_border"
             android:gravity="center"
             android:importantForAccessibility="yes"
             android:inputType="none"
             android:padding="0dp"
+            android:textColor="@color/text1"
+
+            app:boxCornerRadiusBottomEnd="5dp"
+            app:boxCornerRadiusBottomStart="5dp"
+            app:boxCornerRadiusTopEnd="5dp"
+            app:boxCornerRadiusTopStart="5dp"
             android:textAppearance="@style/Signal.Text.BodyLarge"
             tools:text="5" />
 

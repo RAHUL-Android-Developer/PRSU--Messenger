@@ -3,6 +3,7 @@ package org.thoughtcrime.securesms.profiles.edit;
 import android.animation.Animator;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.text.InputType;
@@ -21,7 +22,11 @@ import androidx.navigation.Navigation;
 
 import com.airbnb.lottie.SimpleColorFilter;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.MultiTransformation;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.load.resource.bitmap.CenterCrop;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+import com.bumptech.glide.request.RequestOptions;
 
 import org.signal.core.util.EditTextUtil;
 import org.signal.core.util.StreamUtil;
@@ -117,30 +122,41 @@ public class CreateProfileFragment extends LoggingFragment {
 
   private void handleMediaFromResult(@NonNull Media media) {
     SimpleTask.run(() -> {
-      try {
-        InputStream stream = BlobProvider.getInstance().getStream(requireContext(), media.getUri());
+                     try {
+                       InputStream stream = BlobProvider.getInstance().getStream(requireContext(), media.getUri());
 
-        return StreamUtil.readFully(stream);
-      } catch (IOException ioException) {
-        Log.w(TAG, ioException);
-        return null;
-      }
-    },
-    (avatarBytes) -> {
-      if (avatarBytes != null) {
-        viewModel.setAvatarMedia(media);
-        viewModel.setAvatar(avatarBytes);
-        Glide.with(CreateProfileFragment.this)
-                .load(avatarBytes)
-                .skipMemoryCache(true)
-                .diskCacheStrategy(DiskCacheStrategy.NONE)
-                .circleCrop()
-                .into(binding.avatar);
-      } else {
-        Toast.makeText(requireActivity(), R.string.CreateProfileActivity_error_setting_profile_photo, Toast.LENGTH_LONG).show();
-      }
-    });
+                       return StreamUtil.readFully(stream);
+                     } catch (IOException ioException) {
+                       Log.w(TAG, ioException);
+                       return null;
+                     }
+                   },
+                   (avatarBytes) -> {
+                     if (avatarBytes != null) {
+                       viewModel.setAvatarMedia(media);
+                       viewModel.setAvatar(avatarBytes);
+
+//        GlideApp.with(CreateProfileFragment.this)
+//                .load(avatarBytes)
+//
+//                .circleCrop()
+//                .into(binding.avatar);
+//
+
+                       MultiTransformation<Bitmap> transformation = new MultiTransformation<>(new CenterCrop(), new RoundedCorners(10));
+
+                       Glide.with(CreateProfileFragment.this)
+                               .load(avatarBytes)
+                               .skipMemoryCache(true)
+                               .diskCacheStrategy(DiskCacheStrategy.NONE)
+                               .apply(RequestOptions.bitmapTransform(transformation))
+                               .into(binding.avatar);
+                     } else {
+                       Toast.makeText(requireActivity(), R.string.CreateProfileActivity_error_setting_profile_photo, Toast.LENGTH_LONG).show();
+                     }
+                   });
   }
+
 
   private void initializeViewModel(boolean excludeSystem, @Nullable GroupId groupId, boolean hasSavedInstanceState) {
     EditProfileRepository repository;
@@ -206,7 +222,7 @@ public class CreateProfileFragment extends LoggingFragment {
                                                                        }));
       binding.groupDescriptionText.setVisibility(View.GONE);
       binding.profileDescriptionText.setLearnMoreVisible(true);
-      binding.profileDescriptionText.setLinkColor(ContextCompat.getColor(requireContext(), R.color.signal_colorPrimary));
+      binding.profileDescriptionText.setLinkColor(ContextCompat.getColor(requireContext(), R.color.text1));
       binding.profileDescriptionText.setOnLinkClickListener(v -> CommunicationActions.openBrowserLink(requireContext(), getString(R.string.EditProfileFragment__support_link)));
 
       getParentFragmentManager().setFragmentResultListener(WhoCanFindMeByPhoneNumberFragment.REQUEST_KEY, getViewLifecycleOwner(), (requestKey, result) -> {
@@ -263,8 +279,8 @@ public class CreateProfileFragment extends LoggingFragment {
     viewModel.avatarColor().observe(getViewLifecycleOwner(), avatarColor -> {
       Avatars.ForegroundColor foregroundColor = Avatars.getForegroundColor(avatarColor);
 
-      binding.avatarPlaceholder.getDrawable().setColorFilter(new SimpleColorFilter(foregroundColor.getColorInt()));
-      binding.avatarBackground.getDrawable().setColorFilter(new SimpleColorFilter(avatarColor.colorInt()));
+    //  binding.avatarPlaceholder.getDrawable().setColorFilter(new SimpleColorFilter(foregroundColor.getColorInt()));
+      //binding.avatarBackground.getDrawable().setColorFilter(new SimpleColorFilter(avatarColor.colorInt()));
     });
   }
 

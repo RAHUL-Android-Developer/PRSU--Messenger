@@ -5,7 +5,7 @@
   -->
 
 <resources>
-    <dimen name="signal_m3_toolbar_height">64dp</dimen>
+    <dimen name="signal_m3_toolbar_height">110dp</dimen>
 
     <dimen name="min_keyboard_size">60dp</dimen>
     <dimen name="default_custom_keyboard_size">220dp</dimen>
@@ -68,7 +68,7 @@
     <dimen name="thumbnail_default_radius">4dp</dimen>
 
     <dimen name="conversation_bottom_padding">2dp</dimen>
-    <dimen name="conversation_compose_height">44dp</dimen>
+    <dimen name="conversation_compose_height">48dp</dimen>
     <dimen name="conversation_individual_right_gutter">16dp</dimen>
     <dimen name="conversation_individual_left_gutter">16dp</dimen>
     <dimen name="conversation_individual_received_left_gutter">8dp</dimen>
@@ -194,9 +194,9 @@
 
     <dimen name="avatar_picker_image_width">100dp</dimen>
 
-    <dimen name="toolbar_avatar_size">28dp</dimen>
+    <dimen name="toolbar_avatar_size">58dp</dimen>
     <dimen name="toolbar_avatar_margin">26dp</dimen>
-    <dimen name="conversation_list_avatar_size">48dp</dimen>
+    <dimen name="conversation_list_avatar_size">65</dimen>
 
     <dimen name="verify_identity_vertical_margin">26dp</dimen>
 

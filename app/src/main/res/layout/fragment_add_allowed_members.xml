@@ -4,13 +4,15 @@
     tools:viewBindingIgnore="true"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+    android:background="@drawable/bgimg"
     android:layout_height="match_parent">
 
     <org.thoughtcrime.securesms.util.views.DarkOverflowToolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:theme="?attr/settingsToolbarStyle"
+        android:layout_height="110dp"
+        android:background="@drawable/rounded_dialog"
+        android:minHeight="85dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -40,6 +42,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
         android:gravity="center"
+        android:fontFamily="@font/opensans_semibold"
         android:text="@string/AddAllowedMembers__add_people_and_groups_you_want_notifications_and_calls_from_when_this_profile_is_on"
         android:textAppearance="@style/TextAppearance.Signal.Body1"
         app:layout_constraintEnd_toEndOf="parent"

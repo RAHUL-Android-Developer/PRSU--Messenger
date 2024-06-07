@@ -5,6 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    app:layout_gravity="center"
     android:layout_gravity="center_horizontal">
 
     <LinearLayout
@@ -15,6 +16,7 @@
         android:baselineAligned="false"
         android:orientation="horizontal"
         android:paddingTop="24dp"
+        android:gravity="center"
         android:paddingBottom="16dp">
 
         <LinearLayout
@@ -24,6 +26,7 @@
             android:layout_marginStart="2dp"
             android:layout_marginEnd="2dp"
             android:layout_weight="1"
+            android:visibility="gone"
             android:gravity="center_horizontal"
             android:orientation="vertical">
 
@@ -31,12 +34,14 @@
                 android:id="@+id/add_to_story"
                 style="@style/Signal.Widget.ImageView.ActionButton"
                 android:contentDescription="@string/ConversationSettingsFragment__story"
+                android:visibility="gone"
                 app:srcCompat="@drawable/add_to_story_24" />
 
             <TextView
                 android:id="@+id/add_to_story_label"
                 style="@style/Signal.Widget.TextView.ActionButton"
                 android:hyphenationFrequency="normal"
+                android:visibility="gone"
                 android:text="@string/ConversationSettingsFragment__story" />
 
         </LinearLayout>
@@ -59,6 +64,7 @@
 
             <TextView
                 android:id="@+id/message_label"
+                android:textColor="@color/text1"
                 style="@style/Signal.Widget.TextView.ActionButton"
                 android:hyphenationFrequency="normal"
                 android:text="@string/ConversationSettingsFragment__message" />
@@ -72,16 +78,21 @@
             android:layout_marginStart="2dp"
             android:layout_marginEnd="2dp"
             android:layout_weight="1"
+            android:visibility="gone"
             android:gravity="center_horizontal"
             android:orientation="vertical">
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/start_video"
+                android:visibility="gone"
+
                 style="@style/Signal.Widget.ImageView.ActionButton"
                 android:contentDescription="@string/ConversationSettingsFragment__start_video_call"
                 app:srcCompat="@drawable/ic_video_call_24" />
 
             <TextView
+                android:visibility="gone"
+
                 android:id="@+id/start_video_label"
                 style="@style/Signal.Widget.TextView.ActionButton"
                 android:hyphenationFrequency="normal"
@@ -96,17 +107,20 @@
             android:layout_marginStart="2dp"
             android:layout_marginEnd="2dp"
             android:layout_weight="1"
+            android:visibility="gone"
             android:gravity="center_horizontal"
             android:orientation="vertical">
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/start_audio"
+                android:visibility="gone"
                 style="@style/Signal.Widget.ImageView.ActionButton"
                 android:contentDescription="@string/ConversationSettingsFragment__start_audio_call"
                 app:srcCompat="@drawable/ic_phone_right_24" />
 
             <TextView
                 android:id="@+id/start_audio_label"
+                android:visibility="gone"
                 style="@style/Signal.Widget.TextView.ActionButton"
                 android:hyphenationFrequency="normal"
                 android:text="@string/ConversationSettingsFragment__audio" />
@@ -132,6 +146,7 @@
             <TextView
                 android:id="@+id/mute_label"
                 style="@style/Signal.Widget.TextView.ActionButton"
+                android:textColor="@color/text1"
                 android:hyphenationFrequency="normal"
                 android:text="@string/ConversationSettingsFragment__mute" />
 
@@ -154,8 +169,9 @@
                 app:srcCompat="@drawable/ic_search_24" />
 
             <TextView
-                android:id="@+id/search_label"
-                style="@style/Signal.Widget.TextView.ActionButton"
+                android:textColor="@color/text1"
+
+                android:id="@+id/search_label" style="@style/Signal.Widget.TextView.ActionButton"
                 android:hyphenationFrequency="normal"
                 android:text="@string/ConversationSettingsFragment__search" />
 

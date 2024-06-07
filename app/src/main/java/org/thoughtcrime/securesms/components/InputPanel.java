@@ -396,9 +396,9 @@ public class InputPanel extends ConstraintLayout
       composeContainer.setBackground(Objects.requireNonNull(ContextCompat.getDrawable(getContext(), R.drawable.compose_background)));
     }
 
-    mediaKeyboard.setColorFilter(iconTint);
-    quickAudioToggle.setColorFilter(iconTint);
-    quickCameraToggle.setColorFilter(iconTint);
+//    mediaKeyboard.setColorFilter(iconTint);
+//    quickAudioToggle.setColorFilter(iconTint);
+//    quickCameraToggle.setColorFilter(iconTint);
     composeText.setTextColor(textColor);
     composeText.setHintTextColor(textHintColor);
     quoteView.setWallpaperEnabled(enabled);

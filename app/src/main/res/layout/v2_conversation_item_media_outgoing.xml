@@ -9,6 +9,7 @@
     android:layout_height="wrap_content"
     android:clipChildren="false"
     android:clipToPadding="false"
+    android:background="@color/text6"
     android:focusable="true"
     android:nextFocusLeft="@+id/container"
     android:nextFocusRight="@+id/embedded_text_editor">
@@ -84,8 +85,8 @@
             android:layout_marginEnd="@dimen/message_bubble_horizontal_padding"
             android:layout_marginBottom="@dimen/message_bubble_collapsed_footer_padding"
             android:textAppearance="@style/Signal.Text.BodyLarge"
-            android:textColor="@color/conversation_item_sent_text_primary_color"
-            android:textColorLink="@color/conversation_item_sent_text_primary_color"
+            android:textColor="@color/text1"
+            android:textColorLink="@color/text1"
             android:textSize="16sp"
             app:emoji_maxLength="1000"
             app:emoji_renderMentions="true"

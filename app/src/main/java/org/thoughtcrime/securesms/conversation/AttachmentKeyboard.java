@@ -1,6 +1,7 @@
 package org.thoughtcrime.securesms.conversation;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,7 +31,7 @@ public class AttachmentKeyboard extends FrameLayout implements InputAwareLayout.
       AttachmentKeyboardButton.GALLERY,
       AttachmentKeyboardButton.FILE,
       AttachmentKeyboardButton.CONTACT,
-      AttachmentKeyboardButton.LOCATION,
+//      AttachmentKeyboardButton.LOCATION,
       AttachmentKeyboardButton.PAYMENT
   );
 
@@ -116,11 +117,13 @@ public class AttachmentKeyboard extends FrameLayout implements InputAwareLayout.
     }
   }
 
+  Drawable backgroundImage = getContext().getResources().getDrawable(R.drawable.bgimg);
+
   public void setWallpaperEnabled(boolean wallpaperEnabled) {
     if (wallpaperEnabled) {
-      container.setBackgroundColor(getContext().getResources().getColor(R.color.wallpaper_compose_background));
+      container.setBackground(backgroundImage);
     } else {
-      container.setBackgroundColor(getContext().getResources().getColor(R.color.signal_background_primary));
+      container.setBackground(backgroundImage);
     }
     buttonAdapter.setWallpaperEnabled(wallpaperEnabled);
   }

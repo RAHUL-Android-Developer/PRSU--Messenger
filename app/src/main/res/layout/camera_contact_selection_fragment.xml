@@ -11,9 +11,10 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/camera_contacts_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@null"
-        android:theme="?actionBarStyle"
+        android:layout_height="110dp"
+        android:background="@drawable/rounded_dialog"
+        app:titleTextColor="@color/white"
+        app:titleMarginBottom="55dp"
         app:title="@string/CameraContacts_select_signal_recipients"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -49,8 +50,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             style="@style/Signal.Text.Body"
+            android:textColor="@color/text1"
+
             android:text="@string/CameraContacts_no_signal_contacts"
-            android:fontFamily="sans-serif-medium"/>
+            android:fontFamily="@font/opensansbold"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -58,6 +61,8 @@
             android:layout_marginTop="8dp"
             android:gravity="center_horizontal"
             style="@style/Signal.Text.Body"
+            android:textColor="@color/text3"
+            android:fontFamily="@font/opensans_semibold"
             android:text="@string/CameraContacts_you_can_only_use_the_camera_button"/>
 
         <com.google.android.material.button.MaterialButton
@@ -66,6 +71,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_gravity="center"
+            android:fontFamily="@font/opensansbold"
+            android:textColor="@color/text1"
             style="@style/Signal.Widget.Button.Large.Secondary"
             android:text="@string/CameraContacts_invite_a_contact_to_join_signal" />
 

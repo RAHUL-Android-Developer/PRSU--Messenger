@@ -4,19 +4,23 @@
     tools:viewBindingIgnore="true"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+    android:background="@drawable/bgimg"
     android:layout_height="match_parent">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:minHeight="?attr/actionBarSize"
+        android:layout_height="110dp"
+        android:background="@drawable/rounded_dialog"
+        android:minHeight="85dp"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:navigationIcon="@drawable/ic_x_tinted"
         app:title="@string/EditProfileNameFragment_your_name"
+        app:titleMarginBottom="55dp"
+        app:titleTextColor="@color/white"
         app:titleTextAppearance="@style/Signal.Text.Title" />
 
     <com.google.android.material.textfield.TextInputLayout
@@ -26,7 +30,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:hint="@string/EditProfileNameFragment_first_name"
+        app:hintTextColor="@color/black"
         android:minHeight="56dp"
+        android:layout_marginTop="20dp"
         android:theme="@style/ThemeOverlay.Signal.EditProfileInput"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar">
@@ -35,6 +41,12 @@
             android:id="@+id/edit_profile_name_given_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/edittext_border"
+            android:defaultFocusHighlightEnabled="false"
+            android:textColor="@color/text1"
+            app:boxStrokeWidth="0dp"
+            android:textColorHint="@color/black"
+            app:boxStrokeWidthFocused="0dp"
             android:autofillHints="personGivenName"
             android:inputType="textPersonName"
             android:singleLine="true" />
@@ -50,6 +62,7 @@
         android:layout_marginTop="20dp"
         android:hint="@string/EditProfileNameFragment_last_name_optional"
         android:minHeight="56dp"
+        app:hintTextColor="@color/black"
         android:theme="@style/ThemeOverlay.Signal.EditProfileInput"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/edit_profile_given_name_wrapper">
@@ -59,6 +72,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:autofillHints="personFamilyName"
+            android:background="@drawable/edittext_border"
+            android:defaultFocusHighlightEnabled="false"
+            android:textColor="@color/text1"
+            app:boxStrokeWidth="0dp"
+
+            app:boxStrokeWidthFocused="0dp"
             android:inputType="textPersonName"
             android:singleLine="true" />
 

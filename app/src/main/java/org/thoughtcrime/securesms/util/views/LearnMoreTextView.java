@@ -89,7 +89,7 @@ public class LearnMoreTextView extends AppCompatTextView {
       @Override
       public void updateDrawState(@NonNull TextPaint ds) {
         super.updateDrawState(ds);
-        ds.setUnderlineText(false);
+        ds.setUnderlineText(true);
         ds.setColor(linkColor);
       }
 

@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bgimg"
     android:orientation="vertical">
 
     <androidx.appcompat.widget.Toolbar
@@ -12,6 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         app:contentInsetEnd="16dp"
+        android:background="@color/text1"
         app:contentInsetStartWithNavigation="0dp"
         app:navigationIcon="@drawable/ic_arrow_left_24">
 
@@ -19,6 +21,8 @@
             android:id="@+id/delete_account_country_picker_filter"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"
             android:hint="@string/DeleteAccountCountryPickerFragment__search_countries"
             android:inputType="textCapWords" />
 
